@@ -3,7 +3,19 @@
 @import url(./reset.css);
 
 #wrap {
-    p {
-        color:palevioletred;
+    #header {
+        p {
+            color:firebrick;
+        }
+    }
+    #main {
+        p {
+            color:cornflowerblue;
+        }
+    }
+    #footer {
+        p {
+            color:darkorange;
+        }
     }
 }

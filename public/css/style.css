@@ -1,5 +1,11 @@
 @import url(./fonts.css);
 @import url(./reset.css);
-#wrap p {
-  color: palevioletred;
+#wrap #header p {
+  color: firebrick;
+}
+#wrap #main p {
+  color: cornflowerblue;
+}
+#wrap #footer p {
+  color: darkorange;
 }

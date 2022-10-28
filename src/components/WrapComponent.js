@@ -1,9 +1,14 @@
 import React from 'react';
+import FooterComponent from './FooterComponent';
+import HeaderComponent from './HeaderComponent';
+import MainComponent from './MainComponent';
 
 const WrapComponent = () => {
     return (
         <div id="wrap">
-            <p>Test WrapComponent 영역</p>
+            <HeaderComponent />
+            <MainComponent />
+            <FooterComponent />
         </div>
     );
 };
