@@ -2,8 +2,8 @@ import React from 'react';
 
 const WrapComponent = () => {
     return (
-        <div>
-            <p>WrapComponent입니다</p>
+        <div id="wrap">
+            <p>Test WrapComponent 영역</p>
         </div>
     );
 };
