@@ -3,8 +3,38 @@
 #wrap #header p {
   color: firebrick;
 }
-#wrap #main p {
-  color: cornflowerblue;
+#wrap #main .wrap {
+  width: 100vw;
+  height: 100vh;
+  background: #ffd0d0;
+  position: relative;
+}
+#wrap #main .wrap a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -60px;
+  margin-left: -125px;
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 120px;
+  line-height: 114px;
+  background: #ec6757;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 3px solid #ec6757;
+  transition: all 0.3s;
+}
+#wrap #main .wrap a:hover {
+  border: 3px solid #fff;
+}
+#wrap #selectTheme {
+  background: #ffd0d0;
+  width: 100vw;
+  height: 100vh;
 }
 #wrap #footer p {
   color: darkorange;
