@@ -1,0 +1,11 @@
+@import url(./fonts.css);
+@import url(./reset.css);
+#wrap #header p {
+  color: firebrick;
+}
+#wrap #main p {
+  color: cornflowerblue;
+}
+#wrap #footer p {
+  color: darkorange;
+}
