@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Routes, BrowerRouter, Link } from 'react-router-dom';
-import SelectThemeComponent from './SelectThemeComponent';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+
 
 const MainComponent = () => {
-    return (
+    return (       
         <div id="main">
             <div className="wrap">
                 <ul>
