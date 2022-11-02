@@ -8,29 +8,6 @@ import SelectKidsComponent from './SelectKidsComponent';
 import SelectThemeComponent from './SelectThemeComponent';
 
 const WrapComponent = () => {
-    // const [field, setField] = useState(
-    //     {
-    //         themeList:[]
-    //     }
-    // )
-    // const axiosGet=()=>{
-    //     axios({
-    //         url:'/getThemeAll',
-    //         method:'GET'
-    //     })
-    //     .then((res)=>{
-    //         console.log(res.data);
-    //         setField({themeList:res.data})
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err);
-    //     });
-    // }
-
-    // useEffect(()=>{
-    //     axiosGet();
-    // }, []);
-    
     return (
         <div id="wrap">
             <HeaderComponent />
@@ -40,7 +17,7 @@ const WrapComponent = () => {
                 <Route path='/MainComponent' element={<MainComponent/>} />
                 <Route path='/FooterComponent' element={<FooterComponent/>} />
                 <Route path='/SelectThemeComponent' element={<SelectThemeComponent/>}  />
-                {/* <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} /> */}
+                <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
             </Routes>
             <FooterComponent />
         </div>
