@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import theme01 from '../images/hard (2).jpg'
-import theme011 from '../images/hard (3).png'
-import theme02 from '../images/hard (4).jpg'
-import theme021 from '../images/hard (5).png'
-import theme03 from '../images/hard (6).jpg'
-import theme04 from '../images/hard (8).jpg'
-import theme05 from '../images/hard (10).jpg'
 import axios from 'axios';
 
 const SelectThemeComponent = () => {
@@ -44,37 +37,38 @@ const SelectThemeComponent = () => {
         e.target.src = "/getThemeImg/" + e.target.id;
     }
 
-        // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
-        const changePrice = (num) =>{
-            console.log(num);
-            const priceText = document.getElementsByClassName('price-text');
-            for(var i = 0; i<field.themeList.length; i++){
-                priceText[i].innerText = makeComma(field.themeList[i].theme_price * num) + "원";
-                
-            }
+    // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
+    const changePrice = (num) =>{
+        console.log(num);
+        const priceText = document.getElementsByClassName('price-text');
+        for(var i = 0; i<field.themeList.length; i++){
+            priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
+            
         }
-    
-        // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
-        const makeComma = (price) =>{
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
+    }
+
+    // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
+    const makeComma = (price) =>{
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
     const list = field.themeList.map(list=>{
         return (
-            <li key = {list.theme_num}>
+            <li key = {list.themeNum}>
                 <div className="in-theme-gap">
                     <div className="in-theme-wrap">
                         <div className="img-wrap">
                             <img
-                            src={"/getThemeImg/"+list.theme_num} 
-                            alt={'Theme'+list.theme_num}
-                            id={list.theme_num}
+                            src={"/getThemeImg/"+list.themeNum} 
+                            alt={'Theme'+list.themeNum}
+                            id={list.themeNum}
                             onMouseOver={onMouseOver}
                             onMouseOut={onMouseOut}
                             />
                         </div>
                         <div className="text-wrap">
-                        <p>{list.theme_name}</p>
-                        <p className='price-text'>{makeComma(list.theme_price)}원</p>
+                        <p>{list.themeName}</p>
+                        <p className='price-text'>{makeComma(list.themePrice)}원</p>
                         </div>
                     </div>
                 </div>

@@ -18,10 +18,9 @@ const FooterComponent = () => {
         
         <><div id="footer">
             
-            <p>
                 <img className="logo" name="logoimage" alt="logo" src="img/logosample.PNG" />
                 <div className="footer1">
-                    <strong class="name">㈜한그루</strong> &nbsp;대표자 및 정보보호 담당자 : 박우종<br />
+                    <strong className="name">㈜한그루</strong> &nbsp;대표자 및 정보보호 담당자 : 박우종<br />
                     주소: 경기도 파주시 탄현면 헤이리마을길 93-75<br />
                     사업자등록번호 : 648-81-01362　|　통신판매업신고번호 : 2019-경기파주-1502<br />
                     Copyright © https://www.hangloo.co.kr All rights reserved<br />
@@ -34,7 +33,7 @@ const FooterComponent = () => {
                     - 고객센터로 연락주시면 언제든지 친절히 안내해드리겠습니다.<br />
                     - 세부적인 문의는 관련 사진을 첨부하여 한그루 카톡채널로 연락 주시면 좀 더 빠르게 확인이 가능합니다.<br />
                 </div>
-            </p>
+
 
         </div><div>
 
