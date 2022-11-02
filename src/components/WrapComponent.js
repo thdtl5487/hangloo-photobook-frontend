@@ -40,7 +40,7 @@ const WrapComponent = () => {
                 <Route path='/MainComponent' element={<MainComponent/>} />
                 <Route path='/FooterComponent' element={<FooterComponent/>} />
                 <Route path='/SelectThemeComponent' element={<SelectThemeComponent/>}  />
-                <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
+                {/* <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} /> */}
             </Routes>
             <FooterComponent />
         </div>

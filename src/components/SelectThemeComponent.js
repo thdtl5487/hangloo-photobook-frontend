@@ -9,7 +9,7 @@ import theme04 from '../images/hard (8).jpg'
 import theme05 from '../images/hard (10).jpg'
 import axios from 'axios';
 
-const SelectThemeComponent = ({theme}) => {
+const SelectThemeComponent = () => {
 
 
     // <li>
@@ -31,7 +31,6 @@ const SelectThemeComponent = ({theme}) => {
         }
     )
     
-
     const axiosGet=()=>{
         axios({
             url:'/getThemeAll',
@@ -50,17 +49,17 @@ const SelectThemeComponent = ({theme}) => {
         axiosGet();
     }, []);
 
-    const list = theme.map((table)=>{
+    const list = field.themeList.map(list=>{
         return (
-            <li key = {table.num}>
+            <li key = {list.theme_num}>
                 <div className="in-theme-gap">
                     <div className="in-theme-wrap">
                     <div className="img-wrap">
-                        <img src={table.theme_main_image} alt="theme03" />
+                        <img src={"/getThemeImg/"+list.theme_num} alt={'theme'+list.theme_num} />
                         </div>
                         <div className="text-wrap">
-                        <p>{table.theme_name}</p>
-                        <p>{table.theme_price}</p>
+                        <p>{list.theme_name}</p>
+                        <p>{list.theme_price}</p>
                         </div>
                     </div>
                 </div>
@@ -232,13 +231,13 @@ const SelectThemeComponent = ({theme}) => {
         </div>
     );
 };
-SelectThemeComponent.defaultProps = {
-        theme: [
-            {num:1, image:theme01, theme:'느영나영제주', price:'20000'},
-            {num:2, image:theme02, theme:'my travel diary', price:'30000'},
-            {num:3, image:theme03, theme:'행복한 가족여행', price:'25000'},
-            {num:4, image:theme04, theme:'sweet my love', price:'35000'},
-            {num:5, image:theme05, theme:'여행을 떠나요', price:'30000'},
-        ]
-}
+// SelectThemeComponent.defaultProps = {
+//         theme: [
+//             {num:1, image:theme01, theme:'느영나영제주', price:'20000'},
+//             {num:2, image:theme02, theme:'my travel diary', price:'30000'},
+//             {num:3, image:theme03, theme:'행복한 가족여행', price:'25000'},
+//             {num:4, image:theme04, theme:'sweet my love', price:'35000'},
+//             {num:5, image:theme05, theme:'여행을 떠나요', price:'30000'},
+//         ]
+// }
 export default SelectThemeComponent;
