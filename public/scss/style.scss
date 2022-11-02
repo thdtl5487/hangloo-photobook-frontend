@@ -87,10 +87,44 @@
         
     }
     #main {
+
+        .wrap {
+            width:100vw;
+            height:100vh;
+            background:#ffd0d0;
+            
+            position:relative;
+            a {
+                position:absolute;
+                top:50%;
+                left:50%;
+                margin-top:-60px;
+                margin-left:-125px;
+
+                display:flex;
+                justify-content:center;
+                width:250px;
+                height:120px;
+                line-height:114px;
+                background:#ec6757;
+                color:#fff;
+                font-size:25px;
+                font-weight:600;
+                border-radius:10px;
+                border:3px solid #ec6757;
+                transition:all .3s;
+                &:hover {
+                    border:3px solid #fff;
+                }
+            }
+
+        }
+
         p {
             color:blue;
         }
         body{
+            
             background-image: url("../img/photosmainsample.jpg");
             background-repeat: no-repeat;
             background-position: top center;
@@ -217,5 +251,129 @@
             }
 
         }
+    }
+// start select Theme
+    #selectTheme {
+        background:#f9f4f4;
+        width:100vw;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            height:100%;
+            .price-btn {
+                width:100%;
+                .price-btn-gap {
+                    padding:70px 0 0 0;
+                    display:flex;
+                    .price-btn-wrap {
+                        margin:0 0 0 auto;
+                        ul {
+                            display:flex;
+                            li {
+                                padding:0 10px;
+                                button {
+                                    width:150px;
+                                    height:50px;
+                                    background:#ffd0d0;
+                                    border-radius:5px;
+                                    font-size:17px;
+                                    font-weight:600;
+                                    transition:all .2s;
+                                    &:hover {
+                                        background:#ec6757;
+                                        color:#fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // start theme
+            .theme {
+                width:100%;
+                .theme-gap {
+                    padding:0 0;
+                    .theme-wrap {
+                        width:100%;
+                        ul {
+                            width:100%;
+                            display:flex;
+                            flex-flow:wrap;
+                            li {
+                                width:33.333%;
+                                padding:20px;
+                                .in-theme-gap {
+                                    width:100%;
+                                    padding:50px;
+                                    .in-theme-wrap {
+                                        width:100%;
+                                        padding:30px;
+                                        border:2px solid #ffd0d0;
+                                        border-radius:5px;
+                                        cursor:pointer;
+                                        &:hover {
+                                            border:2px solid #ec6757;
+                                        }
+                                        &.on {
+                                            border:2px solid #ec6757;
+                                        }
+                                        .img-wrap {
+                                            padding:30px;
+                                            img {
+                                                width:100%;
+                                            }
+                                        }
+                                        .text-wrap {
+                                            padding:0 0 20px 0;
+                                            p {
+                                                padding:5px;
+                                                text-align:center;
+                                                font-size:16px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } // end theme
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#ffd0d0;
+                            color:#fff;
+                            border:3px solid #ffd0d0;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #ec6757;
+                            }
+                        }
+                    }
+                }
+            }    
+        }
+    }
+    // end select Theme
+
+    #selectKids {
+        width:100vw;
+        height:100vh;
+        background:lavenderblush;
     }
 }
