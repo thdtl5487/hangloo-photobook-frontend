@@ -4,11 +4,10 @@
 
 
 #wrap {
-    display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+    width:100vw;
 
     #header {
+        width:100vw;
             // position: fixed;
             // top: 0; left: 0;
             // height: 100px;
@@ -80,6 +79,7 @@
     }
 
     #footer {
+        width:100vw;
         padding:100px 0;
         p {
             color:black;
@@ -216,6 +216,8 @@
                     .next-btn-wrap {
                         width:100%;
                         a {
+                            text-decoration: none;
+                            
                             display:flex;
                             width:240px;
                             height:80px;
@@ -241,9 +243,109 @@
     }
     // end select Theme
 
-    #selectKids {
+    #selectkids {
+        background:#f9f4f4;
         width:100vw;
-        height:100vh;
-        background:lavenderblush;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .step1 {
+                width:100%;
+                .step1-gap {
+                    padding:50px 0;
+                    .step1-wrap {
+                        width:100%;
+                        p {
+                            text-align:center;
+                            font-size:25px;
+                            font-weight:600;
+                        }
+                    }
+                }
+            }
+
+            // start kidsinfo
+            .kids {
+                width:100%;
+                .kids-gap {
+                    padding:0 0;
+                    .kids-wrap {
+                        width:100%;
+                        ul {
+                            width:100%;
+                            display:flex;
+                            flex-flow:wrap;
+                            li {
+                                width:33.333%;
+                                padding:20px;
+                                .in-kids-gap {
+                                    width:100%;
+                                    padding:50px;
+                                    .in-kids-wrap {
+                                        width:100%;
+                                        padding:30px;
+                                        background:#ffd0d0;
+                                        border-radius:5px;
+                                        cursor:pointer;
+                                        &:hover {
+                                            background:#e3abab;
+                                        }
+                                        &.on {
+                                            background:#e3abab;
+                                        }
+                                        .img-wrap {
+                                            padding:30px;
+                                            img {
+                                                width:100%;
+                                            }
+                                        }
+                                        .text-wrap {
+                                            padding:0 0 20px 0;
+                                            p {
+                                                padding:5px;
+                                                text-align:center;
+                                                font-size:16px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } // end kidsinfo
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            text-decoration: none;
+
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#ffd0d0;
+                            color:#fff;
+                            border:3px solid #ffd0d0;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #ec6757;
+                            }
+                        }
+                    }
+                }
+            }    
+        }
     }
 }
