@@ -1,6 +1,8 @@
+
 import axios from 'axios';
 //import React, { Component, useState } from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -71,7 +73,7 @@ function MainComponent(){
             <body>
                 <div class="d-grid gap-2 col-6 mx-auto">
                 
-                <button class="btn btn-primary" type="button">포토북 만들기</button>
+                <button class="btn btn-primary" type="button"><Link to="/SelectThemeComponent">포토북 만들기</Link></button>
                 </div>
             </body>
         </div>
