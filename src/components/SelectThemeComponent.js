@@ -12,19 +12,6 @@ import axios from 'axios';
 const SelectThemeComponent = () => {
 
 
-    // <li>
-    //     <div className="in-theme-gap">
-    //         <div className="in-theme-wrap">
-    //         <div className="img-wrap">
-    //             <img src={theme.image} alt="theme03" />
-    //             </div>
-    //             <div className="text-wrap">
-    //             <p>{theme.theme}</p>
-    //             <p>{theme.price}</p>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </li>
     const [field, setField] = useState(
         {
             themeList:[]
@@ -59,7 +46,7 @@ const SelectThemeComponent = () => {
                         </div>
                         <div className="text-wrap">
                         <p>{list.theme_name}</p>
-                        <p>{list.theme_price}</p>
+                        <p className='price-text'>{list.theme_price}</p>
                         </div>
                     </div>
                 </div>
@@ -67,61 +54,20 @@ const SelectThemeComponent = () => {
         )
     })    
 
-    // const menu = theme.map((item)=>{
-    //     return (
-    //         <tr key = {item.번호}>
-    //             <td>
-    //                 <input 
-    //                 type="checkbox" 
-    //                 id={`chk${item.번호}`} 
-    //                 name={`chk${item.번호}`} 
-    //                 value={item.메뉴}
-    //                 checked={chkList.includes(`${item.메뉴}`)?true:false}
-    //                 onChange={onChangeCheck}
-    //                 />
-    //             </td>
-    //             <td>{item.번호}</td>
-    //             <td>{item.이름}</td>
-    //             <td>{item.메뉴}</td>
-    //         </tr>
-    //     )
-    // })    
+    // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
+    const changePrice = (num) =>{
+        console.log(num);
+        const priceText = document.getElementsByClassName('price-text');
+        for(var i = 0; i<field.themeList.length; i++){
+            priceText[i].innerText = makeComma(field.themeList[i].theme_price * num) + "원";
+            
+        }
+    }
 
-    // const [isOn, setIsOn] = useState(
-    //     {
-    //         테마:''
-    //     }
-    // );
-    // const onClickIsOn=(e)=>{
-    //     setIsOn({...isOn, 테마:e.target.alt})
-    //     console.log(e);
-    // }
-    // const [isHover1, setIsHover1] = useState(false);
-    // const [isHover2, setIsHover2] = useState(false);
-
-    // const [isHover, setIsHover] = useState(
-    //     {
-    //         hover:''
-    //     }
-    // );
-    // const onMouseOver=(e)=>{
-    //     console.log(e.target.alt);
-    //     setIsHover(e.target.alt);
-    // }
-    // const onMouseOut=(e)=>{
-    //     setIsHover('');
-    // }
-
-    // const axoisGet=()=>{
-    //     axios({
-
-    //     })
-    // }
-    // const getThemaImg=(e)=>{
-    //     axios.get("/getThemaImg/1").then((res)=>{
-    //         var data = res.data;
-    //     })
-    // }
+    // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
+    const makeComma = (price) =>{
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
 
     return (
         <div id="selectTheme">
@@ -130,9 +76,9 @@ const SelectThemeComponent = () => {
                     <div className="price-btn-gap">
                         <div className="price-btn-wrap">
                             <ul>
-                                <li><button>200장</button></li>
-                                <li><button>500장</button></li>
-                                <li><button>800장</button></li>
+                                <li><button className='page-btn-1' onClick={()=>changePrice(1)}>200장</button></li>
+                                <li><button className='page-btn-2' onClick={()=>changePrice(2)}>500장</button></li>
+                                <li><button className='page-btn-3' onClick={()=>changePrice(3)}>800장</button></li>
                             </ul>
                         </div>
                     </div>
@@ -143,79 +89,6 @@ const SelectThemeComponent = () => {
                         <div className="theme-wrap">
                             <ul>
                                 {list}
-                                {/* <li className="theme1">
-                                    <div className="in-theme-gap">
-                                        <div onClick={onClickIsOn} className={isOn.테마 === "theme01" ? "in-theme-wrap on" : "in-theme-wrap"}>
-                                        <div className="img-wrap">
-                                            <img src={isHover.hover==="theme01" ? theme011 : theme01} alt="theme01" value="theme01"
-                                                onMouseOver={onMouseOver}
-                                                onMouseOut={onMouseOut}
-                                            />
-                                        <img src={"/getThemaImg/1"} alt="" />                                            
-                                        </div>
-                                        <div className="text-wrap">
-                                            <p>테마 이름</p>
-                                            <p>예상 가격</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="theme2">
-                                    <div className="in-theme-gap">
-                                        <div className="in-theme-wrap">
-                                        <div className="img-wrap">
-                                            <img src={isHover2 ? theme02 : theme021} alt="theme01"
-                                                onMouseOver={() =>{ setIsHover2(true);}}
-                                                onMouseOut={() => { setIsHover2(false); }}
-                                            />
-                                        </div>
-                                        <div className="text-wrap">
-                                            <p>테마 이름</p>
-                                            <p>예상 가격</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="theme3">
-                                    <div className="in-theme-gap">
-                                        <div className="in-theme-wrap">
-                                        <div className="img-wrap">
-                                            <img src={theme03} alt="theme03" />
-                                            </div>
-                                            <div className="text-wrap">
-                                            <p>테마 이름</p>
-                                            <p>예상 가격</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="theme4">
-                                    <div className="in-theme-gap">
-                                        <div className="in-theme-wrap">
-                                        <div className="img-wrap">
-                                            <img src={theme04} alt="theme04" />
-                                            </div>
-                                            <div className="text-wrap">
-                                            <p>테마 이름</p>
-                                            <p>예상 가격</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="theme5">
-                                    <div className="in-theme-gap">
-                                        <div className="in-theme-wrap">
-                                            <div className="img-wrap">
-                                            <img src={theme05} alt="theme05" />
-                                            </div>
-                                            <div className="text-wrap">
-                                            <p>테마 이름</p>
-                                            <p>예상 가격</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                */}
                             </ul>
                         </div>
                     </div>
@@ -231,13 +104,5 @@ const SelectThemeComponent = () => {
         </div>
     );
 };
-// SelectThemeComponent.defaultProps = {
-//         theme: [
-//             {num:1, image:theme01, theme:'느영나영제주', price:'20000'},
-//             {num:2, image:theme02, theme:'my travel diary', price:'30000'},
-//             {num:3, image:theme03, theme:'행복한 가족여행', price:'25000'},
-//             {num:4, image:theme04, theme:'sweet my love', price:'35000'},
-//             {num:5, image:theme05, theme:'여행을 떠나요', price:'30000'},
-//         ]
-// }
+
 export default SelectThemeComponent;
