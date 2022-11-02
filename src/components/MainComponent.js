@@ -1,7 +1,7 @@
 import axios from 'axios';
 //import React, { Component, useState } from 'react';
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 // class MainComponent extends Component{
@@ -71,7 +71,7 @@ function MainComponent(){
             <body>
                 <div class="d-grid gap-2 col-6 mx-auto">
                 
-                <button class="btn btn-primary" type="button">포토북 만들기</button>
+                    <Link to="/SelectThemeComponent" class="btn btn-primary">포토북 만들기</Link>
                 </div>
             </body>
         </div>
