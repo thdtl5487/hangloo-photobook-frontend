@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+
 
 const MainComponent = () => {
-    return (
+    return (       
         <div id="main">
-            <p>Main 영역</p>
+            <div className="wrap">
+                <ul>
+                    <li>
+                        <Link to="/SelectThemeComponent">포토북 만들기</Link>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 };
