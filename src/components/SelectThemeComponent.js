@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const SelectThemeComponent = () => {
 
-
+    //테마 데이터로 리스트 작성
     const [field, setField] = useState(
         {
             themeList:[]
@@ -36,6 +36,14 @@ const SelectThemeComponent = () => {
         axiosGet();
     }, []);
 
+    //hover 이미지 변경
+    const onMouseOver = (e) => {
+        e.target.src = "/getThemeSubImg/" + e.target.id;
+    }
+    const onMouseOut = (e) => {
+        e.target.src = "/getThemeImg/" + e.target.id;
+    }
+
         // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
         const changePrice = (num) =>{
             console.log(num);
@@ -55,8 +63,14 @@ const SelectThemeComponent = () => {
             <li key = {list.theme_num}>
                 <div className="in-theme-gap">
                     <div className="in-theme-wrap">
-                    <div className="img-wrap">
-                        <img src={"/getThemeImg/"+list.theme_num} alt={'theme'+list.theme_num} />
+                        <div className="img-wrap">
+                            <img
+                            src={"/getThemeImg/"+list.theme_num} 
+                            alt={'Theme'+list.theme_num}
+                            id={list.theme_num}
+                            onMouseOver={onMouseOver}
+                            onMouseOut={onMouseOut}
+                            />
                         </div>
                         <div className="text-wrap">
                         <p>{list.theme_name}</p>
@@ -67,8 +81,6 @@ const SelectThemeComponent = () => {
             </li>
         )
     })    
-
-
 
     return (
         <div id="selectTheme">
