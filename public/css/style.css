@@ -36,40 +36,6 @@
   vertical-align: middle;
   display: flex;
 }
-@media only screen and (max-width: 768px) {
-  #wrap #header {
-    width: 100%;
-    background-color: pink;
-  }
-  #wrap #header .nav {
-    font-size: 100px;
-    margin: auto 0;
-    margin: 0 auto;
-    display: block;
-  }
-  #wrap #header .nav_brand {
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  #wrap #header .logo {
-    width: 40px;
-    display: flex;
-    align-items: center;
-  }
-  #wrap #header .shopping {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-  }
-  #wrap #header img, #wrap #header svg {
-    vertical-align: middle;
-    display: flex;
-  }
-}
 #wrap #main .wrap {
   width: 100vw;
   height: 100vh;
@@ -171,44 +137,6 @@
 }
 #wrap #footer .phone {
   font-size: 20px;
-}
-@media only screen and (max-width: 1600px) {
-  #wrap #footer p {
-    color: black;
-    font-size: 10px;
-    font-family: "Noto Sans";
-    vertical-align: center;
-    position: relative;
-  }
-  #wrap #footer .logo {
-    width: 0px;
-    margin-left: 5%;
-  }
-  #wrap #footer .footer1 {
-    width: 360px;
-    white-space: nowrap;
-    float: left;
-    margin-left: 50%;
-    margin-right: 10%;
-    transform: translate(-50%, -50%);
-    flex: 1;
-    margin-bottom: 7%;
-  }
-  #wrap #footer .footer2 {
-    width: 360px;
-    white-space: pre-wrap;
-    float: left;
-    margin-left: 50%;
-    margin-right: 10%;
-    transform: translate(-50%, -50%);
-    flex: 1;
-  }
-  #wrap #footer .name {
-    font-size: 13px;
-  }
-  #wrap #footer .phone {
-    font-size: 17px;
-  }
 }
 #wrap #selectTheme {
   background: #f9f4f4;
