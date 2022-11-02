@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
 import FooterComponent from './FooterComponent';
 import HeaderComponent from './HeaderComponent';
 import MainComponent from './MainComponent';
+import { useMediaQuery } from 'react-responsive';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
 import SelectKidsComponent from './SelectKidsComponent';
 import SelectThemeComponent from './SelectThemeComponent';
 

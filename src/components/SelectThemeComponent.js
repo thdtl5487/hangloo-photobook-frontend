@@ -44,6 +44,20 @@ const SelectThemeComponent = () => {
         e.target.src = "/getThemeImg/" + e.target.id;
     }
 
+        // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
+        const changePrice = (num) =>{
+            console.log(num);
+            const priceText = document.getElementsByClassName('price-text');
+            for(var i = 0; i<field.themeList.length; i++){
+                priceText[i].innerText = makeComma(field.themeList[i].theme_price * num) + "원";
+                
+            }
+        }
+    
+        // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
+        const makeComma = (price) =>{
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
     const list = field.themeList.map(list=>{
         return (
             <li key = {list.theme_num}>
@@ -59,8 +73,8 @@ const SelectThemeComponent = () => {
                             />
                         </div>
                         <div className="text-wrap">
-                            <p>{list.theme_name}</p>
-                            <p>{list.theme_price}</p>
+                        <p>{list.theme_name}</p>
+                        <p className='price-text'>{makeComma(list.theme_price)}원</p>
                         </div>
                     </div>
                 </div>
@@ -75,9 +89,9 @@ const SelectThemeComponent = () => {
                     <div className="price-btn-gap">
                         <div className="price-btn-wrap">
                             <ul>
-                                <li><button>200장</button></li>
-                                <li><button>500장</button></li>
-                                <li><button>800장</button></li>
+                                <li><button className='page-btn-1' onClick={()=>changePrice(1)}>200장</button></li>
+                                <li><button className='page-btn-2' onClick={()=>changePrice(2)}>500장</button></li>
+                                <li><button className='page-btn-3' onClick={()=>changePrice(3)}>800장</button></li>
                             </ul>
                         </div>
                     </div>
