@@ -8,6 +8,7 @@ import theme03 from '../images/hard (6).jpg'
 import theme04 from '../images/hard (8).jpg'
 import theme05 from '../images/hard (10).jpg'
 import axios from 'axios';
+import { click } from '@testing-library/user-event/dist/click';
 
 const SelectThemeComponent = () => {
 
@@ -15,6 +16,12 @@ const SelectThemeComponent = () => {
     const [field, setField] = useState(
         {
             themeList:[]
+        }
+    )
+
+    const [selected, setSelected] = useState(
+        {
+            selectThemeNum: ""
         }
     )
     
@@ -44,37 +51,65 @@ const SelectThemeComponent = () => {
         e.target.src = "/getThemeImg/" + e.target.id;
     }
 
-        // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
-        const changePrice = (num) =>{
-            console.log(num);
-            const priceText = document.getElementsByClassName('price-text');
-            for(var i = 0; i<field.themeList.length; i++){
-                priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
-                
+    // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
+    const changePrice = (num) =>{
+        console.log(num);
+        const priceText = document.getElementsByClassName('price-text');
+        for(var i = 0; i<field.themeList.length; i++){
+            priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
+            
+        }
+    }
+    
+    // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
+    const makeComma = (price) =>{
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    // 클릭한 테마를 저장하고 표시하는 기능 (css적용은 .in-theme-gap이 하게끔 되어있음)
+    const clickElement = (e) =>{
+        if(e.target.id != ""){ // 클릭 가능한 구역 제한
+            selectedOff();
+            e.target.classList.add("selectedTheme"); // 클릭한 테마 표시를 위한 class 추가
+            setSelected({selectThemeNum:e.target.id});
+        }
+        if(e.target.alt != null){ // 이미지인지 체크
+            e.target.parentNode.parentNode.classList.add("selectedTheme")
+            const imgEle = document.querySelectorAll("img");
+            for(var i = 0; i<imgEle.length; i++){
+                imgEle[i].classList.remove("selectedTheme");
             }
         }
-    
-        // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
-        const makeComma = (price) =>{
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
+    }
+
+    // 다른 테마를 선택했을 경우, 다른 테마의 선택표시를 제거하는 기능
+    const selectedOff = (e) =>{
+        const removeClassEle = document.querySelectorAll(".selectedTheme");
+            for(var i = 0; i<removeClassEle.length; i++){
+                removeClassEle[i].classList.remove("selectedTheme");
+            }
+    }
+
     const list = field.themeList.map(list=>{
         return (
             <li key = {list.theme_num}>
-                <div className="in-theme-gap">
-                    <div className="in-theme-wrap">
+                <div className="in-theme-gap" 
+                            onMouseOver={onMouseOver}
+                            onMouseOut={onMouseOut}
+                            >
+                    <div className="in-theme-wrap" id={list.themeNum}
+                        onClick={clickElement}
+                    >
                         <div className="img-wrap">
                             <img
                             src={"/getThemeImg/"+list.themeNum} 
                             alt={'Theme'+list.themeNum}
                             id={list.themeNum}
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
                             />
                         </div>
                         <div className="text-wrap">
-                        <p>{list.themeName}</p>
-                        <p className='price-text'>{makeComma(list.themePrice)}원</p>
+                            <p>{list.themeName}</p>
+                            <p className='price-text'>{makeComma(list.themePrice)}원</p>
                         </div>
                     </div>
                 </div>
