@@ -176,6 +176,9 @@
                                 .in-theme-gap {
                                     width:100%;
                                     padding:50px;
+                                    .selectedTheme{
+                                        border:4px solid #ef4c39 !important;
+                                    }
                                     .in-theme-wrap {
                                         width:100%;
                                         padding:30px;
@@ -197,6 +200,7 @@
                                         .text-wrap {
                                             padding:0 0 20px 0;
                                             p {
+                                                width: auto;
                                                 padding:5px;
                                                 text-align:center;
                                                 font-size:16px;
@@ -286,14 +290,17 @@
                                     .in-kids-wrap {
                                         width:100%;
                                         padding:30px;
-                                        background:#ffd0d0;
+                                        background:#e3abab;
+                                        border:3px solid #e3abab;
                                         border-radius:5px;
                                         cursor:pointer;
                                         &:hover {
-                                            background:#e3abab;
+                                            background:#ffd0d0;
+                                            border:3px solid #e3abab;
                                         }
                                         &.on {
-                                            background:#e3abab;
+                                            background:#ffd0d0;
+                                            border:3px solid #e3abab;
                                         }
                                         .img-wrap {
                                             padding:30px;
@@ -329,9 +336,9 @@
                             width:240px;
                             height:80px;
                             margin:0 auto;
-                            background:#ffd0d0;
+                            background:#e3abab;
                             color:#fff;
-                            border:3px solid #ffd0d0;
+                            border:3px solid #e3abab;
                             border-radius:5px;
 
                             font-size:30px;
@@ -340,7 +347,8 @@
                             justify-content:center;
 
                             &:hover {
-                                border:3px solid #ec6757;
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
                             }
                         }
                     }
