@@ -22,10 +22,10 @@ export const HeaderComponent = () => {
 
             <Navbar bg="light" >
             <div className="nav">
-            <div className="toggle"><Navbar.Toggle aria-control="basic-navbar-nav" /></div>
+            <div className="toggle"><Navbar.Toggle /></div>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#home"> <img class ="logo" name="logoimage" alt="logo" src="img/logosample.PNG" /></Nav.Link>
+                <Nav.Link href="#home"> <img className="logo" name="logoimage" alt="logo" src="img/logosample.PNG" /></Nav.Link>
                 <div className="nav_brand" > <Navbar.Brand href="#home">한그루 포토북</Navbar.Brand> </div>
                 <div className="shopping"><Nav.Link href="#link"><CartFill/></Nav.Link></div>
             

@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import theme01 from '../images/hard (2).jpg'
-import theme011 from '../images/hard (3).png'
-import theme02 from '../images/hard (4).jpg'
-import theme021 from '../images/hard (5).png'
-import theme03 from '../images/hard (6).jpg'
-import theme04 from '../images/hard (8).jpg'
-import theme05 from '../images/hard (10).jpg'
 import axios from 'axios';
 import { click } from '@testing-library/user-event/dist/click';
 
@@ -19,7 +12,7 @@ const SelectThemeComponent = () => {
         }
     )
 
-    const [selected, setSelected] = useState(
+    const [selectedTheme, setSelectedTheme] = useState(
         {
             selectThemeNum: ""
         }
@@ -68,43 +61,38 @@ const SelectThemeComponent = () => {
 
     // 클릭한 테마를 저장하고 표시하는 기능 (css적용은 .in-theme-gap이 하게끔 되어있음)
     const clickElement = (e) =>{
-        if(e.target.id != ""){ // 클릭 가능한 구역 제한
+        if(e.target.id !== ""){ // 클릭 가능한 구역 제한
             selectedOff();
-            e.target.classList.add("selectedTheme"); // 클릭한 테마 표시를 위한 class 추가
-            setSelected({selectThemeNum:e.target.id});
+            e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
+            setSelectedTheme({selectThemeNum:e.target.id});
         }
-        if(e.target.alt != null){ // 이미지인지 체크
-            e.target.parentNode.parentNode.classList.add("selectedTheme")
+        if(e.target.alt !== null){ // 이미지인지 체크
+            e.target.parentNode.parentNode.classList.add("on")
             const imgEle = document.querySelectorAll("img");
             for(var i = 0; i<imgEle.length; i++){
-                imgEle[i].classList.remove("selectedTheme");
+                imgEle[i].classList.remove("on");
             }
         }
     }
 
     // 다른 테마를 선택했을 경우, 다른 테마의 선택표시를 제거하는 기능
     const selectedOff = (e) =>{
-        const removeClassEle = document.querySelectorAll(".selectedTheme");
+        const removeClassEle = document.querySelectorAll(".on");
             for(var i = 0; i<removeClassEle.length; i++){
-                removeClassEle[i].classList.remove("selectedTheme");
+                removeClassEle[i].classList.remove("on");
             }
     }
 
     const list = field.themeList.map(list=>{
         return (
-            <li key = {list.theme_num}>
-                <div className="in-theme-gap" 
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
-                            >
-                    <div className="in-theme-wrap" id={list.themeNum}
-                        onClick={clickElement}
-                    >
+            <li key = {list.themeNum}>
+                <div className="in-theme-gap" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+                    <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
                         <div className="img-wrap">
                             <img
-                            src={"/getThemeImg/"+list.themeNum} 
-                            alt={'Theme'+list.themeNum}
-                            id={list.themeNum}
+                                src={"/getThemeImg/"+list.themeNum} 
+                                alt={'Theme'+list.themeNum}
+                                id={list.themeNum}
                             />
                         </div>
                         <div className="text-wrap">

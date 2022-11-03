@@ -4,21 +4,15 @@
 
 
 #wrap {
-    display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+    width:100vw;
 
     #header {
+        width:100vw;
             // position: fixed;
             // top: 0; left: 0;
             // height: 100px;
             // width: 100%;
             // text-align : center;
-
-        p {
-            color:firebrick;
-            
-        }
         .nav {
             font-size: 15px;
             margin: auto 0;
@@ -47,51 +41,14 @@
         img, svg{
             vertical-align: middle;
             display: flex;
-        }
-        @media only screen and (max-width: 768px) {
-            width: 100%;
-            background-color: pink;
-            .nav {
-                font-size: 100px;
-                margin: auto 0;
-                margin : 0 auto;
-                display : block;
-                
-            }
-            .nav_brand {
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-                margin-left: 10%;
-                margin-right: 10%;
-            }
-            .logo{
-                width:40px;
-                display: flex;
-                align-items: center;
-            }
-            .shopping{
-                width: 40px;
-                display: flex;
-                align-items: center;
-                font-size: 2rem;
-            }
-            img, svg{
-                vertical-align: middle;
-                display: flex;
-            }
-
-          }
-
-            
-        
+        }        
     }
     #main {
-
         .wrap {
             width:100vw;
-            height:100vh;
-            background:#ffd0d0;
+            height:80vh;
+            background:url(../img/photosmainsample.jpg) no-repeat 50% 50% fixed;
+            background-size:cover;
             
             position:relative;
             a {
@@ -102,6 +59,7 @@
                 margin-left:-125px;
 
                 display:flex;
+                text-decoration: none;
                 justify-content:center;
                 width:250px;
                 height:120px;
@@ -117,51 +75,11 @@
                     border:3px solid #fff;
                 }
             }
-
         }
-
-        p {
-            color:blue;
-        }
-        body{
-            
-            background-image: url("../img/photosmainsample.jpg");
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
-            background-attachment: fixed;
-            height: 80vh;
-        }
-
-        button{
-            width: 200px;
-            height: 40px;
-            display: block;
-            margin: auto;
-            margin-top: 32vh;
-        }
-
-        .btn-primary {
-            --bs-btn-color: #fff;
-            --bs-btn-bg: pink;
-            --bs-btn-border-color: pink;
-            --bs-btn-hover-color: rgb(210, 121, 136);
-            --bs-btn-hover-bg: rgb(255, 255, 255);
-            --bs-btn-hover-border-color: rgb(210, 121, 136);
-            --bs-btn-focus-shadow-rgb: 49,132,253;
-            --bs-btn-active-color: #fff;
-            --bs-btn-active-bg: #0a58ca;
-            --bs-btn-active-border-color: #0a53be;
-            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-            --bs-btn-disabled-color: #fff;
-            --bs-btn-disabled-bg: #0d6efd;
-            --bs-btn-disabled-border-color: #0d6efd;
-        }
-
-        
-
     }
+
     #footer {
+        width:100vw;
         padding:100px 0;
         p {
             color:black;
@@ -202,54 +120,6 @@
         }
         .phone{
             font-size: 20px;
-        }
-
-        @media only screen and (max-width: 1600px) {
-            
-
-            p {
-                color:black;
-                font-size:10px;
-                font-family: "Noto Sans";
-                vertical-align: center;
-                position: relative;
-               // display: flex;
-               // flex-direction: column;
-               // height: 100vh;
-            }
-            .logo{
-                width: 0px;
-                margin-left: 5%;
-                //border : 1px solid black;
-            }
-            .footer1{
-                width: 360px;
-                white-space: nowrap;
-                float: left;
-                margin-left: 50%;
-                margin-right: 10%;
-                transform: translate(-50%,-50%);
-                flex: 1;
-                margin-bottom: 7%;
-                //border : 1px solid black;
-            }
-            .footer2{
-                width: 360px;
-                white-space: pre-wrap;
-                float:left;
-                margin-left: 50%;
-                margin-right: 10%;
-                transform: translate(-50%,-50%);
-                //border : 1px solid black;
-                flex: 1;
-            }
-            .name{
-                font-size: 13px;
-            }
-            .phone{
-                font-size: 17px;
-            }
-
         }
     }
 // start select Theme
@@ -350,6 +220,8 @@
                     .next-btn-wrap {
                         width:100%;
                         a {
+                            text-decoration: none;
+                            
                             display:flex;
                             width:240px;
                             height:80px;
@@ -375,9 +247,337 @@
     }
     // end select Theme
 
-    #selectKids {
+    #selectkids {
+        background:#f9f4f4;
         width:100vw;
-        height:100vh;
-        background:lavenderblush;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .step1 {
+                width:100%;
+                .step1-gap {
+                    padding:50px 0;
+                    .step1-wrap {
+                        width:100%;
+                        p {
+                            text-align:center;
+                            font-size:25px;
+                            font-weight:600;
+                        }
+                    }
+                }
+            }
+
+            // start kidsinfo
+            .kids {
+                width:100%;
+                .kids-gap {
+                    padding:0 0;
+                    .kids-wrap {
+                        width:100%;
+                        ul {
+                            width:100%;
+                            display:flex;
+                            flex-flow:wrap;
+                            li {
+                                width:33.333%;
+                                padding:20px;
+                                .in-kids-gap {
+                                    width:100%;
+                                    padding:50px;
+                                    .in-kids-wrap {
+                                        width:100%;
+                                        padding:30px;
+                                        background:#e3abab;
+                                        border:3px solid #e3abab;
+                                        border-radius:5px;
+                                        cursor:pointer;
+                                        &:hover {
+                                            background:#ffd0d0;
+                                            border:3px solid #e3abab;
+                                        }
+                                        &.on {
+                                            background:#ffd0d0;
+                                            border:3px solid #e3abab;
+                                        }
+                                        .img-wrap {
+                                            padding:30px;
+                                            img {
+                                                width:100%;
+                                            }
+                                        }
+                                        .text-wrap {
+                                            padding:0 0 20px 0;
+                                            p {
+                                                padding:5px;
+                                                text-align:center;
+                                                font-size:16px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } // end kidsinfo
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            text-decoration: none;
+
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }    
+        }
+    }
+
+
+
+    #option-note {
+            background:#f9f4f4;
+            width:100vw;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            .step2 {
+                width:100%;
+                .step2-gap {
+                    padding:50px 0;
+                    .step2-wrap {
+                        width:100%;
+                        p {
+                            text-align:center;
+                            font-size:25px;
+                            font-weight:600;
+                        }
+                    }
+                }
+            }
+            .content {
+                width:100%;
+                .content-gap {
+                    padding:50px 0 130px 0;
+                    .content-wrap {
+                        width:100%;
+                        display:flex;
+                        .example {
+                            width:60%;
+                            // background:khaki;
+                            .example-gap {
+                                width:100%;
+                                padding:30px;
+                                .example-wrap {
+                                    width:100%;
+                                    height:800px;
+                                    border:2px solid #000;
+                                    .top {
+                                        width:100%;
+                                        height:15%;
+                                        .top-gap {
+                                            padding:10px 20px;
+                                            .top-wrap {
+                                                width:100%;
+                                                display:flex;
+                                                .setdate {
+                                                    width:120px;
+                                                    height:100px;
+                                                    padding:10px;
+                                                    border:2px dashed #e3abab;
+                                                    border-radius:10px;
+                                                    p {
+                                                        margin:0;
+                                                        font-weight:600;
+                                                        &.month {
+                                                            font-size:27px;
+                                                            line-height:24px;
+                                                        }
+                                                        &.date {
+                                                            font-size:27px;
+                                                            line-height:24px;
+                                                        }
+                                                        &.day {
+                                                            font-size:15px;
+                                                            line-height:35px;
+                                                        }
+                                                    }
+                                                }
+                                                .qrcode {
+                                                    margin:0 0 0 auto;
+                                                    display:flex;
+                                                    .photo-qr {
+                                                        width:100px;
+                                                        height:100px;
+                                                        background:#000;
+                                                        color:#fff;
+                                                    }
+                                                    .video-qr {
+                                                        width:100px;
+                                                        height:100px;
+                                                        background:#000;
+                                                        margin-left:10px;
+                                                        color:#fff;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .middle {
+                                        width:100%;
+                                        height:45%;
+                                        .middle-gap {
+                                            padding:20px;
+                                            height:100%;
+                                            .middle-wrap {
+                                                width:100%;
+                                                height:100%;
+                                                .photo-section {
+                                                    border:2px dashed #ef4c39;
+                                                    height:100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .bottom {
+                                        width:100%;
+                                        height:40%;
+                                        .bottom-gap {
+                                            width:100%;
+                                            height:100%;
+                                            padding:0 20px 20px 20px;
+                                            .bottom-wrap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0;
+                                                margin:0;
+                                                li {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:2px 0;
+                                                    .li-wrap {
+                                                        width:100%;
+                                                        height:100%;
+                                                        border:2px dashed #e3abab;
+                                                    }
+                                                    &.status {
+                                                        height:20%;
+                                                    }
+                                                    &.notice {
+                                                        height:45%;
+                                                    }
+                                                    &.comment {
+                                                        height:35%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .option {
+                            width:560px;
+                            .option-gap {
+                                width:100%;
+                                padding:30px;
+                                .option-wrap {
+                                    width:100%;
+                                    margin:0;
+                                    padding:0;
+                                    li {
+                                        position:relative;
+                                        width:100%;
+                                        margin:0 0 30px 0;
+                                        input[type='checkbox'] {
+                                            appearance:none;
+                                            width:500px;
+                                            height:80px;
+                                            background:#e3abab;
+                                        }
+                                        input[type='checkbox']:checked {
+                                            appearance:none;
+                                            width:500px;
+                                            height:80px;
+                                            background:#ec6757;
+                                        }
+                                        .text {
+                                            position:absolute;
+                                            top:0;
+                                            left:0;
+                                            width:100%;
+                                            height:80px;
+                                            display:flex;
+                                            font-size:20px;
+                                            p {
+                                                margin:0 auto;
+                                                line-height:80px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // background:deepskyblue
+                        }
+                    }
+                }
+            }
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            text-decoration: none;
+
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
