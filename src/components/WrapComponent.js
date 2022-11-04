@@ -10,6 +10,7 @@ import SelectKidsComponent from './SelectKidsComponent';
 import SelectThemeComponent from './SelectThemeComponent';
 import SelectDetailOption from './SelectDetailOption';
 import SelectDetailOptionNote from './SelectDetailOptionNote';
+import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
 
 const WrapComponent = () => {
     return (
@@ -24,9 +25,9 @@ const WrapComponent = () => {
                 <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
                 <Route path='/SelectDetailOption' element={<SelectDetailOption/>} />
                 <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote/>} />
+                <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
             </Routes>
             <FooterComponent />
-            <SelectDetailOption />
         </div>
     );
 };

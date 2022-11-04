@@ -1,51 +1,38 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {MdAddShoppingCart} from 'react-icons/md';
-import { CartFill } from 'react-bootstrap-icons';
-import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
-import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
+import imsiLogo from '../images/logo_imsi.png';
 
 export const HeaderComponent = () => {
-
-    const isMobile = useMediaQuery({
-        query: "(max-width:768px)"
-      });
-
-      const isPc = useMediaQuery({
-        query: "(min-width:769px)"
-      });
-
-
     return (
         <div id="header">
-            
-
-            <Navbar bg="light" >
-            <div className="nav">
-            <div className="toggle"><Navbar.Toggle /></div>
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link href="#home"> <img className="logo" name="logoimage" alt="logo" src="img/logosample.PNG" /></Nav.Link>
-                <div className="nav_brand" > <Navbar.Brand href="#home">한그루 포토북</Navbar.Brand> </div>
-                <div className="shopping"><Nav.Link href="#link"><CartFill/></Nav.Link></div>
-            
-                {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown> */}
-                </Nav>
-                {/* <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
-            </Form> */}
-            </Navbar.Collapse>
+            <div className="wrap">
+                <div className="header-gap">
+                    <div className="header-wrap">
+                        <div className="logo">
+                            <div className="logo-gap">
+                                <div className="logo-wrap">
+                                    <Link to="/MainComponent"><img src={imsiLogo} alt="imsi-logo" /></Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="title">
+                            <div className="title-gap">
+                                <div className="title-wrap">
+                                    <p>한그루 포토북</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="cart">
+                            <div className="cart-gap">
+                                <div className="cart-wrap">
+                                    <Link to="/MainComponent"><i className="material-icons">shopping_cart</i></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </Navbar>
-            {/* <div className='test'> {isMobile ? "mobile" : "not mobile"}</div> */}
-            
         </div>
     );
 };

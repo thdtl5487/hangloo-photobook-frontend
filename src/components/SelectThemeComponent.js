@@ -96,7 +96,7 @@ const SelectThemeComponent = () => {
                             />
                         </div>
                         <div className="text-wrap">
-                            <p>{list.themeName}</p>
+                            <p className="theme-name">{list.themeName}</p>
                             <p className='price-text'>{makeComma(list.themePrice)}원</p>
                         </div>
                     </div>
