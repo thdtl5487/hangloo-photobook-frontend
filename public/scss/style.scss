@@ -258,6 +258,9 @@
                                 border:3px solid #ec6757;
                             }
                         }
+                        .disabled{
+                            background-color: #ffd0d07d;
+                        }
                     }
                 }
             }    
@@ -368,6 +371,9 @@
                                 border:3px solid #e3abab;
                                 background: #ffd0d0;
                             }
+                        }
+                        .disabled{
+                            background-color: #ffd0d07d;
                         }
                     }
                 }
