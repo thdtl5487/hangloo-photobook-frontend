@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import dummy from '../dummydb/data.json';
-import kids1 from '../images/kidsdummy1.jpeg'
-import kids2 from '../images/kidsdummy2.jpeg'
-import kids3 from '../images/kidsdummy3.jpeg'
+import kids1 from '../images/kidsdummy1.jpeg';
+import kids2 from '../images/kidsdummy2.jpeg';
+import kids3 from '../images/kidsdummy3.jpeg';
 
 const SelectKidsComponent = () => {
 
