@@ -49,7 +49,7 @@ const MainComponent = () => {
             type:"POST",
             url:'/jsonTest',
             data: JSON.stringify({
-                jsonData: pickNotePhoto
+                pickNotePhoto
                 }),
             contentType: 'application/json',
             dataType: 'json',
