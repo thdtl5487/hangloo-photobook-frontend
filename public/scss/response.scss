@@ -192,129 +192,7 @@
                     }
                 }    
             }
-        } 
-        
-        #selectDetail{
-            background:#f9f4f4;
-            width:100vw;
-            .wrap {
-                width:43%;
-                margin:0 auto;
-                height:100%;
-    
-                .step2 {
-                    width:100%;
-                }
-    
-                .step2-gap {
-                    padding:50px 0;
-                }
-    
-                .step2-wrap {
-                    width:100%;
-                   
-                }
-    
-                .detail{
-                    width:100%;
-    
-                    .img-wrap{
-                        display: none;
-        
-                    }
-        
-                    .detailOption{
-                        width: 500px;
-                        // float: right;
-                        margin: 0 auto;
-        
-                        .select-wrap{
-                            width: 100%;
-                            padding: 30px;
-                        }
-        
-                        .accordion-button:not(.collapsed) {
-                            color: white;
-                            background-color: #e3abab;
-                            box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
-                        }
-            
-                        .accordion-button:not(.collapsed):after {
-                            display:none;
-                        }
-                    
-                        .accordion-button:after {
-                            display: none;
-                        }
-            
-            
-                        .btn-outline-secondary {
-                            --bs-btn-color: #ec6757;
-                            --bs-btn-border-color: #e3abab;
-                            --bs-btn-hover-color: #fff;
-                            --bs-btn-hover-bg: #ec6757;
-                            --bs-btn-hover-border-color: #ec6757;
-                            --bs-btn-focus-shadow-rgb: 108,117,125;
-                            --bs-btn-active-color: #fff;
-                            --bs-btn-active-bg: #ec6757;
-                            --bs-btn-active-border-color: #e3abab;
-                            --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
-                            --bs-btn-disabled-color: #6c757d;
-                            --bs-btn-disabled-bg: transparent;
-                            --bs-btn-disabled-border-color: #6c757d;
-                            --bs-gradient: none;
-                        }
-            
-            
-                        .btn-outline-secondary{
-                            width: 100%;
-                            padding: 3%;
-                            margin: 3% 0;
-                            
-                            
-                        }
-        
-        
-                    }
-                }
-    
-    
-                
-    
-                .next-btn {
-                    width:100%;
-                    .next-btn-gap {
-                        padding:0 0 140px 0;
-                        .next-btn-wrap {
-                            width:100%;
-                            
-                            a {
-                                text-decoration: none;
-    
-                                display:flex;
-                                width:240px;
-                                height:80px;
-                                margin:0 auto;
-                                background:#e3abab;
-                                color:#fff;
-                                border:3px solid #e3abab;
-                                border-radius:5px;
-    
-                                font-size:30px;
-                                font-weight:600;
-                                line-height:74px;
-                                justify-content:center;
-    
-                                &:hover {
-                                    border:3px solid #e3abab;
-                                    background: #ffd0d0;
-                                }
-                            }
-                        }
-                    }
-                }   
-            } 
-        }
+        }    
     }
 }   
 @media all and (max-width: 820px) {
@@ -403,6 +281,201 @@
                     }
                 }        
         }
+        #selectTheme {
+            background:#f9f4f4;
+            width:100vw;
+            .wrap {
+                width:90%;
+                .price-btn {
+                    width:100%;
+                    .price-btn-gap {
+                        padding:70px 0 20px 0;
+                        display:flex;
+                        .price-btn-wrap {
+                            margin:0 auto;
+                            ul {
+                                padding:0;
+                                margin:0;
+                                display:flex;
+                                li {
+                                    padding:0 5px;
+                                    button {
+                                        width:90px;
+                                        height:30px;
+                                        font-size:14px;
+                                        font-weight:600;
+                                        &:hover {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // start theme
+                .theme {
+                    width:100%;
+                    .theme-gap {
+                        padding:0 0;
+                        .theme-wrap {
+                            width:100%;
+                            ul {
+                                li {
+                                    width:100%;
+                                    padding:10px;
+                                    .in-theme-gap {
+                                        padding:10px;
+                                        .selectedTheme{
+                                            border:4px solid #ef4c39 !important;
+                                        }
+                                        .in-theme-wrap {
+                                            width:100%;
+                                            padding:15px;
+                                            border:2px solid #ffd0d0;
+                                            border-radius:5px;
+                                            display:flex;
+                                            align-items:center;
+                                            cursor:pointer;
+                                            &:hover {
+                                                border:2px solid #ec6757;
+                                            }
+                                            &.on {
+                                                border:2px solid #ec6757;
+                                            }
+                                            .img-wrap {
+                                                width:40%;
+                                                padding:10px;
+                                                img {
+                                                    width:100%;
+                                                }
+                                            }
+                                            .text-wrap {
+                                                width:60%;
+                                                padding:0 0 15px 0;
+                                                p {
+                                                    width: auto;
+                                                    padding:5px;
+                                                    text-align:center;
+                                                    font-size:12px;
+                                                    &.theme-name {
+                                                        font-size:16px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } // end theme
+                .next-btn {
+                    .next-btn-gap {
+                        padding:40px 0 90px 0;
+                        .next-btn-wrap {
+                            a {
+                                width:180px;
+                                height:60px;
+    
+                                font-size:25px;
+                                font-weight:600;
+                                line-height:54px;
+                                &:hover {
+                                    border:3px solid #ec6757;
+                                }
+                            }
+                        }
+                    }
+                }    
+            }
+        }
+        #selectkids {
+            background:#f9f4f4;
+            width:100vw;
+            .wrap {
+                width:90%;
+                margin:0 auto;
+                height:100%;
+    
+                .step1 {
+                    .step1-gap {
+                        padding:50px 0;
+                        .step1-wrap {
+                            p {
+                                margin:0;
+                                font-size:21px;
+                                font-weight:600;
+                            }
+                        }
+                    }
+                }
+    
+                // start kidsinfo
+                .kids {
+                    .kids-gap {
+                        .kids-wrap {
+                            width:100%;
+                            ul {
+                                li {
+                                    width:50%;
+                                    padding:5px;
+                                    .in-kids-gap {
+                                        width:100%;
+                                        padding:5px;
+                                        .in-kids-wrap {
+                                            width:100%;
+                                            padding:10px;
+                                            cursor:pointer;
+                                            &:hover {
+                                                background:#ffd0d0;
+                                                border:3px solid #e3abab;
+                                            }
+                                            &.on {
+                                                background:#ffd0d0;
+                                                border:3px solid #e3abab;
+                                            }
+                                            .img-wrap {
+                                                padding:15px;
+                                                img {
+                                                    width:100%;
+                                                }
+                                            }
+                                            .text-wrap {
+                                                padding:5px 0 20px 0;
+                                                p {
+                                                    padding:5px;
+                                                    text-align:center;
+                                                    font-size:16px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } // end kidsinfo
+                .next-btn {
+                    .next-btn-gap {
+                        padding:40px 0 90px 0;
+                        .next-btn-wrap {
+                            a {
+                                width:180px;
+                                height:60px;
+    
+                                font-size:25px;
+                                font-weight:600;
+                                line-height:54px;
+                                &:hover {
+                                    border:3px solid #e3abab;
+                                    background: #ffd0d0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         #selectDetail{
             background:#f9f4f4;
             width:100vw;
@@ -416,7 +489,8 @@
                 }
     
                 .step2-gap {
-                    padding:50px 0;
+                    padding:50px 0
+                    ;
                 }
     
                 .step2-wrap {
@@ -433,9 +507,7 @@
                     }
         
                     .detailOption{
-                        width: 500px;
-                        float: right;
-                        margin: 0 auto;
+                        width: 100%;
         
                         .select-wrap{
                             width: 100%;
@@ -522,7 +594,7 @@
                         }
                     }
                 }   
-            } 
+            }    
         }
     }
 }

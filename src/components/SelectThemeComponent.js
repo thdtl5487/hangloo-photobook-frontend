@@ -62,7 +62,7 @@ const SelectThemeComponent = () => {
 
     // 클릭한 테마를 저장하고 표시하는 기능 (css적용은 .in-theme-gap이 하게끔 되어있음)
     const clickElement = (e) =>{
-        if(e.target.id !== ""){ // 클릭 가능한 구역 제한
+        if(e.target.id !== "" || e.target.className=="theme-name" || e.target.className=="price-text"){ // 클릭 가능한 구역 제한
             selectedOff();
             e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
             setSelectedTheme({selectThemeNum:e.target.id});
