@@ -53,6 +53,7 @@
   font-weight: 600;
   text-align: center;
   margin: 0;
+  padding: 0;
 }
 #wrap #header .wrap .header-gap .header-wrap .cart {
   width: 15%;
@@ -149,6 +150,8 @@
   margin: 0 0 0 auto;
 }
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul {
+  padding: 0;
+  margin: 0;
   display: flex;
 }
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul li {
@@ -258,7 +261,7 @@
   width: 100vw;
 }
 #wrap #selectkids .wrap {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   height: 100%;
 }
@@ -272,6 +275,8 @@
   width: 100%;
 }
 #wrap #selectkids .wrap .step1 .step1-gap .step1-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -286,6 +291,8 @@
   width: 100%;
 }
 #wrap #selectkids .wrap .kids .kids-gap .kids-wrap ul {
+  margin: 0;
+  padding: 0;
   width: 100%;
   display: flex;
   flex-flow: wrap;
@@ -324,6 +331,7 @@
   padding: 0 0 20px 0;
 }
 #wrap #selectkids .wrap .kids .kids-gap .kids-wrap ul li .in-kids-gap .in-kids-wrap .text-wrap p {
+  margin: 0;
   padding: 5px;
   text-align: center;
   font-size: 16px;
@@ -374,6 +382,8 @@
   width: 100%;
 }
 #wrap #option-note .wrap .step2 .step2-gap .step2-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -420,6 +430,7 @@
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p {
   margin: 0;
+  padding: 0;
   font-weight: 600;
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p.month {
@@ -547,6 +558,7 @@
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .option .option-gap .option-wrap li .text p {
   margin: 0 auto;
+  padding: 0;
   line-height: 80px;
 }
 #wrap #option-note .wrap .next-btn {
@@ -595,6 +607,8 @@
   width: 100%;
 }
 #wrap #option-album .wrap .step2 .step2-gap .step2-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -641,6 +655,7 @@
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p {
   margin: 0;
+  padding: 0;
   font-weight: 600;
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p.month {
@@ -764,6 +779,7 @@
   font-size: 20px;
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .option .option-gap .option-wrap li .text p {
+  padding: 0;
   margin: 0 auto;
   line-height: 80px;
 }
