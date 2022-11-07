@@ -555,11 +555,13 @@
   height: 80px;
   display: flex;
   font-size: 20px;
+  cursor: pointer;
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .option .option-gap .option-wrap li .text p {
   margin: 0 auto;
   padding: 0;
   line-height: 80px;
+  cursor: pointer;
 }
 #wrap #option-note .wrap .next-btn {
   width: 100%;
@@ -808,6 +810,208 @@
   justify-content: center;
 }
 #wrap #option-album .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #date-note .wrap {
+  width: 70%;
+  margin: 0 auto;
+}
+#wrap #date-note .wrap .step3 {
+  width: 100%;
+}
+#wrap #date-note .wrap .step3 .step3-gap {
+  padding: 50px 0;
+}
+#wrap #date-note .wrap .step3 .step3-gap .step3-wrap {
+  width: 100%;
+}
+#wrap #date-note .wrap .step3 .step3-gap .step3-wrap p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+}
+#wrap #date-note .wrap .year {
+  width: 100%;
+}
+#wrap #date-note .wrap .year .year-gap {
+  width: 100%;
+  padding: 20px 0 30px 0;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap {
+  display: flex;
+  justify-content: center;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap .year-box {
+  padding: 15px;
+  background: #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap .add {
+  display: flex;
+  align-items: center;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap .add i {
+  font-size: 48px;
+  margin: 0 20px;
+  cursor: pointer;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap .sub {
+  display: flex;
+  align-items: center;
+}
+#wrap #date-note .wrap .year .year-gap .year-wrap .sub i {
+  font-size: 48px;
+  margin: 0 20px;
+  cursor: pointer;
+}
+#wrap #date-note .wrap .select-or-not {
+  width: 100%;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap {
+  padding: 10px 20px;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li {
+  padding: 0 10px;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li.on {
+  background: #ffd0d0;
+  border: 2px solid #e3abab;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100px;
+  height: 40px;
+  background: #e3abab;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label .text {
+  position: absolute;
+}
+#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label .text p {
+  margin: 0;
+}
+#wrap #date-note .wrap .month {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap {
+  padding: 30px 0 60px 0;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  margin: 0;
+  padding: 0;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li {
+  width: 20%;
+  padding: 20px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box {
+  background: #e3abab;
+  border-radius: 10px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap {
+  padding: 10px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top {
+  display: flex;
+  align-items: center;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top .check-month {
+  font-size: 24px;
+  padding: 5px 0 5px 10px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top input[type=checkbox] {
+  margin: 0 10px 0 auto;
+  width: 24px;
+  height: 24px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap {
+  padding: 30px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap .middle-wrap {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap .middle-wrap img {
+  width: 100%;
+  border-radius: 116px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open .modal-open-gap {
+  padding: 0 0 10px 0;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open .modal-open-gap .modal-open-wrap {
+  text-align: center;
+  cursor: pointer;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap {
+  padding: 10px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap .check-note {
+  text-align: center;
+  font-size: 18px;
+}
+#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap .check-photo {
+  text-align: center;
+  font-size: 18px;
+}
+#wrap #date-note .wrap .next-btn {
+  width: 100%;
+}
+#wrap #date-note .wrap .next-btn .next-btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap {
+  width: 100%;
+}
+#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }

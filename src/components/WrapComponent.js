@@ -11,6 +11,7 @@ import SelectThemeComponent from './SelectThemeComponent';
 import SelectDetailOption from './SelectDetailOption';
 import SelectDetailOptionNote from './SelectDetailOptionNote';
 import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
+import SelectDateNote from './SelectDateNote';
 
 const WrapComponent = () => {
     return (
@@ -26,6 +27,7 @@ const WrapComponent = () => {
                 <Route path='/SelectDetailOption' element={<SelectDetailOption/>} />
                 <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote/>} />
                 <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
+                <Route path='/SelectDateNote' element={<SelectDateNote/>} />
             </Routes>
             <FooterComponent />
         </div>

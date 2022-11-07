@@ -112,7 +112,6 @@
             }
         }
     }
-
     #footer {
         width:100vw;
         .wrap {
@@ -564,10 +563,12 @@
                                             height:80px;
                                             display:flex;
                                             font-size:20px;
+                                            cursor:pointer;
                                             p {
                                                 margin:0 auto;
                                                 padding:0;
                                                 line-height:80px;
+                                                cursor:pointer;
                                             }
                                         }
                                     }
@@ -612,14 +613,13 @@
             }
         }
     }
-
     #option-album {
         background:#f9f4f4;
         width:100vw;
         .wrap {
         width:60%;
         margin:0 auto;
-            .step2 {
+        .step2 {
             width:100%;
             .step2-gap {
                 padding:50px 0;
@@ -634,8 +634,8 @@
                     }
                 }
             }
-            }
-            .content {
+        }
+        .content {
             width:100%;
             .content-gap {
                 padding:50px 0 130px 0;
@@ -803,8 +803,8 @@
                     }
                 }
             }
-            }
-            .next-btn {
+        }
+        .next-btn {
             width:100%;
             .next-btn-gap {
                 padding:0 0 140px 0;
@@ -834,8 +834,212 @@
                     }
                 }
             }
-            }
+        }
         }
     }
-
+    #date-note {
+        .wrap {
+            width:70%;
+            margin:0 auto;
+            .step3 {
+                width:100%;
+                .step3-gap {
+                    padding:50px 0;
+                    .step3-wrap {
+                        width:100%;
+                        p {
+                            margin:0;
+                            padding:0;
+                            text-align:center;
+                            font-size:25px;
+                            font-weight:600;
+                        }
+                    }
+                }
+            }
+            .year {
+                width:100%;
+                .year-gap {
+                    width:100%;
+                    padding:20px 0 30px 0;
+                    .year-wrap {
+                        display:flex;
+                        justify-content:center;
+                        .year-box {
+                            padding:15px;
+                            background:#e3abab;
+                            border-radius:5px;
+                            font-size:30px;
+                        }
+                        .add {
+                            display:flex;
+                            align-items:center;
+                            i {
+                                font-size:48px;
+                                margin:0 20px;
+                                cursor:pointer;
+                            }
+                        }
+                        .sub {
+                            display:flex;
+                            align-items:center;
+                            i {
+                                font-size:48px;
+                                margin:0 20px;
+                                cursor:pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .select-or-not {
+                width:100%;
+                .select-or-not-gap {
+                    padding:10px 20px;
+                    .select-or-not-wrap {
+                        margin:0;
+                        padding:0;
+                        display:flex;
+                        justify-content:right;
+                        li {
+                            padding:0 10px;
+                            &.on {
+                                background:#ffd0d0;
+                                border:2px solid #e3abab;
+                            }
+                            label {
+                                display:flex;
+                                justify-content:center;
+                                align-items:center;
+                                position:relative;
+                                input[type='checkbox']{
+                                    appearance:none;
+                                    width:100px;
+                                    height:40px;
+                                    background:#e3abab;
+                                }
+                                .text {
+                                    position:absolute;
+                                    p {
+                                        margin:0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .month {
+                width:100%;
+                .month-gap {
+                    padding:30px 0 60px 0;
+                    .month-wrap {
+                        width:100%;
+                        display:flex;
+                        flex-flow:wrap;
+                        margin:0;
+                        padding:0;
+                        li {
+                            width:20%;
+                            padding:20px;
+                            .box {
+                                background:#e3abab;
+                                border-radius:10px;
+                                .box-gap {
+                                    padding:10px;
+                                    .box-wrap {
+                                        width:100%;
+                                        .top {
+                                            display:flex;
+                                            align-items: center;
+                                            .check-month {
+                                                font-size:24px;
+                                                padding:5px 0 5px 10px;
+                                            }
+                                            input[type='checkbox'] {
+                                                margin:0 10px 0 auto;
+                                                width:24px;
+                                                height:24px;
+                                            }
+                                        }
+                                        .middle {
+                                            width:100%;
+                                            .middle-gap {
+                                                padding:30px;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    img {
+                                                        width:100%;
+                                                        border-radius:116px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .modal-open {
+                                            width:100%;
+                                            .modal-open-gap {
+                                                padding:0 0 10px 0;
+                                                .modal-open-wrap {
+                                                    text-align:center;
+                                                    cursor:pointer;
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            .bottom-gap {
+                                                padding:10px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    .check-note {
+                                                        text-align:center;
+                                                        font-size:18px;
+                                                    }
+                                                    .check-photo {
+                                                        text-align:center;
+                                                        font-size:18px;
+                                                    }        
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }    
+        }
+    }
 }

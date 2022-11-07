@@ -119,7 +119,7 @@ const SelectDetailOptionNote = () => {
                             <div className="option">
                                 <div className="option-gap">
                                     <ul className="option-wrap">
-                                        <li>
+                                        <li className={noteLayout.layout.includes('photoqr')?'on':''}>
                                             <label htmlFor="photoqr">
                                                 <input type="checkbox" checked={noteLayout.layout.includes('photoqr')} onChange={onChange} id="photoqr" name="photoqr" value="photoqr" />
                                                 <div className="text">
@@ -127,7 +127,7 @@ const SelectDetailOptionNote = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={noteLayout.layout.includes('videoqr')?'on':''}>
                                             <label htmlFor="videoqr">
                                                 <input type="checkbox" checked={noteLayout.layout.includes('videoqr')} onChange={onChange} id="videoqr" name="videoqr" value="videoqr" />
                                                 <div className="text">
@@ -135,7 +135,7 @@ const SelectDetailOptionNote = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={noteLayout.layout.includes('status')?'on':''}>
                                             <label htmlFor="status">
                                                 <input type="checkbox" checked={noteLayout.layout.includes('status')} onChange={onChange} id="status" name="status" value="status" />
                                                 <div className="text">
@@ -143,7 +143,7 @@ const SelectDetailOptionNote = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={noteLayout.layout.includes('notice')?'on':''}>
                                             <label htmlFor="notice">
                                                 <input type="checkbox" checked={noteLayout.layout.includes('notice')} onChange={onChange} id="notice" name="notice" value="notice" />
                                                 <div className="text">
@@ -151,7 +151,7 @@ const SelectDetailOptionNote = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={noteLayout.layout.includes('comment')?'on':''}>
                                             <label htmlFor="comment">
                                                 <input type="checkbox" checked={noteLayout.layout.includes('comment')} onChange={onChange} id="comment" name="comment" value="comment" />
                                                 <div className="text">
