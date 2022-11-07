@@ -44,6 +44,7 @@ const SelectThemeComponent = () => {
         e.target.src = "/getThemeImg/" + e.target.id;
     }
 
+
     // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
     const changePrice = (num) =>{
         console.log(num);
@@ -71,6 +72,7 @@ const SelectThemeComponent = () => {
             const imgEle = document.querySelectorAll("img");
             for(var i = 0; i<imgEle.length; i++){
                 imgEle[i].classList.remove("on");
+
             }
         }
     }
@@ -86,6 +88,7 @@ const SelectThemeComponent = () => {
     const list = field.themeList.map(list=>{
         return (
             <li key = {list.themeNum}>
+
                 <div className="in-theme-gap" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                     <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
                         <div className="img-wrap">
@@ -98,6 +101,7 @@ const SelectThemeComponent = () => {
                         <div className="text-wrap">
                             <p className="theme-name">{list.themeName}</p>
                             <p className='price-text'>{makeComma(list.themePrice)}원</p>
+
                         </div>
                     </div>
                 </div>

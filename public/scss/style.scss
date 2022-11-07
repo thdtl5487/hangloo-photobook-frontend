@@ -110,10 +110,12 @@
                     border:3px solid #fff;
                 }
             }
+
         }
     }
 
     #footer {
+
         width:100vw;
         .wrap {
             width:70%;
@@ -133,6 +135,7 @@
                     }
                 }
             }
+
         }
     }
 // start select Theme
@@ -388,6 +391,7 @@
             }    
         }
     }
+
 
 
 
@@ -811,6 +815,7 @@
             }
             }
             .next-btn {
+
             width:100%;
             .next-btn-gap {
                 padding:0 0 140px 0;
@@ -844,4 +849,144 @@
         }
     }
 
+    #selectDetail{
+        background:#f9f4f4;
+        width:100vw;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .step2 {
+                width:100%;
+            }
+
+            .step2-gap {
+                padding:50px 0;
+            }
+
+            .step2-wrap {
+                width:100%;
+               
+            }
+
+            p {
+                text-align:center;
+                font-size:25px;
+                font-weight:600;
+            }
+
+            .detail{
+                width:100%;
+
+                .img-wrap{
+                    display: flex;
+                    flex-flow: wrap;
+                    width: 50%;
+                    padding: 30px;
+                    float: left;
+                    margin: auto 0;
+    
+                    .main{
+                        position: relative;
+                    }
+    
+                    .sub{
+                        position: absolute;
+                    }
+    
+                }
+    
+                .detailOption{
+                    width: 500px;
+                    float: right;
+                    margin: 0 auto;
+    
+                    .select-wrap{
+                        width: 100%;
+                        padding: 30px;
+                    }
+    
+                    .accordion-button:not(.collapsed) {
+                        color: white;
+                        background-color: #e3abab;
+                        box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+                    }
+        
+                    .accordion-button:not(.collapsed):after {
+                        display:none;
+                    }
+                
+                    .accordion-button:after {
+                        display: none;
+                    }
+        
+        
+                    .btn-outline-secondary {
+                        --bs-btn-color: #ec6757;
+                        --bs-btn-border-color: #e3abab;
+                        --bs-btn-hover-color: #fff;
+                        --bs-btn-hover-bg: #ec6757;
+                        --bs-btn-hover-border-color: #ec6757;
+                        --bs-btn-focus-shadow-rgb: 108,117,125;
+                        --bs-btn-active-color: #fff;
+                        --bs-btn-active-bg: #ec6757;
+                        --bs-btn-active-border-color: #e3abab;
+                        --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+                        --bs-btn-disabled-color: #6c757d;
+                        --bs-btn-disabled-bg: transparent;
+                        --bs-btn-disabled-border-color: #6c757d;
+                        --bs-gradient: none;
+                    }
+        
+        
+                    .btn-outline-secondary{
+                        width: 100%;
+                        padding: 3%;
+                        margin: 3% 0;
+                        
+                        
+                    }
+    
+    
+                }
+            }
+
+
+            
+
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        margin-top: 60%;
+                        a {
+                            text-decoration: none;
+
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }   
+        } 
+    }
 }
