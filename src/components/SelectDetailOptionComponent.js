@@ -77,7 +77,7 @@ const SelectDetailOption = () => {
       // console.log(img[e.target.value.substring(5)-1].id)
 
       const idx = e.target.value.substring(5)-1;
-      setContent(<img src={img[idx].image} alt={img[idx].title}></img>);
+      setContent(<img className="sub" src={img[idx].image} alt={img[idx].title}></img>);
 
     }
 
@@ -107,116 +107,118 @@ const SelectDetailOption = () => {
 
 
     return (
-      <>
         <div id="selectDetail">
-
-            <h2>
-            Step2. 삽입할 항목을 선택하세요.            
-            </h2>
+            <div className="wrap">
               
-            <Container>
-            <div className="sampleimg">
-              <outlet />
-
-                  <img src="./img/sampleimg_1.PNG" alt="check1"></img>
-                  {content}
-
-            </div>
-            </Container>
-
-            
-            <div className="detailOption">
-            <Accordion alwaysOpen >
-              <Accordion.Item eventKey="0">
-
-                  {/* <input type="checkbox" className="btn-check" id="note-check" value="note"
-                  onChange = {onNoteChange}
-                  checked = {noteCheckList.noteCheckElement.includes('note')}>
-                  </input>
-                <label className="note" htmlFor="note-check">
-                 */}
-              <Accordion.Header onClick={onNote}>
-                 알림장 선택
-              </Accordion.Header>
-                  
-
-              <Accordion.Body>
-
-
-                  
-                  <input type="checkbox" className="btn-check" id="btn-check-2-outlined" value="check1"
-                  onChange = {onNoteChange}
-                  checked = {noteCheckList.noteCheckElement.includes('check1')}
-                  onClick = {onClick}>
-                  </input>
-                  <label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined"> 
-                  사진 없는 알림장 제외
-                  </label>
-
-                  <input type="checkbox" className="btn-check" id="btn-check-2-outlined2" value="check2"
-                  onChange = {onNoteChange}
-                  checked = {noteCheckList.noteCheckElement.includes('check2')}
-                  onClick = {onClick}>
-                  </input>
-                  <label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined2">내용 없는 알림장 제외
-                  </label>
-
-                  <input type="checkbox" className="btn-check" id="btn-check-2-outlined3" value="check3"
-                  onChange = {onNoteChange}
-                  checked = {noteCheckList.noteCheckElement.includes('check3')}
-                  onClick = {onClick}>
-                  </input>
-                  <label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined3">가정에서 보낸 알림장 제외
-                  </label>
-
-                  </Accordion.Body>
-                  </Accordion.Item>
-              
-              </Accordion>
-
-
-              <Accordion >
-              <Accordion.Item eventKey="1">
-              <Accordion.Header onClick={onAlbum}>
-                사진앨범 선택
-              </Accordion.Header>
-                
-              <Accordion.Body>
-
-                  <input type="checkbox" className="btn-check" id="btn-check-2-outlined4" value="check4"
-                  onChange = {onAlbumChange}
-                  checked = {albumCheckList.albumCheckElement.includes('check4')}
-                  onClick = {onClick}>
-                  </input>
-                  <label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined4">내용 없는 앨범 제외
-                  </label>
-
-                  <input type="checkbox" className="btn-check" id="btn-check-2-outlined5" value="check5"
-                  onChange = {onAlbumChange}
-                  checked = {albumCheckList.albumCheckElement.includes('check5')}
-                  onClick = {onClick}>
-                  </input>
-                  <label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined5">댓글 없는 앨범 제외
-                  </label>
-
-
-                    </Accordion.Body>
-                    </Accordion.Item>
-              </Accordion>
-              
-            </div>
-
-            <div className="next-btn">
-                    <div className="next-btn-gap">
-                        <div className="next-btn-wrap">
-                            <Link to="/">다음</Link>
-                        </div>
+                <div classNmae="step2">
+                  <div className="step2-gap">
+                    <div className="step2-wrap">
+                      <p>Step2. 삽입할 항목을 선택하세요.</p>    
                     </div>
+                  </div>
                 </div>
+                
+                  
+                <div className="detail">
+					<div className="img-wrap">
+							<img className="main" src="./img/sampleimg_1.PNG" alt="check1"/>
+							{content}
+					</div>  
 
-            
+					
+					<div className="detailOption">
+						<div className="select-wrap">
+
+							<Accordion alwaysOpen >
+								<Accordion.Item eventKey="0">
+
+									{/* <input type="checkbox" className="btn-check" id="note-check" value="note"
+									onChange = {onNoteChange}
+									checked = {noteCheckList.noteCheckElement.includes('note')}>
+									</input>
+									<label className="note" htmlFor="note-check">
+								*/}
+								<Accordion.Header onClick={onNote}>
+									알림장 선택
+								</Accordion.Header>
+									
+
+								<Accordion.Body> 
+									<input type="checkbox" className="btn-check" id="btn-check-2-outlined" value="check1"
+									onChange = {onNoteChange}
+									checked = {noteCheckList.noteCheckElement.includes('check1')}
+									onClick = {onClick}>
+									</input>
+									<label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined"> 
+									사진 없는 알림장 제외
+									</label>
+
+									<input type="checkbox" className="btn-check" id="btn-check-2-outlined2" value="check2"
+									onChange = {onNoteChange}
+									checked = {noteCheckList.noteCheckElement.includes('check2')}
+									onClick = {onClick}>
+									</input>
+									<label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined2">내용 없는 알림장 제외
+									</label>
+
+									<input type="checkbox" className="btn-check" id="btn-check-2-outlined3" value="check3"
+									onChange = {onNoteChange}
+									checked = {noteCheckList.noteCheckElement.includes('check3')}
+									onClick = {onClick}>
+									</input>
+									<label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined3">가정에서 보낸 알림장 제외
+									</label>
+
+								</Accordion.Body>
+								</Accordion.Item>
+								
+							</Accordion>
+
+
+							<Accordion>
+								<Accordion.Item eventKey="1">
+								<Accordion.Header onClick={onAlbum}>
+									사진앨범 선택
+								</Accordion.Header>
+								
+								<Accordion.Body>
+
+									<input type="checkbox" className="btn-check" id="btn-check-2-outlined4" value="check4"
+									onChange = {onAlbumChange}
+									checked = {albumCheckList.albumCheckElement.includes('check4')}
+									onClick = {onClick}>
+									</input>
+									<label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined4">내용 없는 앨범 제외
+									</label>
+
+									<input type="checkbox" className="btn-check" id="btn-check-2-outlined5" value="check5"
+									onChange = {onAlbumChange}
+									checked = {albumCheckList.albumCheckElement.includes('check5')}
+									onClick = {onClick}>
+									</input>
+									<label className="btn btn-outline-secondary" htmlFor="btn-check-2-outlined5">댓글 없는 앨범 제외
+									</label>
+
+
+									</Accordion.Body>
+								</Accordion.Item>
+								</Accordion>
+						</div>
+						
+					</div>
+				</div>
+
+                
+                
+				<div className="next-btn">
+					<div className="next-btn-gap">
+						<div className="next-btn-wrap">
+							<Link to="/">다음</Link>
+						</div>
+					</div>
+				</div>
+          </div>
         </div>
-      </>
     );
 };
 

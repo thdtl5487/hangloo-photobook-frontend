@@ -11,8 +11,8 @@ import { Routes, Route } from 'react-router-dom';
 import SelectKidsComponent from './SelectKidsComponent';
 import SelectThemeComponent from './SelectThemeComponent';
 import SelectDetailOptionComponent from './SelectDetailOptionComponent';
-
-
+import SelectDetailOptionNote from './SelectDetailOptionNote';
+import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
 
 const WrapComponent = () => {
     return (
@@ -29,6 +29,8 @@ const WrapComponent = () => {
                 <Route path='/SelectDetailOption' element={<SelectDetailOptionComponent/>}  />
 
                 <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
+                <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote/>} />
+                <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
 
             </Routes>
             <FooterComponent />

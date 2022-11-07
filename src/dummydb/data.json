@@ -1,0 +1,7 @@
+{
+    "kids": [
+        {"id":1, "kidsPhoto":"kids1", "kidsName":"강아지", "kidsBirth":"2015-11-13"},
+        {"id":2, "kidsPhoto":"kids2", "kidsName":"고양이", "kidsBirth":"2017-10-18"},
+        {"id":3, "kidsPhoto":"kids3", "kidsName":"송아지", "kidsBirth":"2018-03-25"}
+    ]
+}
