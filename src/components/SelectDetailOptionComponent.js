@@ -213,7 +213,7 @@ const SelectDetailOption = () => {
 				<div className="next-btn">
 					<div className="next-btn-gap">
 						<div className="next-btn-wrap">
-							<Link to="/">다음</Link>
+							<Link to="/selectDetailOptionNote">다음</Link>
 						</div>
 					</div>
 				</div>

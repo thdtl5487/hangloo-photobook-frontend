@@ -256,6 +256,9 @@
 #wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #ec6757;
 }
+#wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
+}
 #wrap #selectkids {
   background: #f9f4f4;
   width: 100vw;
@@ -363,6 +366,9 @@
 #wrap #selectkids .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
+}
+#wrap #selectkids .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
 }
 #wrap #option-note {
   background: #f9f4f4;
