@@ -168,7 +168,7 @@
     display: none;
   }
   #wrap #selectDetail .wrap .detail .detailOption {
-    width: 500px;
+    width: 100%;
     margin: 0 auto;
   }
   #wrap #selectDetail .wrap .detail .detailOption .select-wrap {
@@ -316,9 +316,7 @@
     display: none;
   }
   #wrap #selectDetail .wrap .detail .detailOption {
-    width: 500px;
-    float: right;
-    margin: 0 auto;
+    width: 100%;
   }
   #wrap #selectDetail .wrap .detail .detailOption .select-wrap {
     width: 100%;

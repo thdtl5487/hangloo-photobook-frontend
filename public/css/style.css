@@ -905,3 +905,40 @@
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }
+#wrap #makeDetail {
+  background: #f9f4f4;
+  width: 100vw;
+}
+#wrap #makeDetail .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #makeDetail .wrap .next-btn {
+  width: 100%;
+}
+#wrap #makeDetail .wrap .next-btn .next-btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #makeDetail .wrap .next-btn .next-btn-gap .next-btn-wrap {
+  width: 100%;
+}
+#wrap #makeDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}

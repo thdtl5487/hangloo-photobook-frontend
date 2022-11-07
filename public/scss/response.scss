@@ -224,7 +224,7 @@
                     }
         
                     .detailOption{
-                        width: 500px;
+                        width: 100%;
                         // float: right;
                         margin: 0 auto;
         
@@ -416,7 +416,8 @@
                 }
     
                 .step2-gap {
-                    padding:50px 0;
+                    padding:50px 0
+                    ;
                 }
     
                 .step2-wrap {
@@ -433,9 +434,7 @@
                     }
         
                     .detailOption{
-                        width: 500px;
-                        float: right;
-                        margin: 0 auto;
+                        width: 100%;
         
                         .select-wrap{
                             width: 100%;

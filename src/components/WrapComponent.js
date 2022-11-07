@@ -13,6 +13,7 @@ import SelectThemeComponent from './SelectThemeComponent';
 import SelectDetailOptionComponent from './SelectDetailOptionComponent';
 import SelectDetailOptionNote from './SelectDetailOptionNote';
 import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
+import MakeDetailComponent from './MakeDetailComponent';
 
 const WrapComponent = () => {
     return (
@@ -31,6 +32,7 @@ const WrapComponent = () => {
                 <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
                 <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote/>} />
                 <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
+                <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
 
             </Routes>
             <FooterComponent />
