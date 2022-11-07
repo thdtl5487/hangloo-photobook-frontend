@@ -5,47 +5,82 @@
 
 #wrap {
     width:100vw;
-
     #header {
-        width:100vw;
-            // position: fixed;
-            // top: 0; left: 0;
-            // height: 100px;
-            // width: 100%;
-            // text-align : center;
-        .nav {
-            font-size: 15px;
-            margin: auto 0;
-            margin : 0 auto;
-            display : block;
-            
+        width:100%;
+        .wrap {
+            width:70%;
+            margin:0 auto;
+            .header-gap {
+                width:100%;
+                padding:20px 0;
+                .header-wrap {
+                    width:100%;
+                    display:flex;
+                    .logo {
+                        width:15%;
+                        margin:0 auto 0 0;
+                        .logo-gap {
+                            width:100%;
+                            padding:0 55px;
+                            .logo-wrap {
+                                width:100%;
+                                a {
+                                    display:flex;
+                                    width:100%;
+                                    justify-content:center;
+                                    img {
+                                        height:120px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .title {
+                        width:30%;
+                        margin:0 auto;
+                        .title-gap {
+                            width:100%;
+                            .title-wrap {
+                                width:100%;
+                                p {
+                                    font-size:30px;
+                                    line-height:120px;
+                                    font-weight:600;
+                                    text-align:center;
+                                    margin:0;
+                                    padding:0;
+                                }
+                            }
+                        }
+                    }
+                    .cart {
+                        width:15%;
+                        margin:0 0 0 auto;
+                        .cart-gap {
+                            width:100%;
+                            padding:0 55px;
+                            .cart-wrap {
+                                width:100%;
+                                display:flex;
+                                justify-content:center;
+                                a {
+                                    color:#000;
+                                    i {
+                                        font-size:55px;
+                                        line-height:120px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        .nav_brand {
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-        .logo{
-            width:40px;
-            display: flex;
-            align-items: center;
-        }
-        .shopping{
-            width: 40px;
-            display: flex;
-            align-items: center;
-            font-size: 2rem;
-        }
-        img, svg{
-            vertical-align: middle;
-            display: flex;
-        }        
     }
     #main {
+        width:100vw;
         .wrap {
-            width:100vw;
+            width:100%;
             height:80vh;
             background:url(../img/photosmainsample.jpg) no-repeat 50% 50% fixed;
             background-size:cover;
@@ -80,46 +115,24 @@
 
     #footer {
         width:100vw;
-        padding:100px 0;
-        p {
-            color:black;
-            font-size:14px;
-            font-family: "Noto Sans";
-            vertical-align: center;
-            position: relative;
-           // display: flex;
-           // flex-direction: column;
-           // height: 100vh;
-        }
-        .logo{
-            float: left;
-            margin-left: 5%;
-            margin-right: 5%;
-            transform: translate(-50%,-50%);
-        }
-        .footer1{
-            width: 500px;
-            white-space: pre-wrap;
-            float: left;
-            margin-left: 10%;
-            margin-right: 3%;
-            transform: translate(-50%,-50%);
-            flex: 1;
-        }
-        .footer2{
-            width: 500px;
-            white-space: pre-wrap;
-            float:right;
-            margin-left: 3%;
-            margin-right: 5%;
-                transform: translate(-50%,-50%);
-            flex: 1;
-        }
-        .name{
-            font-size: 16px;
-        }
-        .phone{
-            font-size: 20px;
+        .wrap {
+            width:70%;
+            margin:0 auto;
+            .footer-gap {
+                padding:50px 0;
+                .footer-wrap {
+                    width:100%;
+                    img {
+                        width:100%;
+                        &.pcfooter {
+                            display:block;
+                        }
+                        &.mbfooter {
+                            display:none;
+                        }
+                    }
+                }
+            }
         }
     }
 // start select Theme
@@ -127,7 +140,7 @@
         background:#f9f4f4;
         width:100vw;
         .wrap {
-            width:60%;
+            width:70%;
             margin:0 auto;
             height:100%;
             .price-btn {
@@ -138,6 +151,8 @@
                     .price-btn-wrap {
                         margin:0 0 0 auto;
                         ul {
+                            padding:0;
+                            margin:0;
                             display:flex;
                             li {
                                 padding:0 10px;
@@ -167,6 +182,8 @@
                     .theme-wrap {
                         width:100%;
                         ul {
+                            margin:0;
+                            padding:0;
                             width:100%;
                             display:flex;
                             flex-flow:wrap;
@@ -198,12 +215,16 @@
                                             }
                                         }
                                         .text-wrap {
-                                            padding:0 0 20px 0;
+                                            padding:20px 0;
                                             p {
                                                 width: auto;
+                                                margin:0;
                                                 padding:5px;
                                                 text-align:center;
                                                 font-size:16px;
+                                                &.theme-name {
+                                                    font-size:20px;
+                                                }
                                             }
                                         }
                                     }
@@ -248,13 +269,13 @@
             }    
         }
     }
-    // end select Theme
+// end select Theme
 
     #selectkids {
         background:#f9f4f4;
         width:100vw;
         .wrap {
-            width:60%;
+            width:70%;
             margin:0 auto;
             height:100%;
 
@@ -265,6 +286,8 @@
                     .step1-wrap {
                         width:100%;
                         p {
+                            margin:0;
+                            padding:0;
                             text-align:center;
                             font-size:25px;
                             font-weight:600;
@@ -281,6 +304,8 @@
                     .kids-wrap {
                         width:100%;
                         ul {
+                            margin:0;
+                            padding:0;
                             width:100%;
                             display:flex;
                             flex-flow:wrap;
@@ -314,6 +339,7 @@
                                         .text-wrap {
                                             padding:0 0 20px 0;
                                             p {
+                                                margin:0;
                                                 padding:5px;
                                                 text-align:center;
                                                 font-size:16px;
@@ -362,4 +388,460 @@
             }    
         }
     }
+
+
+
+    #option-note {
+            background:#f9f4f4;
+            width:100vw;
+        .wrap {
+            width:60%;
+            margin:0 auto;
+            .step2 {
+                width:100%;
+                .step2-gap {
+                    padding:50px 0;
+                    .step2-wrap {
+                        width:100%;
+                        p {
+                            margin:0;
+                            padding:0;
+                            text-align:center;
+                            font-size:25px;
+                            font-weight:600;
+                        }
+                    }
+                }
+            }
+            .content {
+                width:100%;
+                .content-gap {
+                    padding:50px 0 130px 0;
+                    .content-wrap {
+                        width:100%;
+                        display:flex;
+                        .example {
+                            width:60%;
+                            // background:khaki;
+                            .example-gap {
+                                width:100%;
+                                padding:30px;
+                                .example-wrap {
+                                    width:100%;
+                                    height:800px;
+                                    border:2px solid #000;
+                                    .top {
+                                        width:100%;
+                                        height:15%;
+                                        .top-gap {
+                                            padding:10px 20px;
+                                            .top-wrap {
+                                                width:100%;
+                                                display:flex;
+                                                .setdate {
+                                                    width:120px;
+                                                    height:100px;
+                                                    padding:10px;
+                                                    border:2px dashed #e3abab;
+                                                    border-radius:10px;
+                                                    p {
+                                                        margin:0;
+                                                        padding:0;
+                                                        font-weight:600;
+                                                        &.month {
+                                                            font-size:27px;
+                                                            line-height:24px;
+                                                        }
+                                                        &.date {
+                                                            font-size:27px;
+                                                            line-height:24px;
+                                                        }
+                                                        &.day {
+                                                            font-size:15px;
+                                                            line-height:35px;
+                                                        }
+                                                    }
+                                                }
+                                                .qrcode {
+                                                    margin:0 0 0 auto;
+                                                    display:flex;
+                                                    .photo-qr {
+                                                        width:100px;
+                                                        height:100px;
+                                                        background:#000;
+                                                        color:#fff;
+                                                    }
+                                                    .video-qr {
+                                                        width:100px;
+                                                        height:100px;
+                                                        background:#000;
+                                                        margin-left:10px;
+                                                        color:#fff;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .middle {
+                                        width:100%;
+                                        height:45%;
+                                        .middle-gap {
+                                            padding:20px;
+                                            height:100%;
+                                            .middle-wrap {
+                                                width:100%;
+                                                height:100%;
+                                                .photo-section {
+                                                    border:2px solid #ef4c39;
+                                                    height:100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .bottom {
+                                        width:100%;
+                                        height:40%;
+                                        .bottom-gap {
+                                            width:100%;
+                                            height:100%;
+                                            padding:0 20px 20px 20px;
+                                            .bottom-wrap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0;
+                                                margin:0;
+                                                li {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:2px 0;
+                                                    .li-wrap {
+                                                        width:100%;
+                                                        height:100%;
+                                                        border:2px dashed #e3abab;
+                                                    }
+                                                    &.status {
+                                                        height:20%;
+                                                    }
+                                                    &.notice {
+                                                        height:45%;
+                                                    }
+                                                    &.comment {
+                                                        height:35%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .option {
+                            width:560px;
+                            .option-gap {
+                                width:100%;
+                                padding:30px;
+                                .option-wrap {
+                                    width:100%;
+                                    margin:0;
+                                    padding:0;
+                                    li {
+                                        position:relative;
+                                        width:100%;
+                                        margin:0 0 30px 0;
+                                        input[type='checkbox'] {
+                                            appearance:none;
+                                            width:500px;
+                                            height:80px;
+                                            background:#e3abab;
+                                            border:2px solid #e3abab;
+                                            }
+                                        input[type='checkbox']:checked {
+                                            appearance:none;
+                                            width:500px;
+                                            height:80px;
+                                            background:#ffd0d0;
+                                            border:2px solid #e3abab;
+                                        }
+                                        .text {
+                                            position:absolute;
+                                            top:0;
+                                            left:0;
+                                            width:100%;
+                                            height:80px;
+                                            display:flex;
+                                            font-size:20px;
+                                            p {
+                                                margin:0 auto;
+                                                padding:0;
+                                                line-height:80px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // background:deepskyblue
+                        }
+                    }
+                }
+            }
+            .next-btn {
+                width:100%;
+                .next-btn-gap {
+                    padding:0 0 140px 0;
+                    .next-btn-wrap {
+                        width:100%;
+                        a {
+                            text-decoration: none;
+
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #option-album {
+        background:#f9f4f4;
+        width:100vw;
+        .wrap {
+        width:60%;
+        margin:0 auto;
+            .step2 {
+            width:100%;
+            .step2-gap {
+                padding:50px 0;
+                .step2-wrap {
+                    width:100%;
+                    p {
+                        margin:0;
+                        padding:0;
+                        text-align:center;
+                        font-size:25px;
+                        font-weight:600;
+                    }
+                }
+            }
+            }
+            .content {
+            width:100%;
+            .content-gap {
+                padding:50px 0 130px 0;
+                .content-wrap {
+                    width:100%;
+                    display:flex;
+                    .example {
+                        width:60%;
+                        // background:khaki;
+                        .example-gap {
+                            width:100%;
+                            padding:30px;
+                            .example-wrap {
+                                width:100%;
+                                height:800px;
+                                border:2px solid #000;
+                                .top {
+                                    width:100%;
+                                    height:15%;
+                                    .top-gap {
+                                        padding:10px 20px;
+                                        .top-wrap {
+                                            width:100%;
+                                            display:flex;
+                                            .setdate {
+                                                width:120px;
+                                                height:100px;
+                                                padding:10px;
+                                                border:2px dashed #e3abab;
+                                                border-radius:10px;
+                                                p {
+                                                    margin:0;
+                                                    padding:0;
+                                                    font-weight:600;
+                                                    &.month {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.date {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.day {
+                                                        font-size:15px;
+                                                        line-height:35px;
+                                                    }
+                                                }
+                                            }
+                                            .qrcode {
+                                                margin:0 0 0 auto;
+                                                display:flex;
+                                                .photo-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    color:#fff;
+                                                }
+                                                .video-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    margin-left:10px;
+                                                    color:#fff;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .middle {
+                                    width:100%;
+                                    height:45%;
+                                    .middle-gap {
+                                        padding:20px;
+                                        height:100%;
+                                        .middle-wrap {
+                                            width:100%;
+                                            height:100%;
+                                            .photo-section {
+                                                border:2px solid #ef4c39;
+                                                height:100%;
+                                            }
+                                        }
+                                    }
+                                }
+                                .bottom {
+                                    width:100%;
+                                    height:40%;
+                                    .bottom-gap {
+                                        width:100%;
+                                        height:100%;
+                                        padding:0 20px 20px 20px;
+                                        .bottom-wrap {
+                                            width:100%;
+                                            height:100%;
+                                            padding:0;
+                                            margin:0;
+                                            li {
+                                                width:100%;
+                                                height:100%;
+                                                padding:2px 0;
+                                                .li-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    border:2px dashed #e3abab;
+                                                }
+                                                &.notice {
+                                                    height:55%;
+                                                }
+                                                &.comment {
+                                                    height:45%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .option {
+                        width:560px;
+                        .option-gap {
+                            width:100%;
+                            padding:30px;
+                            .option-wrap {
+                                width:100%;
+                                margin:0;
+                                padding:0;
+                                li {
+                                    position:relative;
+                                    width:100%;
+                                    margin:0 0 30px 0;
+                                    input[type='checkbox'] {
+                                        appearance:none;
+                                        width:500px;
+                                        height:80px;
+                                        background:#e3abab;
+                                        border:2px solid #e3abab;
+                                    }
+                                    input[type='checkbox']:checked {
+                                        appearance:none;
+                                        width:500px;
+                                        height:80px;
+                                        background:#ffd0d0;
+                                        border:2px solid #e3abab;
+                                    }
+                                    .text {
+                                        position:absolute;
+                                        top:0;
+                                        left:0;
+                                        width:100%;
+                                        height:80px;
+                                        display:flex;
+                                        font-size:20px;
+                                        p {
+                                            padding:0;
+                                            margin:0 auto;
+                                            line-height:80px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // background:deepskyblue
+                    }
+                }
+            }
+            }
+            .next-btn {
+            width:100%;
+            .next-btn-gap {
+                padding:0 0 140px 0;
+                .next-btn-wrap {
+                    width:100%;
+                    a {
+                        text-decoration: none;
+
+                        display:flex;
+                        width:240px;
+                        height:80px;
+                        margin:0 auto;
+                        background:#e3abab;
+                        color:#fff;
+                        border:3px solid #e3abab;
+                        border-radius:5px;
+
+                        font-size:30px;
+                        font-weight:600;
+                        line-height:74px;
+                        justify-content:center;
+
+                        &:hover {
+                            border:3px solid #e3abab;
+                            background: #ffd0d0;
+                        }
+                    }
+                }
+            }
+            }
+        }
+    }
+
 }
