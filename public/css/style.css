@@ -244,9 +244,9 @@
   width: 240px;
   height: 80px;
   margin: 0 auto;
-  background: #ffd0d0;
+  background: #e3abab;
   color: #fff;
-  border: 3px solid #ffd0d0;
+  border: 3px solid #e3abab;
   border-radius: 5px;
   font-size: 30px;
   font-weight: 600;
@@ -254,7 +254,11 @@
   justify-content: center;
 }
 #wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
-  border: 3px solid #ec6757;
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
 }
 #wrap #selectkids {
   background: #f9f4f4;
@@ -363,6 +367,9 @@
 #wrap #selectkids .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
+}
+#wrap #selectkids .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
 }
 #wrap #option-note {
   background: #f9f4f4;
@@ -813,190 +820,99 @@
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }
-#wrap #date-note .wrap {
-  width: 70%;
-  margin: 0 auto;
+
+#selectDetail {
+  background: #f9f4f4;
+  width: 100vw;
 }
-#wrap #date-note .wrap .step3 {
+#selectDetail .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#selectDetail .wrap .step2 {
   width: 100%;
 }
-#wrap #date-note .wrap .step3 .step3-gap {
+#selectDetail .wrap .step2-gap {
   padding: 50px 0;
 }
-#wrap #date-note .wrap .step3 .step3-gap .step3-wrap {
+#selectDetail .wrap .step2-wrap {
   width: 100%;
 }
-#wrap #date-note .wrap .step3 .step3-gap .step3-wrap p {
-  margin: 0;
-  padding: 0;
+#selectDetail .wrap p {
   text-align: center;
   font-size: 25px;
   font-weight: 600;
 }
-#wrap #date-note .wrap .year {
+#selectDetail .wrap .detail {
   width: 100%;
 }
-#wrap #date-note .wrap .year .year-gap {
-  width: 100%;
-  padding: 20px 0 30px 0;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap {
-  display: flex;
-  justify-content: center;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap .year-box {
-  padding: 15px;
-  background: #e3abab;
-  border-radius: 5px;
-  font-size: 30px;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap .add {
-  display: flex;
-  align-items: center;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap .add i {
-  font-size: 48px;
-  margin: 0 20px;
-  cursor: pointer;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap .sub {
-  display: flex;
-  align-items: center;
-}
-#wrap #date-note .wrap .year .year-gap .year-wrap .sub i {
-  font-size: 48px;
-  margin: 0 20px;
-  cursor: pointer;
-}
-#wrap #date-note .wrap .select-or-not {
-  width: 100%;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap {
-  padding: 10px 20px;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: right;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li {
-  padding: 0 10px;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li.on {
-  background: #ffd0d0;
-  border: 2px solid #e3abab;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label input[type=checkbox] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  width: 100px;
-  height: 40px;
-  background: #e3abab;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label .text {
-  position: absolute;
-}
-#wrap #date-note .wrap .select-or-not .select-or-not-gap .select-or-not-wrap li label .text p {
-  margin: 0;
-}
-#wrap #date-note .wrap .month {
-  width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap {
-  padding: 30px 0 60px 0;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap {
-  width: 100%;
+#selectDetail .wrap .detail .img-wrap {
   display: flex;
   flex-flow: wrap;
-  margin: 0;
-  padding: 0;
+  width: 50%;
+  padding: 30px;
+  float: left;
+  margin: auto 0;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li {
-  width: 20%;
-  padding: 20px;
+#selectDetail .wrap .detail .img-wrap .main {
+  position: relative;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box {
-  background: #e3abab;
-  border-radius: 10px;
+#selectDetail .wrap .detail .img-wrap .sub {
+  position: absolute;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap {
-  padding: 10px;
+#selectDetail .wrap .detail .detailOption {
+  width: 500px;
+  float: right;
+  margin: 0 auto;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap {
+#selectDetail .wrap .detail .detailOption .select-wrap {
   width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top {
-  display: flex;
-  align-items: center;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top .check-month {
-  font-size: 24px;
-  padding: 5px 0 5px 10px;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .top input[type=checkbox] {
-  margin: 0 10px 0 auto;
-  width: 24px;
-  height: 24px;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle {
-  width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap {
   padding: 30px;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap .middle-wrap {
+#selectDetail .wrap .detail .detailOption .accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #e3abab;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.13);
+}
+#selectDetail .wrap .detail .detailOption .accordion-button:not(.collapsed):after {
+  display: none;
+}
+#selectDetail .wrap .detail .detailOption .accordion-button:after {
+  display: none;
+}
+#selectDetail .wrap .detail .detailOption .btn-outline-secondary {
+  --bs-btn-color: #ec6757;
+  --bs-btn-border-color: #e3abab;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #ec6757;
+  --bs-btn-hover-border-color: #ec6757;
+  --bs-btn-focus-shadow-rgb: 108,117,125;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #ec6757;
+  --bs-btn-active-border-color: #e3abab;
+  --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #6c757d;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #6c757d;
+  --bs-gradient: none;
+}
+#selectDetail .wrap .detail .detailOption .btn-outline-secondary {
+  width: 100%;
+  padding: 3%;
+  margin: 3% 0;
+}
+#selectDetail .wrap .next-btn {
   width: 100%;
 }
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .middle .middle-gap .middle-wrap img {
-  width: 100%;
-  border-radius: 116px;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open {
-  width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open .modal-open-gap {
-  padding: 0 0 10px 0;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .modal-open .modal-open-gap .modal-open-wrap {
-  text-align: center;
-  cursor: pointer;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom {
-  width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap {
-  padding: 10px;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap {
-  width: 100%;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap .check-note {
-  text-align: center;
-  font-size: 18px;
-}
-#wrap #date-note .wrap .month .month-gap .month-wrap li .box .box-gap .box-wrap .bottom .bottom-gap .bottom-wrap .check-photo {
-  text-align: center;
-  font-size: 18px;
-}
-#wrap #date-note .wrap .next-btn {
-  width: 100%;
-}
-#wrap #date-note .wrap .next-btn .next-btn-gap {
+#selectDetail .wrap .next-btn .next-btn-gap {
   padding: 0 0 140px 0;
 }
-#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap {
+#selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap {
   width: 100%;
+  margin-top: 60%;
 }
-#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap a {
+#selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a {
   text-decoration: none;
   display: flex;
   width: 240px;
@@ -1011,7 +927,7 @@
   line-height: 74px;
   justify-content: center;
 }
-#wrap #date-note .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
+#selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }

@@ -38,24 +38,36 @@ const SelectKidsComponent = () => {
         return (
             <li key = {kidsList.id}>
                 <div className="in-kids-gap">
-                    <div className="in-kids-wrap">
-                        <div className="img-wrap">
+                    <div className="in-kids-wrap" id={kidsList.id} onClick={clickKids}>
+                        <div className="img-wrap" id={kidsList.id}>
                             <img
                             src={kids1}
                             alt={"kids"+kidsList.id}
                             id={kidsList.id}
-                            onClick={clickKids}
                             />
                         </div>
-                        <div className="text-wrap">
-                        <p>{kidsList.kidsName}</p>
-                        <p>{kidsList.kidsBirth}</p>
+                        <div className="text-wrap" id={kidsList.id}>
+                        <p id={kidsList.id}>{kidsList.kidsName}</p>
+                        <p id={kidsList.id}>{kidsList.kidsBirth}</p>
                         </div>
                     </div>
                 </div>
             </li>
         )
     })    
+
+    const createNextBtn = (e) =>{
+        
+        if(selectedKids.selectedKidsNum !== ""){
+            return(
+                <Link to="/SelectDetailOption">다음</Link>
+            )
+        }else{
+            return(
+                <Link className='disabled'>다음</Link>
+            )
+        }
+    }
 
     return (
         <div id="selectkids">
@@ -80,7 +92,7 @@ const SelectKidsComponent = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/SelectDetailOption">다음</Link>
+                            {createNextBtn()}
                         </div>
                     </div>
                 </div>
