@@ -53,6 +53,7 @@
   font-weight: 600;
   text-align: center;
   margin: 0;
+  padding: 0;
 }
 #wrap #header .wrap .header-gap .header-wrap .cart {
   width: 15%;
@@ -149,6 +150,8 @@
   margin: 0 0 0 auto;
 }
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul {
+  padding: 0;
+  margin: 0;
   display: flex;
 }
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul li {
@@ -253,12 +256,15 @@
 #wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #ec6757;
 }
+#wrap #selectTheme .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
+}
 #wrap #selectkids {
   background: #f9f4f4;
   width: 100vw;
 }
 #wrap #selectkids .wrap {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   height: 100%;
 }
@@ -272,6 +278,8 @@
   width: 100%;
 }
 #wrap #selectkids .wrap .step1 .step1-gap .step1-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -286,6 +294,8 @@
   width: 100%;
 }
 #wrap #selectkids .wrap .kids .kids-gap .kids-wrap ul {
+  margin: 0;
+  padding: 0;
   width: 100%;
   display: flex;
   flex-flow: wrap;
@@ -324,6 +334,7 @@
   padding: 0 0 20px 0;
 }
 #wrap #selectkids .wrap .kids .kids-gap .kids-wrap ul li .in-kids-gap .in-kids-wrap .text-wrap p {
+  margin: 0;
   padding: 5px;
   text-align: center;
   font-size: 16px;
@@ -356,6 +367,9 @@
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }
+#wrap #selectkids .wrap .next-btn .next-btn-gap .next-btn-wrap .disabled {
+  background-color: rgba(255, 208, 208, 0.4901960784);
+}
 #wrap #option-note {
   background: #f9f4f4;
   width: 100vw;
@@ -374,6 +388,8 @@
   width: 100%;
 }
 #wrap #option-note .wrap .step2 .step2-gap .step2-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -420,6 +436,7 @@
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p {
   margin: 0;
+  padding: 0;
   font-weight: 600;
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p.month {
@@ -547,6 +564,7 @@
 }
 #wrap #option-note .wrap .content .content-gap .content-wrap .option .option-gap .option-wrap li .text p {
   margin: 0 auto;
+  padding: 0;
   line-height: 80px;
 }
 #wrap #option-note .wrap .next-btn {
@@ -595,6 +613,8 @@
   width: 100%;
 }
 #wrap #option-album .wrap .step2 .step2-gap .step2-wrap p {
+  margin: 0;
+  padding: 0;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
@@ -641,6 +661,7 @@
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p {
   margin: 0;
+  padding: 0;
   font-weight: 600;
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .example .example-gap .example-wrap .top .top-gap .top-wrap .setdate p.month {
@@ -764,6 +785,7 @@
   font-size: 20px;
 }
 #wrap #option-album .wrap .content .content-gap .content-wrap .option .option-gap .option-wrap li .text p {
+  padding: 0;
   margin: 0 auto;
   line-height: 80px;
 }
@@ -792,6 +814,116 @@
   justify-content: center;
 }
 #wrap #option-album .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #selectDetail {
+  background: #f9f4f4;
+  width: 100vw;
+}
+#wrap #selectDetail .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #selectDetail .wrap .step2 {
+  width: 100%;
+}
+#wrap #selectDetail .wrap .step2-gap {
+  padding: 50px 0;
+}
+#wrap #selectDetail .wrap .step2-wrap {
+  width: 100%;
+}
+#wrap #selectDetail .wrap p {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+}
+#wrap #selectDetail .wrap .detail {
+  width: 100%;
+}
+#wrap #selectDetail .wrap .detail .img-wrap {
+  display: flex;
+  flex-flow: wrap;
+  width: 50%;
+  padding: 30px;
+  float: left;
+  margin: auto 0;
+}
+#wrap #selectDetail .wrap .detail .img-wrap .main {
+  position: relative;
+}
+#wrap #selectDetail .wrap .detail .img-wrap .sub {
+  position: absolute;
+}
+#wrap #selectDetail .wrap .detail .detailOption {
+  width: 500px;
+  float: right;
+  margin: 0 auto;
+}
+#wrap #selectDetail .wrap .detail .detailOption .select-wrap {
+  width: 100%;
+  padding: 30px;
+}
+#wrap #selectDetail .wrap .detail .detailOption .accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #e3abab;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.13);
+}
+#wrap #selectDetail .wrap .detail .detailOption .accordion-button:not(.collapsed):after {
+  display: none;
+}
+#wrap #selectDetail .wrap .detail .detailOption .accordion-button:after {
+  display: none;
+}
+#wrap #selectDetail .wrap .detail .detailOption .btn-outline-secondary {
+  --bs-btn-color: #ec6757;
+  --bs-btn-border-color: #e3abab;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #ec6757;
+  --bs-btn-hover-border-color: #ec6757;
+  --bs-btn-focus-shadow-rgb: 108,117,125;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #ec6757;
+  --bs-btn-active-border-color: #e3abab;
+  --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #6c757d;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #6c757d;
+  --bs-gradient: none;
+}
+#wrap #selectDetail .wrap .detail .detailOption .btn-outline-secondary {
+  width: 100%;
+  padding: 3%;
+  margin: 3% 0;
+}
+#wrap #selectDetail .wrap .next-btn {
+  width: 100%;
+}
+#wrap #selectDetail .wrap .next-btn .next-btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap {
+  width: 100%;
+  margin-top: 60%;
+}
+#wrap #selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #selectDetail .wrap .next-btn .next-btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }
