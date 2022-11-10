@@ -20,7 +20,7 @@ const SelectThemeComponent = () => {
     
     const axiosGet=()=>{
         axios({
-            url:'/getThemeAll',
+            url:'/photobookServer/getThemeAll',
             method:'GET'
         })
         .then((res)=>{
@@ -38,10 +38,10 @@ const SelectThemeComponent = () => {
 
     //hover 이미지 변경
     const onMouseOver = (e) => {
-        e.target.src = "/getThemeSubImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeSubImg/" + e.target.id;
     }
     const onMouseOut = (e) => {
-        e.target.src = "/getThemeImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeImg/" + e.target.id;
     }
 
 
@@ -70,6 +70,7 @@ const SelectThemeComponent = () => {
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
             const imgEle = document.querySelectorAll("img");
+            setSelectedTheme({selectThemeNum:e.target.id});
             for(var i = 0; i<imgEle.length; i++){
                 imgEle[i].classList.remove("on");
 
@@ -93,14 +94,14 @@ const SelectThemeComponent = () => {
                     <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
                         <div className="img-wrap">
                             <img
-                                src={"/getThemeImg/"+list.themeNum} 
+                                src={"/photobookServer/getThemeImg/"+list.themeNum} 
                                 alt={'Theme'+list.themeNum}
                                 id={list.themeNum}
                             />
                         </div>
                         <div className="text-wrap">
-                            <p className="theme-name">{list.themeName}</p>
-                            <p className='price-text'>{makeComma(list.themePrice)}원</p>
+                            <p className="theme-name" id = {list.themeNum}>{list.themeName}</p>
+                            <p className='price-text' id = {list.themeNum}>{makeComma(list.themePrice)}원</p>
 
                         </div>
                     </div>
@@ -108,6 +109,21 @@ const SelectThemeComponent = () => {
             </li>
         )
     })    
+
+    
+    const createNextBtn = (e) =>{ // 다음 페이지로 이동하기 버튼 생성 (활성화/비활성화를 구분하기 위해 함수로 버튼 생성)
+        if(selectedTheme.selectThemeNum !== ""){
+            localStorage.setItem("theme_num", selectedTheme.selectThemeNum);
+            return(
+                <Link to="/SelectKidsComponent">다음</Link>
+                
+            )
+        }else{
+            return(
+                <Link className='disabled'>다음</Link>
+            )
+        }
+    }
 
     return (
         <div id="selectTheme">
@@ -136,7 +152,7 @@ const SelectThemeComponent = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/SelectKidsComponent">다음</Link>
+                            {createNextBtn()}
                         </div>
                     </div>
                 </div>
