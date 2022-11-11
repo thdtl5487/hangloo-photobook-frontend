@@ -85,6 +85,10 @@
   background-size: cover;
   position: relative;
 }
+#wrap #main .wrap button {
+  border: solid 3px black;
+  display: block;
+}
 #wrap #main .wrap a {
   position: absolute;
   top: 50%;

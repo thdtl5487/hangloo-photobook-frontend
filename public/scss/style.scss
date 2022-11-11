@@ -86,6 +86,12 @@
             background-size:cover;
             
             position:relative;
+
+            button{
+                border: solid 3px black;
+                display: block;
+            }
+
             a {
                 position:absolute;
                 top:50%;
