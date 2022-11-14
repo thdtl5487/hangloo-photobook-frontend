@@ -2,18 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import thumbnail from '../images/hard.jpg';
+import apiloader from '../apiutil/apiloader';
 
 const SelectDateNote = ({album, months, modalOpenFn}) => {
-    // const test=()=>{
-    //     var arr5 = new Set();
-    //     arr5.add(1);
-    //     arr5.add(3);
-    //     arr5.add(3);
-    //     arr5.add(4);
-    //     console.log(arr5);
-    // }
-    // test();
 
+    const [allNoticeInfo, setAllNoticeInfo] = useState(
+        {
+            allNoticeInfo: []
+        }
+    )
 
     const [currentYearNotices, setCurrentYearNotices] = useState(
         {
@@ -21,62 +18,89 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             yearNoticeContent: []
         }
     )
-    const [currentMonthNotices, setCurrentMonthNotices] = useState(
-        {
-            monthNoticeList: []
-        }
-    )
-    const [arrayTest, setArrayTest] = useState({
-        testList: []
-    })
-    // const getNoticeInfoTest = () =>{
+
+    // ↓원래 사라님이 해놓은 부분 안되면 참고
+    // const getNoticeInfoTest = () =>{ 
     //     console.log("getNoticeInfoTest 실행")
     //     axios({
-    //         url: "/getAllNoticesInfo",
+    //         url: "/photobookServer/getAllNoticesInfo",
     //         method: "GET"
     //     })
     //     .then((res)=>{
-            
-    //         var myList = [];
-    //         var myListMonth = [];
-    //         console.log("2022년 데이타 ---------------")
-    //         for(var i = 0; i<res.data.length; i++){
-    //             var dataYear = res.data[i].noticeRegDate;
-    //             if(dataYear.slice(0,4) === cnt.toString()){
-    //                 console.log(res.data[i]);
-    //                 myList.push(res.data[i]);
-    //                 setCurrentYearNotices({noticeList:myList});
+    //         const myList = []; // 년도 구분이고
+    //         const myList2 = []; // 해당 년도의 알림장 데이터
+    //         for(let i = 0; i<res.data.length; i++){
+    //             let dataYear = res.data[i].noticeRegDate;
+    //             myList.push(dataYear.slice(0,4));
+    //             if(dataYear.slice(0,4) === "2022"){
+    //                 myList2.push(res.data[i]);
     //             }
     //         }
-    //         console.log("2022년 데이타 종료---------------")
-    //         console.log("2022년 데이타만 추린거")
-    //         console.log(currentYearNotices.noticeList)
+    //         const newMyList = Array.from(new Set(myList));
+    //         setCurrentYearNotices({...currentYearNotices, yearNoticeList:newMyList, yearNoticeContent:myList2});
     //     })
     // }
-    const getNoticeInfoTest = () =>{
-        console.log("getNoticeInfoTest 실행")
+
+    // 해당 페이지 접근 시 전체 알림장 정보를 받아오는 기능-------------------------------@@@
+    const getNoticesInit = () => {
+        var page = 1;
+        var startDate = "2020-01-01";
+        var endDate = "2030-12-31";
+        var kidsNum = localStorage.getItem("kids_num");
+        var currentArray = [];
+
         axios({
-            url: "/photobookServer/getAllNoticesInfo",
-            method: "GET"
-        })
-        .then((res)=>{
-            const myList = [];
-            const myList2 = [];
-            for(let i = 0; i<res.data.length; i++){
-                let dataYear = res.data[i].noticeRegDate;
-                myList.push(dataYear.slice(0,4));
-                if(dataYear.slice(0,4) === "2022"){
-                    myList2.push(res.data[i]);
-                }
+            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
+            method: "GET",
+            headers: {
+                "Content-Type": 'application/json'
+            },
+        }).then((res)=>{
+            currentArray = res.data.data.list;
+            for(var i = 1; i<res.data.data.totalPage; i++){
+                getNoticeInitMore(i+1, startDate, endDate, kidsNum, currentArray);
             }
-            const newMyList = Array.from(new Set(myList));
-            setCurrentYearNotices({...currentYearNotices, yearNoticeList:newMyList, yearNoticeContent:myList2});
+        })
+
+        // 년도 구분
+        // divideYearInfo();
+    }
+
+    // 불러와야 하는 페이지가 1개 이상인 경우 추가 페이지를 실행하는 기능
+    const getNoticeInitMore = (page, startDate, endDate, kidsNum, currentArray) => {
+        
+        axios({
+            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
+            method: "GET",
+            headers: {
+                "Content-Type": 'application/json'
+            },
+        }).then((res)=>{
+            for(var i = 0; i<res.data.data.list.length; i++){
+                currentArray.push(res.data.data.list[i]);
+            }
+            setAllNoticeInfo({
+                allNoticeInfo:currentArray
+            })
         })
     }
 
     useEffect(()=>{
-        getNoticeInfoTest();
+        getNoticesInit();
+
+        
     }, []);
+    // 시작 시 실행되는 함수 종료 ----------------------------------------------------
+
+    // state의 알림장 정보를 통한 년도 구분
+    const divideYearInfo = () => {
+        console.log(allNoticeInfo.allNoticeInfo);
+        const hasYears = [];
+        for(let i = 0; i<allNoticeInfo.allNoticeInfo.length; i++){
+            console.log(i);
+        }
+
+    }
 
     const [whatYear, setWhatYear] = useState(0);
 
@@ -95,25 +119,25 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
 
     const [noteMonth, setNoteMonth] = useState ({
         months:["1","2","3","4","5","6","7","8","9","10","11","12"]
-     });
-     
-     const onChangeNote = (e) => {
-         let imsi=[];
-         if(e.target.checked===true){
-            setNoteMonth({...noteMonth, months:[...noteMonth.months, e.target.value]});
-         }
-         else {
-             imsi = noteMonth.months.filter((item)=>item !== e.target.value);
-             setNoteMonth({...noteMonth, months:imsi});
-         }
-     }
+    });
 
-     const onChangeAll = (e) => {
+    const onChangeNote = (e) => {
+        let imsi=[];
+        if(e.target.checked===true){
+            setNoteMonth({...noteMonth, months:[...noteMonth.months, e.target.value]});
+        }
+        else {
+            imsi = noteMonth.months.filter((item)=>item !== e.target.value);
+            setNoteMonth({...noteMonth, months:imsi});
+        }
+    }
+
+    const onChangeAll = (e) => {
         setNoteMonth({...noteMonth, months:months});
-     }
-     const onChangeNone = (e) => {
+    }
+    const onChangeNone = (e) => {
         setNoteMonth({...noteMonth, months:[]});
-     }
+    }
 
     const monthAlbum = album.map((monthAlbum)=>{
         return (
