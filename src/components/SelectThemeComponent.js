@@ -20,7 +20,7 @@ const SelectThemeComponent = () => {
     
     const axiosGet=()=>{
         axios({
-            url:'/getThemeAll',
+            url:'photobookServer/getThemeAll',
             method:'GET'
         })
         .then((res)=>{
@@ -38,10 +38,10 @@ const SelectThemeComponent = () => {
 
     //hover 이미지 변경
     const onMouseOver = (e) => {
-        e.target.src = "/getThemeSubImg/" + e.target.id;
+        e.target.src = "photobookServer/getThemeSubImg/" + e.target.id;
     }
     const onMouseOut = (e) => {
-        e.target.src = "/getThemeImg/" + e.target.id;
+        e.target.src = "photobookServer/getThemeImg/" + e.target.id;
     }
 
 
@@ -51,7 +51,7 @@ const SelectThemeComponent = () => {
         const priceText = document.getElementsByClassName('price-text');
         for(var i = 0; i<field.themeList.length; i++){
             priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
-            
+
         }
     }
     
@@ -93,7 +93,7 @@ const SelectThemeComponent = () => {
                     <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
                         <div className="img-wrap">
                             <img
-                                src={"/getThemeImg/"+list.themeNum} 
+                                src={"photobookServer/getThemeImg/"+list.themeNum} 
                                 alt={'Theme'+list.themeNum}
                                 id={list.themeNum}
                             />
