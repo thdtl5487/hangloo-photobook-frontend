@@ -108,7 +108,7 @@ const SelectDetailOptionAlbum = () => {
                             <div className="option">
                                 <div className="option-gap">
                                     <ul className="option-wrap">
-                                        <li>
+                                        <li className={albumLayout.layout.includes('photoqr')?'on':''}>
                                             <label htmlFor="photoqr">
                                                 <input type="checkbox" checked={albumLayout.layout.includes('photoqr')} onChange={onChange} id="photoqr" name="photoqr" value="photoqr" />
                                                 <div className="text">
@@ -116,7 +116,7 @@ const SelectDetailOptionAlbum = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={albumLayout.layout.includes('videoqr')?'on':''}>
                                             <label htmlFor="videoqr">
                                                 <input type="checkbox" checked={albumLayout.layout.includes('videoqr')} onChange={onChange} id="videoqr" name="videoqr" value="videoqr" />
                                                 <div className="text">
@@ -124,7 +124,7 @@ const SelectDetailOptionAlbum = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={albumLayout.layout.includes('notice')?'on':''}>
                                             <label htmlFor="notice">
                                                 <input type="checkbox" checked={albumLayout.layout.includes('notice')} onChange={onChange} id="notice" name="notice" value="notice" />
                                                 <div className="text">
@@ -132,7 +132,7 @@ const SelectDetailOptionAlbum = () => {
                                                 </div>
                                             </label>
                                         </li>
-                                        <li>
+                                        <li className={albumLayout.layout.includes('comment')?'on':''}>
                                             <label htmlFor="comment">
                                                 <input type="checkbox" checked={albumLayout.layout.includes('comment')} onChange={onChange} id="comment" name="comment" value="comment" />
                                                 <div className="text">
@@ -149,7 +149,7 @@ const SelectDetailOptionAlbum = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/">다음</Link>
+                            <Link to="/SelectDateNote">다음</Link>
                         </div>
                     </div>
                 </div>
