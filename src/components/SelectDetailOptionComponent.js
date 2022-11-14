@@ -7,8 +7,30 @@ import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { DEFAULT_MIN_BREAKPOINT } from 'react-bootstrap/esm/ThemeProvider';
 
-const SelectDetailOption = () => {
-    
+const SelectDetailOption = ({albumnote, setAlbumnote}) => {
+  
+	const onClickdisabled = (e) => {
+		alert('알림장과 노트를 선택해 주세요');
+	}
+
+	const noteAlbumSelect = (e) =>{
+        if(albumnote.albumnote.length<=0){
+			return (
+				<Link className='disabled' onClick={onClickdisabled}>다음</Link>
+			)
+        }else{
+			if(albumnote.albumnote.includes('note')===true){
+				return(
+					<Link to="/SelectDetailOptionNote">다음</Link>
+				)
+			}
+			else {
+				return(
+					<Link to="/SelectDetailOptionAlbum">다음</Link>
+				)
+			}
+        }
+    }
 
   const img = [
     {id:1, image:'./img/sampleimg_1.PNG', title:'noPhotoNote'},
@@ -21,8 +43,8 @@ const SelectDetailOption = () => {
 
 
 
-  // const [note, setNote] = useState('note');
-  // const [album, setAlbum] = useState('album');
+//   const [note, setNote] = useState('note');
+//   const [album, setAlbum] = useState('album');
 
   const [choice, setChoice] = useState({
     choicelist:[]
@@ -33,12 +55,16 @@ const SelectDetailOption = () => {
 
   const onNote = () =>{
     let imsi=[];
+	let imsi2=[];
     if(choice.choicelist.includes("note")===false){
       setChoice({...choice, choicelist:[...choice.choicelist, "note"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "note"]})
 	  setCheckNoteText(<>선택</>)
     }else{
      imsi = choice.choicelist.filter((item)=>item !== "note");
+	 imsi2 = albumnote.albumnote.filter((item)=>item !=="note")
      setChoice({...choice, choicelist:imsi})
+	 setAlbumnote({...albumnote, albumnote:imsi2})
 	 setCheckNoteText(<>해제</>)
     }
     console.log(choice)
@@ -46,12 +72,16 @@ const SelectDetailOption = () => {
 
   const onAlbum = ()=>{
     let imsi=[];
+	let imsi2=[];
     if(choice.choicelist.includes("album")===false){
       setChoice({...choice, choicelist:[...choice.choicelist, "album"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "album"]})
 	  setCheckAlbumText(<>선택</>)
     }else{
      imsi = choice.choicelist.filter((item)=>item !== "album");
+	 imsi2 = albumnote.albumnote.filter((item)=>item !=="album")
      setChoice({...choice, choicelist:imsi})
+	 setAlbumnote({...albumnote, albumnote:imsi2})
 	 setCheckAlbumText(<>해제</>)
     }
     console.log(choice)
@@ -294,7 +324,7 @@ const SelectDetailOption = () => {
 				<div className="next-btn">
 					<div className="next-btn-gap">
 						<div className="next-btn-wrap">
-							<Link to="/selectDetailOptionNote">다음</Link>
+							{noteAlbumSelect()}
 						</div>
 					</div>
 				</div>

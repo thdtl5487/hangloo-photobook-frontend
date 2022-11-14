@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { click } from '@testing-library/user-event/dist/click';
 
-const SelectThemeComponent = () => {
+const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}) => {
 
     //테마 데이터로 리스트 작성
     const [field, setField] = useState(
@@ -11,7 +11,7 @@ const SelectThemeComponent = () => {
             themeList:[]
         }
     )
-
+    
     const [selectedTheme, setSelectedTheme] = useState(
         {
             selectThemeNum: ""
@@ -20,12 +20,13 @@ const SelectThemeComponent = () => {
     
     const axiosGet=()=>{
         axios({
-            url:'/getThemeAll',
+            url:'/photobookServer/getThemeAll',
             method:'GET'
         })
         .then((res)=>{
             console.log(res.data);
             setField({themeList:res.data})
+            setThemeList({allThemeList:res.data})
         })
         .catch((err)=>{
             console.log(err);
@@ -38,10 +39,10 @@ const SelectThemeComponent = () => {
 
     //hover 이미지 변경
     const onMouseOver = (e) => {
-        e.target.src = "/getThemeSubImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeSubImg/" + e.target.id;
     }
     const onMouseOut = (e) => {
-        e.target.src = "/getThemeImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeImg/" + e.target.id;
     }
 
     // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
@@ -65,6 +66,7 @@ const SelectThemeComponent = () => {
         if(e.target.id !== ""){ // id가 없는 경우에는 state값이 변동되지 않게 하기 위한 조건문
             e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
             setSelectedTheme({selectThemeNum:e.target.id});
+            setAlbumnote({...albumnote, themeNum:e.target.id});
         }
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
@@ -90,7 +92,7 @@ const SelectThemeComponent = () => {
                     <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
                         <div className="img-wrap" id={list.themeNum}>
                             <img
-                                src={"/getThemeImg/"+list.themeNum} 
+                                src={"/photobookServer/getThemeImg/"+list.themeNum} 
                                 alt={'Theme'+list.themeNum}
                                 id={list.themeNum}
                             />
