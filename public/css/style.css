@@ -1537,6 +1537,1668 @@
   border: 1px solid #000;
   background: #000;
 }
+#wrap #makeDetail {
+  background: #f9f4f4;
+  width: 100vw;
+}
+#wrap #makeDetail .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #makeDetail .wrap .info-wrap {
+  padding: 1.5%;
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#wrap #makeDetail .wrap .info-wrap .ArrowCounterclockwise {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+  animation-direction: reverse;
+  transform: rotate(180deg);
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+#wrap #makeDetail .wrap .list-wrap {
+  width: 50%;
+  padding: 30px;
+  float: left;
+}
+#wrap #makeDetail .wrap .list-wrap .list {
+  width: 100%;
+  background: #ffd0d0;
+  padding: 2%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+#wrap #makeDetail .wrap .list-wrap .list .list-text {
+  margin: 0 auto;
+}
+#wrap #makeDetail .wrap .list-wrap .list .list-text .ym {
+  font-weight: bold;
+  font-size: 23px;
+}
+#wrap #makeDetail .wrap .list-wrap .list .list-text .page {
+  margin-top: 5px;
+  float: right;
+  font-size: 15px;
+}
+#wrap #makeDetail .wrap .wall-wrap {
+  width: 50%;
+  padding: 30px;
+  float: right;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist .CaretLeftFill {
+  float: left;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist .days {
+  border: 1px solid black;
+  background: #6c757d;
+  border-radius: 3px;
+  float: left;
+  padding: 10px 13px 10px 13px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist .CaretRightFill {
+  float: right;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetail .wrap .wall-wrap .option {
+  width: 100%;
+  margin-bottom: 50px;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap {
+  float: right;
+  margin-right: 10px;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap input[type=radio] + label {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #e58e84;
+  background-color: #fff;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  cursor: pointer;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap input[type=radio]:checked + label {
+  background-color: #ec6757;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd0d0;
+  border-color: #ef4c39;
+  z-index: 1;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap .opt-note-btn {
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+}
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap .opt-album-btn {
+  border-radius: 0 5px 5px 0;
+  font-size: 15px;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar {
+  padding: 10px;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-start {
+  width: 100%;
+  margin-left: 40%;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-start .text {
+  font-size: 0.8em;
+  text-align: center;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-start .text.year {
+  margin-right: 4px;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-start .text.month {
+  margin-right: 5px;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end {
+  margin-left: 20%;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretLeftFill {
+  color: #ec6757;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretLeftFill:hover {
+  color: #e3abab;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretRightFill {
+  color: #ec6757;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretRightFill:hover {
+  color: #e3abab;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .days {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.8em;
+  padding: 2px;
+  text-align: center;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .days .col {
+  margin-bottom: 1%;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row {
+  display: flex;
+  flex-direction: row;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col {
+  height: 80%;
+  width: 80%;
+  padding: 0;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col .day-wrap {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col .spantext {
+  text-align: center;
+  position: relative;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col span {
+  position: absolute;
+  transform: translate(-52%, 80%);
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col .imgbox {
+  width: 60px;
+  height: 60px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-top: 20%;
+  margin: auto auto;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col .calimg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#wrap #makeDetail .wrap .wall-wrap .wall .calendar .body .row .col .not-valid {
+  color: #a8a8a8;
+}
+#wrap #makeDetail .wrap .whole-edit-wrap {
+  width: 50%;
+  padding: 30px;
+  margin: auto 1%;
+  display: inline-block;
+}
+#wrap #makeDetail .wrap .whole-edit-wrap ul {
+  margin: 0 auto;
+  float: right;
+}
+#wrap #makeDetail .wrap .whole-edit-wrap ul .whole-edit {
+  width: 30%;
+  font-weight: bold;
+  float: left;
+  margin-top: 7.5%;
+}
+#wrap #makeDetail .wrap .whole-edit-wrap ul .whole-edit-button {
+  width: 30%;
+  float: left;
+  background: #e3abab;
+  color: #f9f4f4;
+  text-align: center;
+  margin: 1%;
+  padding: 10px;
+  border-radius: 5px;
+}
+#wrap #makeDetail .wrap .whole-edit-wrap ul .whole-edit-button:hover {
+  background: #ec6757;
+}
+#wrap #makeDetail .wrap .btn {
+  width: 100%;
+}
+#wrap #makeDetail .wrap .btn .btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #makeDetail .wrap .btn .btn-gap .save-btn-wrap {
+  margin-left: 20%;
+  float: left;
+}
+#wrap #makeDetail .wrap .btn .btn-gap .save-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetail .wrap .btn .btn-gap .save-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #makeDetail .wrap .btn .btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetail .wrap .btn .btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #makeDetailNote {
+  background: #f9f4f4;
+  width: 100vw;
+}
+#wrap #makeDetailNote .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .info-wrap {
+  padding: 1.5%;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#wrap #makeDetailNote .wrap .info-wrap .ArrowCounterclockwise {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+  animation-direction: reverse;
+  transform: rotate(180deg);
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+#wrap #makeDetailNote .wrap .list-wrap {
+  width: 50%;
+  padding: 30px;
+  float: left;
+}
+#wrap #makeDetailNote .wrap .list-wrap .list {
+  width: 100%;
+  background: #ffd0d0;
+  padding: 2%;
+  border-radius: 5px;
+}
+#wrap #makeDetailNote .wrap .list-wrap .list .list-text {
+  margin: 0 auto;
+}
+#wrap #makeDetailNote .wrap .list-wrap .list .list-text .ym {
+  font-weight: bold;
+  font-size: 23px;
+}
+#wrap #makeDetailNote .wrap .list-wrap .list .list-text .page {
+  margin-top: 5px;
+  float: right;
+  font-size: 15px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap {
+  width: 50%;
+  padding: 30px;
+  float: right;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .pagecheck {
+  width: 80%;
+  font-size: 60px;
+  margin-left: 88%;
+  padding: 5px;
+  position: relative;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .pagecheck .checkcirclefill {
+  color: #e58e84;
+  position: absolute;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .pagecheck .checkcircle {
+  color: #ffd0d0;
+  position: absolute;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .opt-days {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .opt-days .dayslist {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .opt-days .dayslist .CaretLeftFill {
+  float: left;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .opt-days .dayslist .days {
+  border: 1px solid black;
+  background: #6c757d;
+  border-radius: 3px;
+  float: left;
+  padding: 10px 13px 10px 13px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .opt-days .dayslist .CaretRightFill {
+  float: right;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option {
+  width: 100%;
+  margin-bottom: 50px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap {
+  float: right;
+  margin-right: 10px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap input[type=radio] + label {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #e58e84;
+  background-color: #fff;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  cursor: pointer;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap input[type=radio]:checked + label {
+  background-color: #ec6757;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd0d0;
+  border-color: #ef4c39;
+  z-index: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap .opt-note-btn {
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .option .option-wrap .opt-album-btn {
+  border-radius: 0 5px 5px 0;
+  font-size: 15px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap {
+  width: 100%;
+  padding: 10px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box {
+  width: 100%;
+  height: 800px;
+  border: 2px solid black;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top {
+  width: 100%;
+  height: 15%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap {
+  padding: 10px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap {
+  width: 100%;
+  display: flex;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate {
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  border: 2px dashed #e3abab;
+  border-radius: 10px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p {
+  margin: 0;
+  font-weight: 600;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.month {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.date {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.day {
+  font-size: 15px;
+  line-height: 35px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode .photo-qr {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  color: #fff;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode .video-qr {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  margin-left: 10px;
+  color: #fff;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview {
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 280px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #ef4c39;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 20px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #e3abab;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.status {
+  height: 20%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 35%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview {
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #ef4c39;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 255px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 0px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #e3abab;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.status {
+  height: 20%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 35%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap {
+  width: 100%;
+  padding: 10px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box {
+  width: 100%;
+  height: 800px;
+  border: 2px solid #a8a8a8;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .delete-text-box {
+  width: 80%;
+  position: relative;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .delete-text-box .delete-text {
+  width: 80%;
+  position: absolute;
+  font-size: 40px;
+  margin: 50% 0 0 28%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top {
+  width: 100%;
+  height: 15%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap {
+  padding: 10px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap {
+  width: 100%;
+  display: flex;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate {
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  border: 2px dashed #a8a8a8;
+  border-radius: 10px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p {
+  margin: 0;
+  font-weight: 600;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.month {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.date {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .setdate p.day {
+  font-size: 15px;
+  line-height: 35px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode .photo-qr {
+  width: 100px;
+  height: 100px;
+  background: #a8a8a8;
+  color: #fff;
+  opacity: 0.5;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .top .top-gap .top-wrap .qrcode .video-qr {
+  width: 100px;
+  height: 100px;
+  background: #a8a8a8;
+  margin-left: 10px;
+  color: #fff;
+  opacity: 0.5;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview {
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 280px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #a8a8a8;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 20px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #a8a8a8;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.status {
+  height: 20%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .basicview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 35%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview {
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #a8a8a8;
+  height: 100%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 255px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 0px 20px;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #a8a8a8;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.status {
+  height: 20%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 45%;
+}
+#wrap #makeDetailNote .wrap .detail-wrap .detail-note .delete-note-wrap .note-gap .note-box .view .changeview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 35%;
+}
+#wrap #makeDetailNote .wrap .whole-edit-wrap {
+  width: 50%;
+  padding: 30px;
+  margin: auto 1%;
+  display: inline-block;
+}
+#wrap #makeDetailNote .wrap .whole-edit-wrap ul {
+  margin: 0 auto;
+  float: right;
+}
+#wrap #makeDetailNote .wrap .whole-edit-wrap ul .whole-edit {
+  width: 30%;
+  font-weight: bold;
+  float: left;
+  margin-top: 7.5%;
+}
+#wrap #makeDetailNote .wrap .whole-edit-wrap ul .whole-edit-button {
+  width: 30%;
+  float: left;
+  background: #e3abab;
+  color: #f9f4f4;
+  text-align: center;
+  margin: 1%;
+  padding: 10px;
+  border-radius: 5px;
+}
+#wrap #makeDetailNote .wrap .whole-edit-wrap ul .whole-edit-button:hover {
+  background: #ec6757;
+}
+#wrap #makeDetailNote .wrap .btn {
+  width: 100%;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap .save-btn-wrap {
+  margin-left: 20%;
+  float: left;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap .save-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap .save-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetailNote .wrap .btn .btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #makeDetailAlbum {
+  background: #f9f4f4;
+  width: 100vw;
+}
+#wrap #makeDetailAlbum .wrap {
+  width: 60%;
+  margin: 0 auto;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .info-wrap {
+  padding: 1.5%;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#wrap #makeDetailAlbum .wrap .info-wrap .ArrowCounterclockwise {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+  animation-direction: reverse;
+  transform: rotate(180deg);
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+#wrap #makeDetailAlbum .wrap .list-wrap {
+  width: 50%;
+  padding: 30px;
+  float: left;
+}
+#wrap #makeDetailAlbum .wrap .list-wrap .list {
+  width: 100%;
+  background: #ffd0d0;
+  padding: 2%;
+  border-radius: 5px;
+}
+#wrap #makeDetailAlbum .wrap .list-wrap .list .list-text {
+  margin: 0 auto;
+}
+#wrap #makeDetailAlbum .wrap .list-wrap .list .list-text .ym {
+  font-weight: bold;
+  font-size: 23px;
+}
+#wrap #makeDetailAlbum .wrap .list-wrap .list .list-text .page {
+  margin-top: 5px;
+  float: right;
+  font-size: 15px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap {
+  width: 50%;
+  padding: 30px;
+  float: right;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .pagecheck {
+  width: 80%;
+  font-size: 60px;
+  margin-left: 88%;
+  padding: 5px;
+  position: relative;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .pagecheck .checkcirclefill {
+  color: #e58e84;
+  position: absolute;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .pagecheck .checkcircle {
+  color: #ffd0d0;
+  position: absolute;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .opt-days {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .opt-days .dayslist {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .opt-days .dayslist .CaretLeftFill {
+  float: left;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .opt-days .dayslist .days {
+  border: 1px solid black;
+  background: #6c757d;
+  border-radius: 3px;
+  float: left;
+  padding: 10px 13px 10px 13px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .opt-days .dayslist .CaretRightFill {
+  float: right;
+  font-size: 25px;
+  margin-top: 19px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option {
+  width: 100%;
+  margin-bottom: 50px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap {
+  float: right;
+  margin-right: 10px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap input[type=radio] + label {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #e58e84;
+  background-color: #fff;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  cursor: pointer;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap input[type=radio]:checked + label {
+  background-color: #ec6757;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd0d0;
+  border-color: #ef4c39;
+  z-index: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap .opt-note-btn {
+  border-radius: 5px 0 0 5px;
+  font-size: 15px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .option .option-wrap .opt-album-btn {
+  border-radius: 0 5px 5px 0;
+  font-size: 15px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap {
+  width: 100%;
+  padding: 10px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box {
+  width: 100%;
+  height: 800px;
+  border: 2px solid black;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top {
+  width: 100%;
+  height: 15%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap {
+  padding: 10px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap {
+  width: 100%;
+  display: flex;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate {
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  border: 2px dashed #e3abab;
+  border-radius: 10px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p {
+  margin: 0;
+  font-weight: 600;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.month {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.date {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.day {
+  font-size: 15px;
+  line-height: 35px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode .photo-qr {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  color: #fff;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode .video-qr {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  margin-left: 10px;
+  color: #fff;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview {
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 280px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #ef4c39;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 20px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #e3abab;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 55%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview {
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #ef4c39;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 255px;
+  opacity: 0;
+  transition: 0.5s all;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 0px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #e3abab;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 55%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap {
+  width: 100%;
+  padding: 10px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box {
+  width: 100%;
+  height: 800px;
+  border: 2px solid #a8a8a8;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .delete-text-box {
+  width: 80%;
+  position: relative;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .delete-text-box .delete-text {
+  width: 80%;
+  position: absolute;
+  font-size: 40px;
+  margin: 50% 0 0 28%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top {
+  width: 100%;
+  height: 15%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap {
+  padding: 10px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap {
+  width: 100%;
+  display: flex;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate {
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  border: 2px dashed #a8a8a8;
+  border-radius: 10px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p {
+  margin: 0;
+  font-weight: 600;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.month {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.date {
+  font-size: 27px;
+  line-height: 24px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .setdate p.day {
+  font-size: 15px;
+  line-height: 35px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode .photo-qr {
+  width: 100px;
+  height: 100px;
+  background: #a8a8a8;
+  color: #fff;
+  opacity: 0.5;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .top .top-gap .top-wrap .qrcode .video-qr {
+  width: 100px;
+  height: 100px;
+  background: #a8a8a8;
+  margin-left: 10px;
+  color: #fff;
+  opacity: 0.5;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview {
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 280px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #a8a8a8;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 20px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #a8a8a8;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 55%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .basicview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview {
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle {
+  width: 100%;
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle .ArrowUp {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle:hover .ArrowUp {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle .middle-gap {
+  padding: 20px;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle .middle-gap .middle-wrap {
+  width: 100%;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .middle .middle-gap .middle-wrap .photo-section {
+  border: 2px solid #a8a8a8;
+  height: 100%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom {
+  width: 100%;
+  height: 40%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .ArrowDown {
+  display: block;
+  font-size: 30px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 255px;
+  opacity: 0;
+  transition: 0.5s all;
+  display: none;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom:hover .ArrowDown {
+  opacity: 1;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 0px 20px;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li {
+  width: 100%;
+  height: 100%;
+  padding: 2px 0;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li .li-wrap {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #a8a8a8;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li.notice {
+  height: 55%;
+}
+#wrap #makeDetailAlbum .wrap .detail-wrap .detail-album .delete-album-wrap .album-gap .album-box .view .changeview .bottom .bottom-gap .bottom-wrap li.comment {
+  height: 45%;
+}
+#wrap #makeDetailAlbum .wrap .whole-edit-wrap {
+  width: 50%;
+  padding: 30px;
+  margin: auto 1%;
+  display: inline-block;
+}
+#wrap #makeDetailAlbum .wrap .whole-edit-wrap ul {
+  margin: 0 auto;
+  float: right;
+}
+#wrap #makeDetailAlbum .wrap .whole-edit-wrap ul .whole-edit {
+  width: 30%;
+  font-weight: bold;
+  float: left;
+  margin-top: 7.5%;
+}
+#wrap #makeDetailAlbum .wrap .whole-edit-wrap ul .whole-edit-button {
+  width: 30%;
+  float: left;
+  background: #e3abab;
+  color: #f9f4f4;
+  text-align: center;
+  margin: 1%;
+  padding: 10px;
+  border-radius: 5px;
+}
+#wrap #makeDetailAlbum .wrap .whole-edit-wrap ul .whole-edit-button:hover {
+  background: #ec6757;
+}
+#wrap #makeDetailAlbum .wrap .btn {
+  width: 100%;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap {
+  padding: 0 0 140px 0;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap .save-btn-wrap {
+  margin-left: 20%;
+  float: left;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap .save-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap .save-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap .next-btn-wrap a {
+  text-decoration: none;
+  display: flex;
+  width: 240px;
+  height: 80px;
+  margin: 0 auto;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
+  border-radius: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 74px;
+  justify-content: center;
+}
+#wrap #makeDetailAlbum .wrap .btn .btn-gap .next-btn-wrap a:hover {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
 #wrap #changeTheme .wrap .slide-container {
   width: 100%;
   padding: 20px 0;

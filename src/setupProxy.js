@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.use(
         "/photobook/api/",
         createProxyMiddleware({
-            target: "http://huscale.asuscomm.com",
+            target: "http://dev3.hangloo.co.kr",
             changeOrigin: true,
         }),
         );

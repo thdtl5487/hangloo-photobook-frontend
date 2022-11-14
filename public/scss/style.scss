@@ -1655,4 +1655,1841 @@
             }
         }
     }
+
+    
+    #makeDetail{
+        background:#f9f4f4;
+        width:100vw;
+        .wrap{
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .info-wrap{
+                padding: 1.5%;
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .ArrowCounterclockwise{
+                    animation-duration: 2s;
+                    animation-delay: -5s;
+                    animation-direction: reverse;
+                    transform: rotate( 180deg );
+                    animation: spin 2s linear infinite;
+                }
+            }
+
+            .list-wrap{
+                width: 50%;
+                padding: 30px;
+                float: left;
+                .list{
+                    width: 100%;
+                    background: #ffd0d0;
+                    padding: 2%;
+                    border-radius:5px;
+                    margin-bottom: 20px;
+                    .list-text{
+                        margin: 0 auto;
+                        .ym{
+                            font-weight: bold;
+                            font-size: 23px;
+                        }
+
+                        .page{
+                            margin-top: 5px;
+                            float:right;
+                            font-size: 15px;
+                        }
+                    }
+                    
+                }
+            }
+
+
+            .wall-wrap{
+                width: 50%;
+                padding: 30px;
+                float: right;
+                
+                .opt-days{
+                    width: 100%;
+                    display: inline-block;
+                    margin-bottom: 5%;
+
+                    .dayslist{
+                        width: 100%;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        .CaretLeftFill{
+                            float: left;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        .days{
+                            border: 1px solid black;
+                            background: #6c757d;
+                            border-radius: 3px;
+                            float: left;
+                            padding: 10px 13px 10px 13px ;
+                            font-size: 25px;
+                            display: flex;
+                            justify-content:center;
+                        }
+                        .CaretRightFill{
+                            float: right;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        
+
+                    }
+                }
+
+                .option{
+                    width: 100%;
+                    margin-bottom: 50px;
+                    .option-wrap{
+                        float: right;
+                        margin-right: 10px;
+                        input[type=radio]{
+                            appearance: none;
+                            display: none;
+                        }
+                        input[type=radio] + label{
+                            margin : 0;
+                            padding:5px;
+                            box-sizing: border-box;
+                            position:relative;
+                            display: inline-block;
+                            border:1px solid #e58e84;
+                            background-color: #fff;
+                            line-height: 140%;
+                            text-align: center;
+                            box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+                            transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+                            cursor: pointer;
+                            
+                        }
+                        input[type=radio]:checked + label{
+                            background-color: #ec6757;
+                            color: #fff;
+                            box-shadow: 0 0 10px #ffd0d0;
+                            border-color: #ef4c39;
+                            z-index: 1;
+                        }
+                        .opt-note-btn{
+                            border-radius: 5px 0 0 5px;
+                            font-size: 15px;
+                        }
+                        .opt-album-btn{
+                            border-radius: 0 5px 5px 0;
+                            font-size: 15px;
+                        }
+                    }
+
+                }
+
+                .wall{
+                    width: 100%;
+                    height: 100%;
+
+                    .calendar{
+                        // background: #ffd0d0;
+                        padding:10px;
+                        .header{
+                            width:100%;
+                            margin-top: 5%;
+                            margin-bottom: 10%;
+                            text-align: center;
+                            .col.col-start{
+                                width: 100%;
+                                margin-left: 40%;
+                                .text{
+                                    font-size: 0.8em;
+                                    text-align: center;
+                                }
+                                .text.year{
+                                    margin-right: 4px;
+                                }
+                                .text.month{
+                                    margin-right: 5px;
+                                    font-size: 1.6em;
+                                    font-weight: 600;
+                                }
+                            }
+                            .col.col-end{
+                                margin-left: 20%;
+                                .CaretLeftFill{
+                                    // display: none;
+                                    color: #ec6757;
+                                    &:hover{
+                                        color: #e3abab;
+                                    }
+                                }
+                                .CaretRightFill{
+                                    // display: none;
+                                    color: #ec6757;
+                                    &:hover{
+                                        color: #e3abab;
+                                    }
+                                }
+                                
+                            }
+                        }
+                        .days{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 600;
+                            font-size: 0.8em;
+                            padding: 2px;
+                            text-align: center;
+                            .col{
+                                margin-bottom: 1%;
+                            }
+                        }
+
+                        .body{
+                            width: 95%;
+                            margin:0 auto;
+                            display: flex;
+                            flex-direction: column;
+                            color: black;
+                            .row{
+                                display: flex;
+                                flex-direction: row;
+                                .col{
+                                    // border: 0.4px solid black;
+                                    // border-radius: 3px;        
+                                    height:80%;
+                                    width: 80%;
+                                    padding: 0;
+                                    .day-wrap{
+                                        width: 100%;
+                                        position: relative;
+                                        margin: 0 auto;
+                                    }
+                                    .spantext{
+                                        text-align: center;
+                                        position: relative;
+                                    }
+                                    span{
+                                        position: absolute;
+                                        transform: translate(-52%, 80%);
+                                    }
+                                    .imgbox{
+                                        width: 60px;
+                                        height: 60px;
+                                        border-radius: 70%;
+                                        overflow: hidden;
+                                        margin-top: 20%;
+                                        margin:auto auto;
+                                    }
+                                    .calimg{
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                    .not-valid{
+                                        color:#a8a8a8;
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .whole-edit-wrap{
+                width: 50%;
+                padding: 30px;
+                margin: auto 1%;
+                display: inline-block;
+                
+                ul{
+                    margin: 0 auto;
+                    float: right;
+
+                    .whole-edit{
+                        width: 30%;
+                        font-weight: bold;
+                        float: left;
+                        margin-top: 7.5%;
+                    }
+                    .whole-edit-button{
+                        width: 30%;
+                        float: left;
+                        background: #e3abab;
+                        color: #f9f4f4;
+                        text-align: center;
+                        margin: 1%;
+                        padding: 10px;
+                        border-radius: 5px;
+
+                        &:hover{
+                            background: #ec6757;
+                        }
+                        
+                    }
+                }
+            }
+
+
+
+
+
+            .btn {
+                width:100%;
+                .btn-gap {
+                    padding:0 0 140px 0;
+                    .save-btn-wrap {
+                        margin-left: 20%;
+                        float: left;
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                    .next-btn-wrap {
+                        
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+                }
+
+
+            
+
+        }
+
+
+    }
+    
+    #makeDetailNote{
+        background:#f9f4f4;
+        width:100vw;
+        .wrap{
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .info-wrap{
+                padding: 1.5%;
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .ArrowCounterclockwise{
+                    animation-duration: 2s;
+                    animation-delay: -5s;
+                    animation-direction: reverse;
+                    transform: rotate( 180deg );
+                    animation: spin 2s linear infinite;
+                }
+            }
+
+            .list-wrap{
+                width: 50%;
+                padding: 30px;
+                float: left;
+                .list{
+                    width: 100%;
+                    background: #ffd0d0;
+                    padding: 2%;
+                    border-radius:5px;
+                    .list-text{
+                        margin: 0 auto;
+                        .ym{
+                            font-weight: bold;
+                            font-size: 23px;
+                        }
+
+                        .page{
+                            margin-top: 5px;
+                            float:right;
+                            font-size: 15px;
+                        }
+                    }
+                    
+                }
+            }
+
+
+            .detail-wrap{
+                width: 50%;
+                padding: 30px;
+                float: right;
+                .pagecheck{
+                    width: 80%;
+                    font-size: 60px;
+                    margin-left: 88%;
+                    padding: 5px;
+                    position: relative;
+                    .checkcirclefill{
+                        color: #e58e84;
+                        position:absolute;
+                    }
+                    .checkcircle{
+                        color: #ffd0d0;
+                        position:absolute;
+                    }
+                }
+                
+                .opt-days{
+                    width: 100%;
+                    display: inline-block;
+                    margin-bottom: 5%;
+
+                    .dayslist{
+                        width: 100%;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        .CaretLeftFill{
+                            float: left;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        .days{
+                            border: 1px solid black;
+                            background: #6c757d;
+                            border-radius: 3px;
+                            float: left;
+                            padding: 10px 13px 10px 13px ;
+                            font-size: 25px;
+                            display: flex;
+                            justify-content:center;
+                        }
+                        .CaretRightFill{
+                            float: right;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        
+
+                    }
+                }
+
+                .option{
+                    width: 100%;
+                    margin-bottom: 50px;
+                    .option-wrap{
+                        float: right;
+                        margin-right: 10px;
+                        input[type=radio]{
+                            appearance: none;
+                            display: none;
+                        }
+                        input[type=radio] + label{
+                            margin : 0;
+                            padding:5px;
+                            box-sizing: border-box;
+                            position:relative;
+                            display: inline-block;
+                            border:1px solid #e58e84;
+                            background-color: #fff;
+                            line-height: 140%;
+                            text-align: center;
+                            box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+                            transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+                            cursor: pointer;
+                            
+                        }
+                        input[type=radio]:checked + label{
+                            background-color: #ec6757;
+                            color: #fff;
+                            box-shadow: 0 0 10px #ffd0d0;
+                            border-color: #ef4c39;
+                            z-index: 1;
+                        }
+                        .opt-note-btn{
+                            border-radius: 5px 0 0 5px;
+                            font-size: 15px;
+                        }
+                        .opt-album-btn{
+                            border-radius: 0 5px 5px 0;
+                            font-size: 15px;
+                        }
+                    }
+
+                }
+
+                .detail-note{
+                    width: 100%;
+                    height: 100%;
+                    
+                    .note-wrap{
+                        .note-gap{
+                            width: 100%;
+                            padding: 10px;
+                            .note-box{
+                                width: 100%;
+                                height: 800px;
+                                border: 2px solid black;
+                                .top {
+                                    width:100%;
+                                    height:15%;
+                                    .top-gap {
+                                        padding:10px 20px;
+                                        .top-wrap {
+                                            width:100%;
+                                            display:flex;
+                                            .setdate {
+                                                width:120px;
+                                                height:100px;
+                                                padding:10px;
+                                                border:2px dashed #e3abab;
+                                                border-radius:10px;
+                                                p {
+                                                    margin:0;
+                                                    font-weight:600;
+                                                    &.month {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.date {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.day {
+                                                        font-size:15px;
+                                                        line-height:35px;
+                                                    }
+                                                }
+                                            }
+                                            .qrcode {
+                                                margin:0 0 0 auto;
+                                                display:flex;
+                                                .photo-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    color:#fff;
+                                                }
+                                                .video-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    margin-left:10px;
+                                                    color:#fff;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                .view{
+                                    width: 100%;
+                                    height: 100%;
+                                    .basicview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:280px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #ef4c39;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0 20px 20px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #e3abab;
+                                                        }
+                                                        &.status {
+                                                            height:20%;
+                                                        }
+                                                        &.notice {
+                                                            height:45%;
+                                                        }
+                                                        &.comment {
+                                                            height:35%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .changeview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top: 20px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #ef4c39;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:255px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:20px 20px 0px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #e3abab;
+                                                        }
+                                                        &.status {
+                                                            height:20%;
+                                                        }
+                                                        &.notice {
+                                                            height:45%;
+                                                        }
+                                                        &.comment {
+                                                            height:35%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+        
+                                    }
+
+                                 }
+
+                            }
+                            
+
+
+                            
+                            
+                            
+
+
+                        }
+
+                    }
+
+                    .delete-note-wrap{
+                        .note-gap{
+                            width: 100%;
+                            padding: 10px;
+                            .note-box{
+                                width: 100%;
+                                height: 800px;
+                                border: 2px solid #a8a8a8;
+                                .delete-text-box{
+                                    width: 80%;
+                                    position: relative;
+                                    .delete-text{
+                                        width: 80%;
+                                        position: absolute;
+                                        font-size: 40px;
+                                        margin: 50% 0 0 28%;
+                                    }
+                                }
+                                .top {
+                                    width:100%;
+                                    height:15%;
+                                    .top-gap {
+                                        padding:10px 20px;
+                                        .top-wrap {
+                                            width:100%;
+                                            display:flex;
+                                            .setdate {
+                                                width:120px;
+                                                height:100px;
+                                                padding:10px;
+                                                border:2px dashed #a8a8a8;
+                                                border-radius:10px;
+                                                p {
+                                                    margin:0;
+                                                    font-weight:600;
+                                                    &.month {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.date {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.day {
+                                                        font-size:15px;
+                                                        line-height:35px;
+                                                    }
+                                                }
+                                            }
+                                            .qrcode {
+                                                margin:0 0 0 auto;
+                                                display:flex;
+                                                .photo-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#a8a8a8;
+                                                    color:#fff;
+                                                    opacity: 0.5;
+                                                }
+                                                .video-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#a8a8a8;
+                                                    margin-left:10px;
+                                                    color:#fff;
+                                                    opacity: 0.5;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                .view{
+                                    width: 100%;
+                                    height: 100%;
+                                    .basicview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:280px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #a8a8a8;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0 20px 20px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #a8a8a8;
+                                                        }
+                                                        &.status {
+                                                            height:20%;
+                                                        }
+                                                        &.notice {
+                                                            height:45%;
+                                                        }
+                                                        &.comment {
+                                                            height:35%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .changeview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top: 20px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #a8a8a8;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:255px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:20px 20px 0px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #a8a8a8;
+                                                        }
+                                                        &.status {
+                                                            height:20%;
+                                                        }
+                                                        &.notice {
+                                                            height:45%;
+                                                        }
+                                                        &.comment {
+                                                            height:35%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+        
+                                    }
+
+                                 }
+
+                            }
+                            
+
+
+                            
+                            
+                            
+
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .whole-edit-wrap{
+                width: 50%;
+                padding: 30px;
+                margin: auto 1%;
+                display: inline-block;
+                
+                ul{
+                    margin: 0 auto;
+                    float: right;
+
+                    .whole-edit{
+                        width: 30%;
+                        font-weight: bold;
+                        float: left;
+                        margin-top: 7.5%;
+                    }
+                    .whole-edit-button{
+                        width: 30%;
+                        float: left;
+                        background: #e3abab;
+                        color: #f9f4f4;
+                        text-align: center;
+                        margin: 1%;
+                        padding: 10px;
+                        border-radius: 5px;
+
+                        &:hover{
+                            background: #ec6757;
+                        }
+                        
+                    }
+                }
+            }
+
+
+
+
+
+            .btn {
+                width:100%;
+                .btn-gap {
+                    padding:0 0 140px 0;
+                    .save-btn-wrap {
+                        margin-left: 20%;
+                        float: left;
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                    .next-btn-wrap {
+                        
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+                }
+
+
+            
+
+        }
+
+
+    }
+
+
+    
+    #makeDetailAlbum{
+        background:#f9f4f4;
+        width:100vw;
+        .wrap{
+            width:60%;
+            margin:0 auto;
+            height:100%;
+
+            .info-wrap{
+                padding: 1.5%;
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .ArrowCounterclockwise{
+                    animation-duration: 2s;
+                    animation-delay: -5s;
+                    animation-direction: reverse;
+                    transform: rotate( 180deg );
+                    animation: spin 2s linear infinite;
+                }
+            }
+
+            .list-wrap{
+                width: 50%;
+                padding: 30px;
+                float: left;
+                .list{
+                    width: 100%;
+                    background: #ffd0d0;
+                    padding: 2%;
+                    border-radius:5px;
+                    .list-text{
+                        margin: 0 auto;
+                        .ym{
+                            font-weight: bold;
+                            font-size: 23px;
+                        }
+
+                        .page{
+                            margin-top: 5px;
+                            float:right;
+                            font-size: 15px;
+                        }
+                    }
+                    
+                }
+            }
+
+
+            .detail-wrap{
+                width: 50%;
+                padding: 30px;
+                float: right;
+                .pagecheck{
+                    width: 80%;
+                    font-size: 60px;
+                    margin-left: 88%;
+                    padding: 5px;
+                    position: relative;
+                    .checkcirclefill{
+                        color: #e58e84;
+                        position:absolute;
+                    }
+                    .checkcircle{
+                        color: #ffd0d0;
+                        position:absolute;
+                    }
+                }
+                
+                .opt-days{
+                    width: 100%;
+                    display: inline-block;
+                    margin-bottom: 5%;
+
+                    .dayslist{
+                        width: 100%;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        .CaretLeftFill{
+                            float: left;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        .days{
+                            border: 1px solid black;
+                            background: #6c757d;
+                            border-radius: 3px;
+                            float: left;
+                            padding: 10px 13px 10px 13px ;
+                            font-size: 25px;
+                            display: flex;
+                            justify-content:center;
+                        }
+                        .CaretRightFill{
+                            float: right;
+                            font-size: 25px;
+                            margin-top: 19px;
+                        }
+                        
+
+                    }
+                }
+
+                .option{
+                    width: 100%;
+                    margin-bottom: 50px;
+                    .option-wrap{
+                        float: right;
+                        margin-right: 10px;
+                        input[type=radio]{
+                            appearance: none;
+                            display: none;
+                        }
+                        input[type=radio] + label{
+                            margin : 0;
+                            padding:5px;
+                            box-sizing: border-box;
+                            position:relative;
+                            display: inline-block;
+                            border:1px solid #e58e84;
+                            background-color: #fff;
+                            line-height: 140%;
+                            text-align: center;
+                            box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+                            transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+                            cursor: pointer;
+                            
+                        }
+                        input[type=radio]:checked + label{
+                            background-color: #ec6757;
+                            color: #fff;
+                            box-shadow: 0 0 10px #ffd0d0;
+                            border-color: #ef4c39;
+                            z-index: 1;
+                        }
+                        .opt-note-btn{
+                            border-radius: 5px 0 0 5px;
+                            font-size: 15px;
+                        }
+                        .opt-album-btn{
+                            border-radius: 0 5px 5px 0;
+                            font-size: 15px;
+                        }
+                    }
+
+                }
+
+                .detail-album{
+                    width: 100%;
+                    height: 100%;
+                    
+                    .album-wrap{
+                        .album-gap{
+                            width: 100%;
+                            padding: 10px;
+                            .album-box{
+                                width: 100%;
+                                height: 800px;
+                                border: 2px solid black;
+                                .top {
+                                    width:100%;
+                                    height:15%;
+                                    .top-gap {
+                                        padding:10px 20px;
+                                        .top-wrap {
+                                            width:100%;
+                                            display:flex;
+                                            .setdate {
+                                                width:120px;
+                                                height:100px;
+                                                padding:10px;
+                                                border:2px dashed #e3abab;
+                                                border-radius:10px;
+                                                p {
+                                                    margin:0;
+                                                    font-weight:600;
+                                                    &.month {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.date {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.day {
+                                                        font-size:15px;
+                                                        line-height:35px;
+                                                    }
+                                                }
+                                            }
+                                            .qrcode {
+                                                margin:0 0 0 auto;
+                                                display:flex;
+                                                .photo-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    color:#fff;
+                                                }
+                                                .video-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#000;
+                                                    margin-left:10px;
+                                                    color:#fff;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                .view{
+                                    width: 100%;
+                                    height: 100%;
+                                    .basicview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:280px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #ef4c39;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0 20px 20px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #e3abab;
+                                                        }
+                                                        &.notice {
+                                                            height:55%;
+                                                        }
+                                                        &.comment {
+                                                            height:45%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .changeview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top: 20px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #ef4c39;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:255px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:20px 20px 0px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #e3abab;
+                                                        }
+                                                        &.notice {
+                                                            height:55%;
+                                                        }
+                                                        &.comment {
+                                                            height:45%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+        
+                                    }
+
+                                 }
+
+                            }
+
+
+                        }
+
+                    }
+
+                    .delete-album-wrap{
+                        .album-gap{
+                            width: 100%;
+                            padding: 10px;
+                            .album-box{
+                                width: 100%;
+                                height: 800px;
+                                border: 2px solid #a8a8a8;
+                                .delete-text-box{
+                                    width: 80%;
+                                    position: relative;
+                                    .delete-text{
+                                        width: 80%;
+                                        position: absolute;
+                                        font-size: 40px;
+                                        margin: 50% 0 0 28%;
+                                    }
+                                }
+                                .top {
+                                    width:100%;
+                                    height:15%;
+                                    .top-gap {
+                                        padding:10px 20px;
+                                        .top-wrap {
+                                            width:100%;
+                                            display:flex;
+                                            .setdate {
+                                                width:120px;
+                                                height:100px;
+                                                padding:10px;
+                                                border:2px dashed #a8a8a8;
+                                                border-radius:10px;
+                                                p {
+                                                    margin:0;
+                                                    font-weight:600;
+                                                    &.month {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.date {
+                                                        font-size:27px;
+                                                        line-height:24px;
+                                                    }
+                                                    &.day {
+                                                        font-size:15px;
+                                                        line-height:35px;
+                                                    }
+                                                }
+                                            }
+                                            .qrcode {
+                                                margin:0 0 0 auto;
+                                                display:flex;
+                                                .photo-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#a8a8a8;
+                                                    color:#fff;
+                                                    opacity: 0.5;
+                                                }
+                                                .video-qr {
+                                                    width:100px;
+                                                    height:100px;
+                                                    background:#a8a8a8;
+                                                    margin-left:10px;
+                                                    color:#fff;
+                                                    opacity: 0.5;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                .view{
+                                    width: 100%;
+                                    height: 100%;
+                                    .basicview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:280px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #a8a8a8;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0 20px 20px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #a8a8a8;
+                                                        }
+                                                        &.notice {
+                                                            height:55%;
+                                                        }
+                                                        &.comment {
+                                                            height:45%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .changeview{
+                                        height: 100%;
+                                        .middle {
+                                            width:100%;
+                                            height:45%;
+                                            .ArrowUp{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top: 20px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowUp{
+                                                opacity: 1;
+                                            }
+                                            .middle-gap {
+                                                padding:20px;
+                                                height:100%;
+                                                .middle-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    .photo-section {
+                                                        border:2px solid #a8a8a8;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .ArrowDown{
+                                                display: block;
+                                                font-size: 30px;
+                                                float: right;
+                                                margin-right: 30px;
+                                                margin-top:255px;
+                                                opacity: 0;
+                                                transition:0.5s all;
+                                                display: none;
+                                            }
+                                            &:hover .ArrowDown{
+                                                opacity: 1;
+                                            }
+            
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:20px 20px 0px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
+                                                        width:100%;
+                                                        height:100%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #a8a8a8;
+                                                        }
+                                                        &.notice {
+                                                            height:55%;
+                                                        }
+                                                        &.comment {
+                                                            height:45%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+        
+                                    }
+
+                                 }
+
+                            }
+                            
+
+
+                            
+                            
+                            
+
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .whole-edit-wrap{
+                width: 50%;
+                padding: 30px;
+                margin: auto 1%;
+                display: inline-block;
+                
+                ul{
+                    margin: 0 auto;
+                    float: right;
+
+                    .whole-edit{
+                        width: 30%;
+                        font-weight: bold;
+                        float: left;
+                        margin-top: 7.5%;
+                    }
+                    .whole-edit-button{
+                        width: 30%;
+                        float: left;
+                        background: #e3abab;
+                        color: #f9f4f4;
+                        text-align: center;
+                        margin: 1%;
+                        padding: 10px;
+                        border-radius: 5px;
+
+                        &:hover{
+                            background: #ec6757;
+                        }
+                        
+                    }
+                }
+            }
+
+
+
+
+
+            .btn {
+                width:100%;
+                .btn-gap {
+                    padding:0 0 140px 0;
+                    .save-btn-wrap {
+                        margin-left: 20%;
+                        float: left;
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                    .next-btn-wrap {
+                        
+                        a {
+                            text-decoration: none;
+    
+                            display:flex;
+                            width:240px;
+                            height:80px;
+                            margin:0 auto;
+                            background:#e3abab;
+                            color:#fff;
+                            border:3px solid #e3abab;
+                            border-radius:5px;
+    
+                            font-size:30px;
+                            font-weight:600;
+                            line-height:74px;
+                            justify-content:center;
+    
+                            &:hover {
+                                border:3px solid #e3abab;
+                                background: #ffd0d0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
