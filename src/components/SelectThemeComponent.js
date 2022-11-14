@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { click } from '@testing-library/user-event/dist/click';
 
-const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}) => {
+const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
 
     //테마 데이터로 리스트 작성
     const [field, setField] = useState(
@@ -14,7 +14,8 @@ const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}
     
     const [selectedTheme, setSelectedTheme] = useState(
         {
-            selectThemeNum: ""
+            selectThemeNum: '',
+            selectedTheme:''
         }
     )
     
@@ -26,7 +27,6 @@ const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}
         .then((res)=>{
             console.log(res.data);
             setField({themeList:res.data})
-            setThemeList({allThemeList:res.data})
         })
         .catch((err)=>{
             console.log(err);
@@ -65,8 +65,15 @@ const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}
         selectedOff();
         if(e.target.id !== ""){ // id가 없는 경우에는 state값이 변동되지 않게 하기 위한 조건문
             e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
-            setSelectedTheme({selectThemeNum:e.target.id});
-            setAlbumnote({...albumnote, themeNum:e.target.id});
+            //setSelectedTheme({...selectedTheme, selectThemeNum:e.target.id});
+            //setAlbumnote({...albumnote, themeNum:e.target.id});
+            for(var i = 0; i<field.themeList.length; i++){
+                var themeNum = field.themeList[i]
+                if(themeNum.themeNum.toString() === e.target.id){ //테마 전체 목록 === 선택된 목록
+                    setSelectedTheme({...selectedTheme, selectThemeNum:e.target.id, selectedTheme:field.themeList[i]});
+                }
+            }
+    
         }
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
@@ -110,6 +117,7 @@ const SelectThemeComponent = ({albumnote, setAlbumnote, themeList, setThemeList}
     const createNextBtn = (e) =>{ // 다음 페이지로 이동하기 버튼 생성 (활성화/비활성화를 구분하기 위해 함수로 버튼 생성)
         if(selectedTheme.selectThemeNum !== ""){
             localStorage.setItem("theme_num", selectedTheme.selectThemeNum);
+            localStorage.setItem("theme_name", selectedTheme.selectedTheme.themeName);
             return(
                 <Link to="/SelectKidsComponent">다음</Link>
                 

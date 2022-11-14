@@ -4,29 +4,42 @@ import axios from 'axios';
 import $ from 'jquery';
 import image1 from '../images/hard (1).jpg';
 import image2 from '../images/hard (3).jpg';
+import hardcover from '../images/hard.jpeg';
+
 
 const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
-    const [selectNumber, setSelectNumber] = useState(0);
+
+    //수량 조절 기능
+    const [selectNumber, setSelectNumber] = useState(1);
     const addEvent=(event)=>{
         event.preventDefault();   
         setSelectNumber(selectNumber+1);
     }
     const subEvent=(event)=>{
         event.preventDefault();
-        if(selectNumber>0){
+        if(selectNumber>1){
             setSelectNumber(selectNumber-1);
         }
     }
 
+    //선택목록 임시저장
     const [optionList, setOptionList] = useState({
+        selectedTheme:'',
         size:'',
         cover:'',
         coverCoating:'',
         inside:'',
         case:''
     })
+
+    //선택된 테마 데이터
+    const [checkTheme, setCheckTheme] = useState({
+        pickedTheme:''
+    });
+
+    
     const onChangeSize = (e) => {
-            setOptionList({...optionList, size:e.target.value});
+        setOptionList({...optionList, size:e.target.value});
     }
     const onChangeCover = (e) => {
         setOptionList({...optionList, cover:e.target.value});
@@ -40,6 +53,106 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
     const onChangeCase = (e) => {
         setOptionList({...optionList, case:e.target.value});
     }
+
+    //테마 데이터 보관
+    const [themeList, setThemeList] = useState({
+        themeList:[]
+    });
+
+    const axiosGet=()=>{
+        axios({
+            url:'/photobookServer/getThemeAll',
+            method:'GET'
+        })
+        .then((res)=>{
+            console.log(res.data);
+            setThemeList({themeList:res.data})
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    }
+    
+    //테마 이름 변경
+    const themeName = () => {
+        for(var i = 0; i<themeList.themeList.length; i++){
+            var themeNum = themeList.themeList[i]
+            if(themeNum.themeNum.toString() === optionList.selectedTheme.toString()){ //테마 전체 목록 === 선택된 목록
+                setCheckTheme({...checkTheme, pickedTheme:themeList.themeList[i]});
+                localStorage.setItem("theme_name", checkTheme.pickedTheme.themeName);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        axiosGet();
+    }, []);
+
+
+
+
+
+    //슬라이드 테마 클릭 변경
+    const onClickTheme = (e) => {
+        localStorage.setItem("theme_num", e.target.id);
+        setOptionList({...optionList, selectedTheme:e.target.id});
+        console.log(themeList.themeList.themeName);
+    }
+    useEffect(()=>{
+        themeName();
+    },[optionList, checkTheme.pickedTheme]);
+
+    
+    //슬라이드 부분 반복문
+    const list = themeList.themeList.map(list=>{
+        return (
+            <li key = {list.themeNum}>
+                <div className="in-theme-gap">
+                    <div className="in-theme-wrap" id={list.themeNum}>
+                        <div className="img-wrap" id={list.themeNum}>
+                            <img
+                                src={"/photobookServer/getThemeImg/"+list.themeNum} 
+                                alt={'Theme'+list.themeNum}
+                                id={list.themeNum}
+                                onClick={onClickTheme}
+                            />
+                        </div>
+                        <div className="text-wrap">
+                            <p id={list.themeNum}>{list.themeName}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        )
+    })    
+
+    //슬라이드 오른쪽 왼쪽 이동
+    let cnt = 0;
+    const Slide = (e) => {
+        let slideW = $('#changeTheme .slide-view').width();
+        slideW = $('#changeTheme .slide-view').width();
+        $('#changeTheme .slide-wrap').stop().animate({left:-slideW/5*cnt},600);
+    }
+    const nextCount = (e) => {
+        if(themeList.themeList.length-5>cnt){
+            cnt++;
+            Slide();    
+        }
+        else {
+            return;
+        }
+    }
+    const prevCount = (e) => {
+        if(cnt>0){
+            cnt--;
+            Slide();
+        }
+        else {
+            return;
+        }
+    }
+
+
     return (
         <div id="changeTheme">
             <div className="wrap">
@@ -72,7 +185,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                     <ul className="option-list-wrap">
                                         <li>
                                             <div className="name"><span>테마</span></div>
-                                            <div className="option-content"><p>테마이름</p></div>
+                                            <div className="option-content"><p>{localStorage.getItem('theme_name')}</p></div>
                                         </li>
                                         <li>
                                             <div className="name"><span>사이즈</span></div>
@@ -119,6 +232,12 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                                     <input onChange={onChangeCover} type="radio" id="레더커버" name="cover" value="레더커버" />
                                                     <span>레더커버</span>
                                                 </label>
+                                            </div>
+                                            <div className="tooltip">
+                                                <div className="tooltip-gap">
+                                                    <div className="tooltip-wrap">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </li>
                                         <li>
@@ -200,8 +319,12 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                     <hr/>
                 </div>
                 <div className="slide-container">
+                    <div className="left" onClick={prevCount}><i className="material-icons">keyboard_arrow_left</i></div>
+                    <div className="right" onClick={nextCount}><i className="material-icons">keyboard_arrow_right</i></div>
                     <div className="slide-view">
-                        <ul className="slide-wrap"></ul>
+                        <ul className="slide-wrap">
+                            {list}
+                        </ul>
                     </div>
                 </div>  
             </div>

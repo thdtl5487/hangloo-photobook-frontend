@@ -35,9 +35,7 @@ const WrapComponent = () => {
         themeNum:'',
         albumnote:[]
     });
-    const [themeList, setThemeList] = useState({
-        allThemeList:[]
-    });
+
     return (
         <div id="wrap">
             <HeaderComponent />
@@ -46,7 +44,7 @@ const WrapComponent = () => {
                 <Route path='/HeaderComponent' element={<HeaderComponent/>} />
                 <Route path='/MainComponent' element={<MainComponent/>} />
                 <Route path='/FooterComponent' element={<FooterComponent/>} />
-                <Route path='/SelectThemeComponent' element={<SelectThemeComponent albumnote={albumnote} setAlbumnote={setAlbumnote} themeList={themeList} setThemeList={setThemeList}/>}  />
+                <Route path='/SelectThemeComponent' element={<SelectThemeComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>}  />
                 <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
                 <Route path='/SelectDetailOptionComponent' element={<SelectDetailOptionComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
