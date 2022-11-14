@@ -76,7 +76,7 @@ class apiloader{
     // 접속한 계정의 게시글 정보 불러오기 (페이지, 검색시작날짜, 검색종료날짜, 아동번호)
     getPosts = (page, startDate, endDate, childNum) => {
         axios({
-            url: "/photobook/api/notices.php?page="+page+"start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
+            url: "/photobook/api/notices.php?page="+page+"&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'

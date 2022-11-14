@@ -100,8 +100,8 @@ const MainComponent = () => {
         {
             id : 'test924',
             pw : 'good',
-            start_date : 20200101,
-            end_data : 20221231,
+            start_date : "2022-07-01",
+            end_data : "2022-12-31",
             child_pid : 4892,
             select_page : 2,
             comm_uid : 12345,
