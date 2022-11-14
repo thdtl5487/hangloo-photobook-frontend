@@ -2,8 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const SelectDetailOptionNote = () => {
+const SelectDetailOptionNote = ({albumnote}) => {
 
+    const noteAlbumSelect = (e) =>{
+	    if(albumnote.albumnote.includes('album')===true){
+	    	return(
+	    		<Link to="/SelectDetailOptionAlbum">다음</Link>
+	    	)
+	    }
+	    else {
+	    	return(
+	    		<Link to="/SelectDateNote">다음</Link>
+	    	)
+	    }
+    }
+    
     const [noteLayout, setNoteLayout] = useState ({
        layout:[]
     });
@@ -168,7 +181,7 @@ const SelectDetailOptionNote = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/SelectDetailOptionAlbum">다음</Link>
+                            {noteAlbumSelect()}
                         </div>
                     </div>
                 </div>

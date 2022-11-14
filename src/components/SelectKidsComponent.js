@@ -60,7 +60,7 @@ const SelectKidsComponent = () => {
         
         if(selectedKids.selectedKidsNum !== ""){
             return(
-                <Link to="/SelectDetailOption">다음</Link>
+                <Link to="/SelectDetailOptionComponent">다음</Link>
             )
         }else{
             return(
