@@ -151,5 +151,41 @@ class apiloader{
             console.log(res);
         })
     }
+
+    childCheck = () =>{
+        axios({
+            url: "/photobook/api/children.php",
+            method: "GET"
+        }).then((res)=>{
+            // console.log("API의 아동 정보 불러오기 기능 실행");
+            console.log(res);
+
+			var check = 0;
+
+			console.log("비교 대상군 : " + localStorage.getItem("kids_num"))
+			for(var i = 0; i<res.data.list.length; i++){
+				console.log("for문 실행?")
+				console.log(res.data.list[i].child_uuid)
+				if(res.data.list[i].child_uid == localStorage.getItem("kids_num")){
+					console.log("일치하는 uid 실행")
+					check ++;
+					console.log("check : "+check);
+					break;
+				}else{
+					
+				}
+
+				console.log("for문 종료, check : "+check);
+			}
+			if(check === 0){
+				console.log("check : " + check)
+				alert("잘못된 접근입니다.");
+				window.history.back();
+			}
+
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
 }
 export default new apiloader()
