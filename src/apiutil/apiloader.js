@@ -103,13 +103,14 @@ class apiloader{
     // 접속한 계정의 알림장 정보 불러오기
     getNotices = (page, startDate, endDate, childNum) => {
         axios({
-            url: "/photobook/api/notices.php?page="+page+"start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
+            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
             },
         }).then((res)=>{
-            console.log(res);
+            console.log(res.data.data.list);
+            return res.data.data.list;
         })
     }
 
