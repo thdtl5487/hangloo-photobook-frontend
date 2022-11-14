@@ -62,7 +62,7 @@ class apiloader{
     // 접속한 계정의 게시글 개수 불러오기
     getPostsCount = (startDate, endDate, childNum) => {
         axios({
-            url: "/photobook/api/posts_count.php?start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
+            url: "/photobook/api/posts_count.php?id=picture&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
             method: "GET",
             headers: {
                 "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -74,9 +74,10 @@ class apiloader{
     }
 
     // 접속한 계정의 게시글 정보 불러오기 (페이지, 검색시작날짜, 검색종료날짜, 아동번호)
+    // 현재 테스트중인 사항, 꼭 url 고칠것 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     getPosts = (page, startDate, endDate, childNum) => {
         axios({
-            url: "/photobook/api/notices.php?page="+page+"&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
+            url: "/photobook/api/notices.php?page="+page+"&id=picture&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
