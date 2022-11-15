@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { click } from '@testing-library/user-event/dist/click';
 
-const SelectThemeComponent = () => {
+const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
 
     //테마 데이터로 리스트 작성
     const [field, setField] = useState(
@@ -11,16 +11,17 @@ const SelectThemeComponent = () => {
             themeList:[]
         }
     )
-
+    
     const [selectedTheme, setSelectedTheme] = useState(
         {
-            selectThemeNum: ""
+            selectThemeNum: '',
+            selectedTheme:''
         }
     )
     
     const axiosGet=()=>{
         axios({
-            url:'photobookServer/getThemeAll',
+            url:'/photobookServer/getThemeAll',
             method:'GET'
         })
         .then((res)=>{
@@ -38,12 +39,11 @@ const SelectThemeComponent = () => {
 
     //hover 이미지 변경
     const onMouseOver = (e) => {
-        e.target.src = "photobookServer/getThemeSubImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeSubImg/" + e.target.id;
     }
     const onMouseOut = (e) => {
-        e.target.src = "photobookServer/getThemeImg/" + e.target.id;
+        e.target.src = "/photobookServer/getThemeImg/" + e.target.id;
     }
-
 
     // 예상 버튼 클릭 시 모든 테마의 가격을 해당 페이지의 가격대로 출력해주는 기능
     const changePrice = (num) =>{
@@ -51,7 +51,7 @@ const SelectThemeComponent = () => {
         const priceText = document.getElementsByClassName('price-text');
         for(var i = 0; i<field.themeList.length; i++){
             priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
-
+            
         }
     }
     
@@ -62,17 +62,24 @@ const SelectThemeComponent = () => {
 
     // 클릭한 테마를 저장하고 표시하는 기능 (css적용은 .in-theme-gap이 하게끔 되어있음)
     const clickElement = (e) =>{
-        if(e.target.id !== ""){ // 클릭 가능한 구역 제한
-            selectedOff();
+        selectedOff();
+        if(e.target.id !== ""){ // id가 없는 경우에는 state값이 변동되지 않게 하기 위한 조건문
             e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
-            setSelectedTheme({selectThemeNum:e.target.id});
+            //setSelectedTheme({...selectedTheme, selectThemeNum:e.target.id});
+            //setAlbumnote({...albumnote, themeNum:e.target.id});
+            for(var i = 0; i<field.themeList.length; i++){
+                var themeNum = field.themeList[i]
+                if(themeNum.themeNum.toString() === e.target.id){ //테마 전체 목록 === 선택된 목록
+                    setSelectedTheme({...selectedTheme, selectThemeNum:e.target.id, selectedTheme:field.themeList[i]});
+                }
+            }
+    
         }
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
             const imgEle = document.querySelectorAll("img");
             for(var i = 0; i<imgEle.length; i++){
                 imgEle[i].classList.remove("on");
-
             }
         }
     }
@@ -88,26 +95,39 @@ const SelectThemeComponent = () => {
     const list = field.themeList.map(list=>{
         return (
             <li key = {list.themeNum}>
-
                 <div className="in-theme-gap" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                     <div className="in-theme-wrap" id={list.themeNum} onClick={clickElement}>
-                        <div className="img-wrap">
+                        <div className="img-wrap" id={list.themeNum}>
                             <img
-                                src={"photobookServer/getThemeImg/"+list.themeNum} 
+                                src={"/photobookServer/getThemeImg/"+list.themeNum} 
                                 alt={'Theme'+list.themeNum}
                                 id={list.themeNum}
                             />
                         </div>
                         <div className="text-wrap">
-                            <p className="theme-name">{list.themeName}</p>
-                            <p className='price-text'>{makeComma(list.themePrice)}원</p>
-
+                            <p id={list.themeNum}>{list.themeName}</p>
+                            <p className='price-text' id={list.themeNum}>{makeComma(list.themePrice)}원</p>
                         </div>
                     </div>
                 </div>
             </li>
         )
     })    
+
+    const createNextBtn = (e) =>{ // 다음 페이지로 이동하기 버튼 생성 (활성화/비활성화를 구분하기 위해 함수로 버튼 생성)
+        if(selectedTheme.selectThemeNum !== ""){
+            localStorage.setItem("theme_num", selectedTheme.selectThemeNum);
+            localStorage.setItem("theme_name", selectedTheme.selectedTheme.themeName);
+            return(
+                <Link to="/SelectKidsComponent">다음</Link>
+                
+            )
+        }else{
+            return(
+                <Link className='disabled'>다음</Link>
+            )
+        }
+    }
 
     return (
         <div id="selectTheme">
@@ -136,7 +156,7 @@ const SelectThemeComponent = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/SelectKidsComponent">다음</Link>
+                            {createNextBtn()}
                         </div>
                     </div>
                 </div>

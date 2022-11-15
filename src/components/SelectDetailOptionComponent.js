@@ -7,60 +7,94 @@ import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { DEFAULT_MIN_BREAKPOINT } from 'react-bootstrap/esm/ThemeProvider';
 
-const SelectDetailOption = () => {
-    
-	// 샘플이미지 목록
-	const img = [
-		{id:1, image:'./img/sampleimg_1.PNG', title:'noPhotoNote'},
-		{id:2, image:'./img/sampleimg_2.PNG', title:'noTextAlbum'},
-		{id:3, image:'./img/sampleimg_3.PNG', title:'eeee'},
-		{id:4, image:'./img/sampleimg_4.PNG', title:'eee33e'},
-		{id:5, image:'./img/sampleimg_5.PNG', title:'eeee3333'},
-
-	]
-
-	//알림장 or 사진앨범 선택 여부
-	const [choice, setChoice] = useState({
-		choicelist:[]
-	});
-
-	const [checkNoteText, setCheckNoteText] = useState('선택');
-	const [checkAlbumText, setCheckAlbumText] = useState('선택');
-
-	// 알림장 선택 시 문구 변경
-	const onNote = () =>{
-		let imsi=[];
-		if(choice.choicelist.includes("note")===false){
-		setChoice({...choice, choicelist:[...choice.choicelist, "note"]})
-		setCheckNoteText(<>선택</>)
-		}else{
-		imsi = choice.choicelist.filter((item)=>item !== "note");
-		setChoice({...choice, choicelist:imsi})
-		setCheckNoteText(<>해제</>)
-		}
-		console.log(choice)
-	}
-	
-	// 포토앨범 선택 시 문구 변경
-	const onAlbum = ()=>{
-		let imsi=[];
-		if(choice.choicelist.includes("album")===false){
-		setChoice({...choice, choicelist:[...choice.choicelist, "album"]})
-		setCheckAlbumText(<>선택</>)
-		}else{
-		imsi = choice.choicelist.filter((item)=>item !== "album");
-		setChoice({...choice, choicelist:imsi})
-		setCheckAlbumText(<>해제</>)
-		}
-		console.log(choice)
+const SelectDetailOption = ({albumnote, setAlbumnote}) => {
+  
+	const onClickdisabled = (e) => {
+		alert('알림장과 노트를 선택해 주세요');
 	}
 
-	//알림장 내 옵션 선택 리스트
+	const noteAlbumSelect = (e) =>{
+        if(albumnote.albumnote.length<=0){
+			return (
+				<Link className='disabled' onClick={onClickdisabled}>다음</Link>
+			)
+        }else{
+			if(albumnote.albumnote.includes('note')===true){
+				return(
+					<Link to="/SelectDetailOptionNote">다음</Link>
+				)
+			}
+			else {
+				return(
+					<Link to="/SelectDetailOptionAlbum">다음</Link>
+				)
+			}
+        }
+    }
+
+  const img = [
+    {id:1, image:'./img/sampleimg_1.PNG', title:'noPhotoNote'},
+    {id:2, image:'./img/sampleimg_2.PNG', title:'noTextAlbum'},
+    {id:3, image:'./img/sampleimg_3.PNG', title:'eeee'},
+    {id:4, image:'./img/sampleimg_4.PNG', title:'eee33e'},
+    {id:5, image:'./img/sampleimg_5.PNG', title:'eeee3333'},
+
+]
+
+
+
+//   const [note, setNote] = useState('note');
+//   const [album, setAlbum] = useState('album');
+
+  const [choice, setChoice] = useState({
+    choicelist:[]
+  });
+
+  const [checkNoteText, setCheckNoteText] = useState('선택');
+  const [checkAlbumText, setCheckAlbumText] = useState('선택');
+
+  const onNote = () =>{
+    let imsi=[];
+	let imsi2=[];
+    if(choice.choicelist.includes("note")===false){
+      setChoice({...choice, choicelist:[...choice.choicelist, "note"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "note"]})
+	  setCheckNoteText(<>선택</>)
+    }else{
+     imsi = choice.choicelist.filter((item)=>item !== "note");
+	 imsi2 = albumnote.albumnote.filter((item)=>item !=="note")
+     setChoice({...choice, choicelist:imsi})
+	 setAlbumnote({...albumnote, albumnote:imsi2})
+	 setCheckNoteText(<>해제</>)
+    }
+    console.log(choice)
+  }
+
+  const onAlbum = ()=>{
+    let imsi=[];
+	let imsi2=[];
+    if(choice.choicelist.includes("album")===false){
+      setChoice({...choice, choicelist:[...choice.choicelist, "album"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "album"]})
+	  setCheckAlbumText(<>선택</>)
+    }else{
+     imsi = choice.choicelist.filter((item)=>item !== "album");
+	 imsi2 = albumnote.albumnote.filter((item)=>item !=="album")
+     setChoice({...choice, choicelist:imsi})
+	 setAlbumnote({...albumnote, albumnote:imsi2})
+	 setCheckAlbumText(<>해제</>)
+    }
+    console.log(choice)
+  }
+
     const [noteCheckList, setNoteCheckList] = useState({
       noteCheckElement:['check1', 'check2','check3']
     });
 	
-	//선택 시 문구 변경
+
+	// const textChocie = "선택";
+	// const textCancle = "제외";
+
 	const [check1Text, setCheck1Text] = useState('제외');
 	const [check2Text, setCheck2Text] = useState('제외');
 	const [check3Text, setCheck3Text] = useState('제외');
@@ -122,7 +156,7 @@ const SelectDetailOption = () => {
 
 	}
 
-	//알림장 체크 여부 확인
+
     const onNoteChange = (e) => {
 		let imsi=[];
 		console.log("checked" + e.target)
@@ -137,22 +171,23 @@ const SelectDetailOption = () => {
 		console.log(choice)
     }
 
-	//옵션 선택시 이미지 변경 부분
+
     const [content, setContent] = useState();
     
     const onImgClick = (e) => {
       	console.log(e)
+        // e.preventDefault();
+      // console.log(e.target.value.substring(5))
+      // console.log(img[e.target.value.substring(5)-1].id)
 
       	const idx = e.target.value.substring(5)-1;
       	setContent(<img className="sub" src={img[idx].image} alt={img[idx].title}></img>);
     }
 
-	//포토앨범 내 옵션 선택 리스트
     const [albumCheckList, setAlbumCheckList] = useState({
       albumCheckElement:['check4', 'check5']
     })
 
-	//포토앨범 체크 여부 확인
     const onAlbumChange = (e) => {
       let imsi=[];
       if(e.target.checked===true){
@@ -289,7 +324,7 @@ const SelectDetailOption = () => {
 				<div className="next-btn">
 					<div className="next-btn-gap">
 						<div className="next-btn-wrap">
-							<Link to="/">다음</Link>
+							{noteAlbumSelect()}
 						</div>
 					</div>
 				</div>

@@ -110,7 +110,7 @@ const MakeCoverComponent = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap" >
-                            <Link to="/SelectKidsComponent" onClick={onSummit}>다음</Link>
+                            <Link to="/MakeDetailComponent" onClick={onSummit}>다음</Link>
                         </div>
                     </div>
                 </div>
