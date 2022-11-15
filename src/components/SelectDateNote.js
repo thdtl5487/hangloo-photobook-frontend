@@ -37,7 +37,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     //             }
     //         }
     //         const newMyList = Array.from(new Set(myList));
-    //         setCurrentYearNotices({...currentYearNotices, yearNoticeList:newMyList, yearNoticeContent:myList2});
+    //         setCurrentYearNotices({...currentYearNotices, yearNoticeList:newMyList, yearNoticeContent:myList2}); << 이거 기능 물어보기 꼭 @@@@@@@@@@@@@@@@@@@@@@@@@
     //     })
     // }
 
@@ -81,24 +81,24 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             }
             setAllNoticeInfo({
                 allNoticeInfo:currentArray
-            })
+            }, [])
         })
     }
 
     useEffect(()=>{
-        getNoticesInit();
-
-        
+        getNoticesInit();       
     }, []);
     // 시작 시 실행되는 함수 종료 ----------------------------------------------------
 
     // state의 알림장 정보를 통한 년도 구분
     const divideYearInfo = () => {
         console.log(allNoticeInfo.allNoticeInfo);
-        const hasYears = [];
+        const hasYears = new Set();
         for(let i = 0; i<allNoticeInfo.allNoticeInfo.length; i++){
-            console.log(i);
+            hasYears.add(allNoticeInfo.allNoticeInfo[i].dateTime.slice(0,4));
         }
+        console.log(hasYears);
+
 
     }
 
@@ -140,6 +140,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     }
 
     const monthAlbum = album.map((monthAlbum)=>{
+        divideYearInfo();
         return (
             <li key = {monthAlbum.월}>
                 <div className="box">
