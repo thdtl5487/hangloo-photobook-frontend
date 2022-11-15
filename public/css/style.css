@@ -161,15 +161,21 @@
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul li button {
   width: 150px;
   height: 50px;
-  background: #ffd0d0;
+  background: #e3abab;
+  color: #fff;
+  border: 3px solid #e3abab;
   border-radius: 5px;
   font-size: 17px;
   font-weight: 600;
   transition: all 0.2s;
 }
 #wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul li button:hover {
-  background: #ec6757;
-  color: #fff;
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #selectTheme .wrap .price-btn .price-btn-gap .price-btn-wrap ul li button.on {
+  border: 3px solid #e3abab;
+  background: #ffd0d0;
 }
 #wrap #selectTheme .wrap .theme {
   width: 100%;
@@ -1374,7 +1380,7 @@
   font-weight: 600;
 }
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .example .example-gap .example-wrap .photo-example img {
-  width: 100%;
+  width: 400px;
 }
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .example .example-gap .example-wrap .right {
   display: flex;
@@ -1400,6 +1406,10 @@
   width: 100%;
   display: flex;
   flex-flow: wrap;
+  position: relative;
+}
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li:hover .imgover {
+  display: block;
 }
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .name {
   width: 20%;
@@ -1422,6 +1432,9 @@
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content label {
   margin: 0 25px 0 0;
   position: relative;
+}
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content label:hover .imgover {
+  display: block;
 }
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content label input[type=radio] {
   -webkit-appearance: none;
@@ -1484,6 +1497,19 @@
   line-height: 50px;
   color: #fff;
 }
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content label .imgover {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 100px;
+  display: none;
+  border: 3px solid #6c757d;
+  border-collapse: collapse;
+  z-index: 5;
+}
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content label .imgover img {
+  width: 100%;
+}
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content .number {
   display: flex;
 }
@@ -1507,15 +1533,6 @@
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .option-content p {
   margin: 0;
 }
-#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .tooltip {
-  width: 100%;
-}
-#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .tooltip .tooltip-gap {
-  width: 100%;
-}
-#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li .tooltip .tooltip-gap .tooltip-wrap {
-  width: 100%;
-}
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li.next a {
   text-decoration: none;
   width: 100px;
@@ -1536,6 +1553,66 @@
 #wrap #changeTheme .wrap .line hr {
   border: 1px solid #000;
   background: #000;
+}
+#wrap #changeTheme .wrap .slide-container {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+}
+#wrap #changeTheme .wrap .slide-container .left {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  margin-top: -50px;
+  cursor: pointer;
+}
+#wrap #changeTheme .wrap .slide-container .left i {
+  font-size: 50px;
+}
+#wrap #changeTheme .wrap .slide-container .right {
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  margin-top: -50px;
+  cursor: pointer;
+}
+#wrap #changeTheme .wrap .slide-container .right i {
+  font-size: 50px;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap {
+  width: 120%;
+  position: relative;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li {
+  width: 20%;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap {
+  padding: 30px;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap {
+  width: 100%;
+  cursor: pointer;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .img-wrap {
+  width: 100%;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .img-wrap img {
+  width: 100%;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .text-wrap {
+  padding: 10px 0;
+}
+#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .text-wrap p {
+  margin: 0;
+  text-align: center;
 }
 #wrap #makeDetail {
   background: #f9f4f4;
@@ -3198,64 +3275,4 @@
 #wrap #makeDetailAlbum .wrap .btn .btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
-}
-#wrap #changeTheme .wrap .slide-container {
-  width: 100%;
-  padding: 20px 0;
-  position: relative;
-}
-#wrap #changeTheme .wrap .slide-container .left {
-  position: absolute;
-  top: 50%;
-  left: -50px;
-  margin-top: -50px;
-  cursor: pointer;
-}
-#wrap #changeTheme .wrap .slide-container .left i {
-  font-size: 50px;
-}
-#wrap #changeTheme .wrap .slide-container .right {
-  position: absolute;
-  top: 50%;
-  right: -50px;
-  margin-top: -50px;
-  cursor: pointer;
-}
-#wrap #changeTheme .wrap .slide-container .right i {
-  font-size: 50px;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap {
-  width: 120%;
-  position: relative;
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li {
-  width: 20%;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap {
-  padding: 30px;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap {
-  width: 100%;
-  cursor: pointer;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .img-wrap {
-  width: 100%;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .img-wrap img {
-  width: 100%;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .text-wrap {
-  padding: 10px 0;
-}
-#wrap #changeTheme .wrap .slide-container .slide-view .slide-wrap li .in-theme-gap .in-theme-wrap .text-wrap p {
-  margin: 0;
-  text-align: center;
 }

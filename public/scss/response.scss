@@ -633,6 +633,298 @@
             }
         }
         }
+        #changeTheme {
+            .wrap {
+                width:80%;
+                .step4 {
+                    .step4-gap {
+                        padding:50px 0;
+                        .step4-wrap {
+                            p {
+                                margin:0;
+                                font-size:23px;
+                                font-weight:600;
+                            }
+                        }
+                    }
+                }                
+                .middle {
+                    .middle-gap {
+                        padding:20px 0;
+                        .middle-wrap{
+                            display:block;
+                            .example {
+                                width:80%;
+                                margin:0 auto;
+                                .example-gap {
+                                    padding:20px 50px;
+                                    .example-wrap {
+                                        display:flex;
+                                        justify-content:center;
+                                        .left {
+                                            display:flex;
+                                            align-items:center;
+                                            cursor:pointer;
+                                            i {
+                                                font-size:60px;
+                                                font-weight:600;
+                                            }
+                                        }
+                                        .photo-example {
+                                            img {
+                                            width:300px;
+                                            }    
+                                        }
+                                        .right {
+                                            display:flex;
+                                            align-items:center;
+                                            cursor:pointer;
+                                            i {
+                                                font-size:60px;
+                                                font-weight:600;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .option-list {
+                                width:80%;
+                                margin:0 auto;
+                                .option-list-gap {
+                                    padding:30px;
+                                    .option-list-wrap {
+                                        width:100%;
+                                        padding:0;
+                                        margin:0;
+                                        li {
+                                            width:100%;
+                                            display:flex;
+                                            flex-flow:wrap;
+                                            position:relative;
+                                            &:hover {
+                                                .imgover {
+                                                    display:block;
+                                                }
+                                            }
+                                            .name {
+                                                width:20%;
+                                                padding:10px;
+                                                display:flex;
+                                                align-items:center;
+                                                span {
+                                                    display:block;
+                                                }
+                                            }
+                                            .option-content{
+                                                padding:10px;
+                                                display:flex;
+                                                align-items:flex-end;
+                                                &.size {
+                                                    width:100%;
+                                                    padding:0 20px 10px 20px;
+                                                }
+                                                label {
+                                                    margin:0 25px 0 0;
+                                                    position:relative;
+                                                    &:hover {
+                                                        .imgover{
+                                                            display:block;
+                                                        }
+                                                    }
+                                                    input[type='radio'] {
+                                                        appearance:none;
+                                                        background:#e3abab;
+                                                        color:#fff;
+                                                        border:3px solid #e3abab;
+                                                        border-radius:5px;
+                                                        &#eight {
+                                                            width:60px;
+                                                            height:60px;
+                                                        }
+                                                        &#ten {
+                                                            width:80px;
+                                                            height:80px;
+                                                        }
+                                                        &#가로A4 {
+                                                            width:80px;
+                                                            height:64px;
+                                                        }
+                                                        &#가로B4 {
+                                                            width:100px;
+                                                            height:80px;
+                                                        }
+                                                        &#세로A4 {
+                                                            width:64px;
+                                                            height:80px;
+                                                        }
+                                                        &#세로B4 {
+                                                            width:80px;
+                                                            height:100px;
+                                                        }
+                                                        width:100px;
+                                                        height:50px;
+                                                    }
+                                                    input[type='radio']:checked {
+                                                        background: #ffd0d0;
+                                                    }
+                                                    .info {
+                                                        position:absolute;
+                                                        bottom:10px;
+                                                        left:0;
+                                                        width:100%;
+                                                        span {
+                                                            text-align:center;
+                                                            display:block;
+                                                            font-size:13px;
+                                                            color:#fff;
+                                                        }
+                                                    }
+                                                    > span {
+                                                        position:absolute;
+                                                        left:0;
+                                                        bottom:0;
+                                                        width:100%;
+    
+                                                        text-align:center;
+                                                        display:block;
+                                                        font-size:13px;
+                                                        line-height:50px;
+                                                        color:#fff;
+                                                    }
+                                                    .imgover {
+                                                        position:absolute;
+                                                        top:55px;
+                                                        right:0;
+                                                        width:100px;
+                                                        display:none;
+                                                        border:3px solid #6c757d;
+                                                        border-collapse: collapse;
+                                                        z-index:5;
+                                                        img {
+                                                            width:100%;
+                                                        }
+                                                    }
+            
+                                                }
+                                                .number {
+                                                    display:flex;
+                                                    .sub {
+                                                        width:24px;
+                                                        font-size:24px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                    .add {
+                                                        width:24px;
+                                                        font-size:24px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                    .num-box {
+                                                        text-align:center;
+                                                        font-size:24px;
+                                                        width:24px;
+                                                    }
+                                                }
+                                                p {
+                                                    margin:0;
+                                                }
+                                            }
+                                            &.next {
+                                                a {
+                                                    text-decoration:none;
+                                                    width:100px;
+                                                    height:50px;
+                                                    margin:0 0 0 auto;
+                                                    background:#e3abab;
+                                                    color:#fff;
+                                                    border:3px solid #e3abab;
+                                                    border-radius:5px;
+                                                    text-align:center;
+                                                    line-height:44px;
+    
+                                                    transition:all .3s;
+                                                    &:hover {
+                                                        border:3px solid #e3abab;
+                                                        background: #ffd0d0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .line {
+                    hr {
+                     border:1px solid #000;
+                     background:#000;
+                    }
+                }
+                .slide-container {
+                    width:100%;
+                    padding:20px 0;
+                    position:relative;
+                    .left {
+                        position:absolute;
+                        top:50%;
+                        left:-50px;
+                        margin-top:-50px;
+                        cursor:pointer;
+                        i {
+                            font-size:50px;
+                        }
+                    }
+                    .right {
+                        position:absolute;
+                        top:50%;
+                        right:-50px;
+                        margin-top:-50px;
+                        cursor:pointer;
+                        i {
+                            font-size:50px;
+                        }
+                    }
+                    .slide-view {
+                        width:100%;
+                        position:relative;
+                        overflow:hidden;
+                        .slide-wrap {
+                            width:calc(100%*6/4);
+                            position:relative;
+                            display:flex;
+                            padding:0;
+                            margin:0;
+                            li {
+                                width:25%;
+                                .in-theme-gap {
+                                    padding:30px;
+                                    .in-theme-wrap {
+                                        width:100%;
+                                        cursor:pointer;
+                                        .img-wrap {
+                                            width:100%;
+                                            img {
+                                                width:100%;
+                                            }
+                                        }
+                                        .text-wrap {
+                                            padding:10px 0;
+                                            p {
+                                                margin:0;
+                                                text-align:center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }   
 @media all and (max-width: 820px) {
@@ -1214,5 +1506,311 @@
             }
             }
         }
+        #changeTheme {
+            .wrap {
+                width:90%;
+                .step4 {
+                    .step4-gap {
+                        padding:50px 0;
+                        .step4-wrap {
+                            p {
+                                margin:0;
+                                font-size:23px;
+                                font-weight:600;
+                            }
+                        }
+                    }
+                }                
+                .middle {
+                    .middle-gap {
+                        padding:20px 0;
+                        .middle-wrap{
+                            display:block;
+                            .example {
+                                width:90%;
+                                margin:0 auto;
+                                .example-gap {
+                                    padding:20px 50px;
+                                    .example-wrap {
+                                        display:flex;
+                                        justify-content:center;
+                                        .left {
+                                            display:flex;
+                                            align-items:center;
+                                            cursor:pointer;
+                                            i {
+                                                font-size:60px;
+                                                font-weight:600;
+                                            }
+                                        }
+                                        .photo-example {
+                                            img {
+                                            width:200px;
+                                            }    
+                                        }
+                                        .right {
+                                            display:flex;
+                                            align-items:center;
+                                            cursor:pointer;
+                                            i {
+                                                font-size:60px;
+                                                font-weight:600;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .option-list {
+                                width:90%;
+                                margin:0 auto;
+                                .option-list-gap {
+                                    padding:10px;
+                                    .option-list-wrap {
+                                        width:100%;
+                                        padding:0;
+                                        margin:0;
+                                        li {
+                                            width:100%;
+                                            display:flex;
+                                            flex-flow:wrap;
+                                            position:relative;
+                                            &:hover {
+                                                .imgover {
+                                                    display:block;
+                                                }
+                                            }
+                                            .name {
+                                                width:30%;
+                                                padding:10px;
+                                                display:flex;
+                                                align-items:center;
+                                                span {
+                                                    display:block;
+                                                    font-size:13px;
+                                                }
+                                            }
+                                            .option-content{
+                                                width:100%;
+                                                padding:10px;
+                                                display:flex;
+                                                align-items:flex-end;
+                                                flex-flow:wrap;
+                                                p {
+                                                    font-size:13px;
+                                                    margin:0;
+                                                }
+                                                &.name-content {
+                                                    width:70%;
+                                                }
+                                                &.size {
+                                                    width:100%;
+                                                    padding:10px;
+                                                }
+                                                label {
+                                                    margin:0 10px 10px 0;
+                                                    position:relative;
+                                                    &:hover {
+                                                        .imgover{
+                                                            display:block;
+                                                        }
+                                                    }
+                                                    input[type='radio'] {
+                                                        appearance:none;
+                                                        background:#e3abab;
+                                                        color:#fff;
+                                                        border:3px solid #e3abab;
+                                                        border-radius:5px;
+                                                        &#eight {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        &#ten {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        &#가로A4 {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        &#가로B4 {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        &#세로A4 {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        &#세로B4 {
+                                                            width:80px;
+                                                            height:40px;
+                                                        }
+                                                        width:80px;
+                                                        height:40px;
+                                                    }
+                                                    input[type='radio']:checked {
+                                                        background: #ffd0d0;
+                                                    }
+                                                    .info {
+                                                        position:absolute;
+                                                        left:0;
+                                                        bottom:0;
+                                                        width:100%;
+                                                        span {
+                                                            text-align:center;
+                                                            display:block;
+                                                            font-size:13px;
+                                                            line-height:40px;
+                                                            color:#fff;
+                                                        }
+                                                    }
+                                                    > span {
+                                                        position:absolute;
+                                                        left:0;
+                                                        bottom:0;
+                                                        width:100%;
+    
+                                                        text-align:center;
+                                                        display:block;
+                                                        font-size:13px;
+                                                        line-height:40px;
+                                                        color:#fff;
+                                                    }
+                                                    .imgover {
+                                                        position:absolute;
+                                                        top:55px;
+                                                        right:0;
+                                                        width:80px;
+                                                        display:none;
+                                                        border:3px solid #6c757d;
+                                                        border-collapse: collapse;
+                                                        z-index:5;
+                                                        img {
+                                                            width:100%;
+                                                        }
+                                                    }
+            
+                                                }
+                                                .number {
+                                                    display:flex;
+                                                    .sub {
+                                                        width:18px;
+                                                        font-size:18px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                    .add {
+                                                        width:18px;
+                                                        font-size:18px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                    .num-box {
+                                                        text-align:center;
+                                                        font-size:18px;
+                                                        width:18px;
+                                                    }
+                                                }
+                                                p {
+                                                    margin:0;
+                                                }
+                                            }
+                                            &.next {
+                                                a {
+                                                    text-decoration:none;
+                                                    width:100px;
+                                                    height:50px;
+                                                    margin:0 0 0 auto;
+                                                    background:#e3abab;
+                                                    color:#fff;
+                                                    border:3px solid #e3abab;
+                                                    border-radius:5px;
+                                                    text-align:center;
+                                                    line-height:44px;
+    
+                                                    transition:all .3s;
+                                                    &:hover {
+                                                        border:3px solid #e3abab;
+                                                        background: #ffd0d0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .line {
+                    hr {
+                     border:1px solid #000;
+                     background:#000;
+                    }
+                }
+                .slide-container {
+                    width:100%;
+                    padding:20px 0;
+                    position:relative;
+                    .left {
+                        position:absolute;
+                        top:50%;
+                        left:0;
+                        margin-top:-50px;
+                        z-index:5;
+                        cursor:pointer;
+                        i {
+                            font-size:50px;
+                        }
+                    }
+                    .right {
+                        position:absolute;
+                        top:50%;
+                        right:0;
+                        margin-top:-50px;
+                        z-index:5;
+                        cursor:pointer;
+                        i {
+                            font-size:50px;
+                        }
+                    }
+                    .slide-view {
+                        width:100%;
+                        position:relative;
+                        overflow:hidden;
+                        .slide-wrap {
+                            width:calc(100%*6/2);
+                            position:relative;
+                            display:flex;
+                            padding:0;
+                            margin:0;
+                            li {
+                                width:50%;
+                                .in-theme-gap {
+                                    padding:15px;
+                                    .in-theme-wrap {
+                                        width:100%;
+                                        cursor:pointer;
+                                        .img-wrap {
+                                            width:100%;
+                                            img {
+                                                width:100%;
+                                            }
+                                        }
+                                        .text-wrap {
+                                            padding:10px 0;
+                                            p {
+                                                margin:0;
+                                                text-align:center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -161,14 +161,20 @@
                                 button {
                                     width:150px;
                                     height:50px;
-                                    background:#ffd0d0;
+                                    background:#e3abab;
+                                    color:#fff;
+                                    border:3px solid #e3abab;
                                     border-radius:5px;
                                     font-size:17px;
                                     font-weight:600;
                                     transition:all .2s;
                                     &:hover {
-                                        background:#ec6757;
-                                        color:#fff;
+                                        border:3px solid #e3abab;
+                                        background: #ffd0d0;
+                                    }
+                                    &.on {
+                                        border:3px solid #e3abab;
+                                        background: #ffd0d0;
                                     }
                                 }
                             }
@@ -1419,7 +1425,7 @@
                                     }
                                     .photo-example {
                                         img {
-                                        width:100%;
+                                        width:400px;
                                         }    
                                     }
                                     .right {
@@ -1446,6 +1452,12 @@
                                         width:100%;
                                         display:flex;
                                         flex-flow:wrap;
+                                        position:relative;
+                                        &:hover {
+                                            .imgover {
+                                                display:block;
+                                            }
+                                        }
                                         .name {
                                             width:20%;
                                             padding:10px;
@@ -1466,6 +1478,11 @@
                                             label {
                                                 margin:0 25px 0 0;
                                                 position:relative;
+                                                &:hover {
+                                                    .imgover{
+                                                        display:block;
+                                                    }
+                                                }
                                                 input[type='radio'] {
                                                     appearance:none;
                                                     background:#e3abab;
@@ -1526,6 +1543,20 @@
                                                     line-height:50px;
                                                     color:#fff;
                                                 }
+                                                .imgover {
+                                                    position:absolute;
+                                                    top:55px;
+                                                    right:0;
+                                                    width:100px;
+                                                    display:none;
+                                                    border:3px solid #6c757d;
+                                                    border-collapse: collapse;
+                                                    z-index:5;
+                                                    img {
+                                                        width:100%;
+                                                    }
+                                                }
+        
                                             }
                                             .number {
                                                 display:flex;
@@ -1549,15 +1580,6 @@
                                             }
                                             p {
                                                 margin:0;
-                                            }
-                                        }
-                                        .tooltip {
-                                            width:100%;
-                                            .tooltip-gap {
-                                                width:100%;
-                                                .tooltip-wrap {
-                                                    width:100%;
-                                                }
                                             }
                                         }
                                         &.next {
