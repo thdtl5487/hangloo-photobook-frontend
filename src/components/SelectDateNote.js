@@ -34,28 +34,6 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     )
     const [WhatYear, setWhatYear] = useState(0);
 
-    // ↓원래 사라님이 해놓은 부분 안되면 참고
-    // const getNoticeInfoTest = () =>{ 
-    //     console.log("getNoticeInfoTest 실행")
-    //     axios({
-    //         url: "/photobookServer/getAllNoticesInfo",
-    //         method: "GET"
-    //     })
-    //     .then((res)=>{
-    //         const myList = []; // 년도 구분이고
-    //         const myList2 = []; // 해당 년도의 알림장 데이터
-    //         for(let i = 0; i<res.data.length; i++){
-    //             let dataYear = res.data[i].noticeRegDate;
-    //             myList.push(dataYear.slice(0,4));
-    //             if(dataYear.slice(0,4) === "2022"){
-    //                 myList2.push(res.data[i]);
-    //             }
-    //         }
-    //         const newMyList = Array.from(new Set(myList));
-    //         setCurrentYearNotices({...currentYearNotices, yearNoticeList:newMyList, yearNoticeContent:myList2}); << 이거 기능 물어보기 꼭 @@@@@@@@@@@@@@@@@@@@@@@@@
-    //     })
-    // }
-
     // 해당 페이지 접근 시 전체 알림장 정보를 받아오는 기능-------------------------------@@@
     const getNoticesInit = () => {
         var page = 1;
@@ -65,8 +43,8 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
         var currentArray = [];
 
         axios({
-            url: "/photobook/api/notices.php?id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+kidsNum,
-            // url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
+            // url: "/photobook/api/notices.php?id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+kidsNum,
+            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
@@ -94,8 +72,8 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     // 불러와야 하는 페이지가 1개 이상인 경우 추가 페이지를 실행하는 기능
     const getNoticeInitMore = (page, startDate, endDate, kidsNum, currentArray) => {
         axios({
-            // url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
-            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+kidsNum,
+            url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate,
+            // url: "/photobook/api/notices.php?page="+page+"&id=note&tab=from&type=list&is_search=1&start_date="+startDate+"&end_date="+endDate+"&s_child="+kidsNum,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
@@ -104,8 +82,6 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             for(var i = 0; i<res.data.data.list.length; i++){
                 currentArray.push(res.data.data.list[i]);
             }
-            console.log("more array : ")
-            console.log(currentArray);
             setAllNoticeInfo({
                 allNoticeInfo:currentArray
             })
@@ -145,24 +121,20 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     }
 
     const divideMonthInfo = () => {
-        var monthArrayDivYear = new Array();
         var monthSet = new Array();
-        
 
         for(var i = 0; i < currentYearNotices.yearNoticeList.length; i++){
             monthSet[i] = new Set();
             for(var j = 0; j<allNoticeInfo.allNoticeInfo.length; j++){
                 if(allNoticeInfo.allNoticeInfo[j].dateWeek.slice(0,2) == currentYearNotices.yearNoticeList[i]){
-                    monthSet[i].add(allNoticeInfo.allNoticeInfo[j].dateWeek.slice(3,5));
+                    monthSet[i].add(allNoticeInfo.allNoticeInfo[j]);
                 }
             }
-
+            
             for(var j = 0; j<monthSet.length; j++){
                 var changeSetToArray = Array.from(new Set(monthSet[i]));
                 monthSet[i] = changeSetToArray;
             }
-            console.log("먼쓰쎗")
-            console.log(monthSet);
         }
         
         setMonthInfo({
@@ -170,14 +142,13 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
         }, [])
     }
 
+
     const saveYearNoticeData = () => {
-        console.log("yearData 실행")
         if(document.getElementsByClassName("year-box")[0] != undefined){
             var printedYear = document.getElementsByClassName("year-box")[0].innerText;
             setShowYear({
                 currentYear:printedYear
             })
-            console.log(showYear.currentYear);
         }
     }
 
@@ -220,105 +191,92 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
         setNoteMonth({...noteMonth, months:[]});
     }
 
-    // const monthAlbum = MonthInfo.monthNoticeList[WhatYear].map((monthAlbum)=>{
-    //     return (
-    //         <li key = {monthAlbum.월}>
-    //             <div className="box">
-    //                 <div className="box-gap">
-    //                     <div className="box-wrap">
-    //                         <div className="top">
-    //                             <div className="check-month">{monthAlbum.월}월</div>
-    //                             <input type="checkbox" checked={noteMonth.months.includes(monthAlbum.월.toString())} onChange={onChangeNote} id={monthAlbum.월} name={monthAlbum.월} value={monthAlbum.월} />
-    //                         </div>
-    //                         <div className="middle">
-    //                             <div className="middle-gap">
-    //                                 <div className="middle-wrap">
-    //                                     <img src={thumbnail} alt="thumbnail" />
-    //                                 </div>
-    //                             </div>
-    //                         </div>
-    //                         <div className="modal-open">
-    //                             <div className="modal-open-gap">
-    //                                 <div className="modal-open-wrap" onClick={modalOpenFn}>
-    //                                     상세편집
-    //                                 </div>
-    //                             </div>
-    //                         </div>
-    //                         <div className="bottom">
-    //                             <div className="bottom-gap">
-    //                                 <div className="bottom-wrap">
-    //                                     <div className="check-note">알림장 {monthAlbum.알림장}개</div>
-    //                                     <div className="check-photo">사진 {monthAlbum.사진}개</div>
-    //                                 </div>
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </li>
-    //     )
-    // })    
-
+    // 월별 알림장 리스트를 출력하기 위한 기능
     const useMonthAlbum = () =>{
-        console.log("monthAlbum 실행")
-        console.log("이거실행함?")
-  
-        console.log(MonthInfo.monthNoticeList[0]);
-        // if(MonthInfo.monthNoticeList!==null){
-            // MonthInfo.monthNoticeList[0].map((hi)=>{
-            //     return(
-            //         <li>
-            //             <div>
-            //                 {hi}
-            //             </div>
-            //         </li>
-            //     )
-            // })
-        // }
+        var _saveMonthList = [];
+        var saveMonthList = [];
+        MonthInfo.monthNoticeList.map((yearList)=>{
+            console.log("지금몇년도? : " + showYear.currentYear);
+            
+            console.log("20"+yearList[0].dateWeek.slice(0,2)+"년도 리스트@@@@@@@@@@@@@@@@@@@@@@@");
+            if(showYear.currentYear == "20"+yearList[0].dateWeek.slice(0,2)){
 
-        // if(MonthInfo.monthNoticeList!==undefined){
-        //     MonthInfo.monthNoticeList[WhatYear].map((monthAlbum)=>{
-        //         return (
-        //             <li key = {monthAlbum}>
-        //                 <div className="box">
-        //                     <div className="box-gap">
-        //                         <div className="box-wrap">
-        //                             <div className="top">
-        //                                 <div className="check-month">{monthAlbum.월}월</div>
-        //                                 <input type="checkbox" checked={noteMonth.months.includes(monthAlbum.월.toString())} onChange={onChangeNote} id={monthAlbum.월} name={monthAlbum.월} value={monthAlbum.월} />
-        //                             </div>
-        //                             <div className="middle">
-        //                                 <div className="middle-gap">
-        //                                     <div className="middle-wrap">
-        //                                         <img src={thumbnail} alt="thumbnail" />
-        //                                     </div>
-        //                                 </div>
-        //                             </div>
-        //                             <div className="modal-open">
-        //                                 <div className="modal-open-gap">
-        //                                     <div className="modal-open-wrap" onClick={()=>modalOpenFn}>
-        //                                         상세편집
-        //                                     </div>
-        //                                 </div>
-        //                             </div>
-        //                             <div className="bottom">
-        //                                 <div className="bottom-gap">
-        //                                     <div className="bottom-wrap">
-        //                                         <div className="check-note">알림장 {monthAlbum.알림장}개</div>
-        //                                         <div className="check-photo">사진 {monthAlbum.사진}개</div>
-        //                                     </div>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </li>
-        //         )
-        //     })
-        // }
+                console.log(yearList) // << 년도별로 확인잘됨
+                
+                    // 월 구분용 set 변수
+                var setMonthList = new Set; 
+                for(var i = 0; i<yearList.length; i++){
+                    setMonthList.add(yearList[i].dateWeek.slice(3,5));
+                } 
+                // 월 구분용 set 변수를 array로 치환하기 위한 변수
+
+                var arrMonthList = Array.from(new Set(setMonthList));  // 월 데이터만 구분된 배열
+                
+                arrMonthList.sort();
+
+                saveMonthList = new Array(arrMonthList.length);
+                for(var i = 0; i <saveMonthList.length; i++){
+                    saveMonthList[i] = new Array();
+
+                    for(var j = 0; j<yearList.length; j++){
+                        if(arrMonthList[i] == yearList[j].dateWeek.slice(3,5)){
+                            saveMonthList[i].push(yearList[j])
+                        }
+                    }
+                }
+
+                // saveMonthList가 월단위로 구분된 실제 알림장 데이터 리스트임
+                console.log(saveMonthList); 
+            }
+            console.log("한 년도 끝남 -----------------------------------------------------")
+        })
+        console.log("saveMonthList 보고가야지")
+        console.log(saveMonthList);
+
+
+        return(
+            <div>
+                {saveMonthList.map((notice, index)=>(
+                    <li key={index}>
+                        {console.log(notice)}
+                        <div className="box">
+                            <div className="box-gap">
+                                <div className="box-wrap">
+                                    <div className="top">
+                                        <div className="check-month">{notice[0].dateWeek.slice(3,5)}월</div>
+                                        <input type="checkbox" checked={noteMonth.months.includes(notice[0].dateWeek.slice(3,5).toString())} onChange={onChangeNote} id={notice[0].dateWeek.slice(3,5)} name={notice[0].dateWeek.slice(3,5)} value={notice[0].dateWeek.slice(3,5)} />
+                                    </div>
+                                    <div className="middle">
+                                        <div className="middle-gap">
+                                            <div className="middle-wrap">
+                                                <img src ={notice[0].photo.slice(notice[0].photo.indexOf("=\"")+2, notice[0].photo.indexOf("1\"")+1)} alt="thumbnail"></img>
+                                                {/* {notice[0].photo}  << 이거 주석 해제하면 이미지 출력됨*/} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="modal-open">
+                                        <div className="modal-open-gap">
+                                            <div className="modal-open-wrap" onClick={modalOpenFn}>
+                                                상세편집
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bottom">
+                                        <div className="bottom-gap">
+                                            <div className="bottom-wrap">
+                                                <div className="check-note">알림장 {saveMonthList[index].length}개</div>
+                                                <div className="check-photo">사진 5개</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                ))}
+            </div>
+        )
     }
-
-
 
     return (
         <div id="date-note">
@@ -366,7 +324,6 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                         <ul className="month-wrap">
                             {/* month li 출력되는 영역 */}
                             {useMonthAlbum()}
-                            
                         </ul>
                     </div>
                 </div>
