@@ -18,7 +18,7 @@ const MakeDetailComponent = () => {
 
     const axiosGet = () => {
         axios({
-            url:'photobookServer/getThemeAll',
+            url:'photobookServer/getAllNoticesInfo',
             method:'GET'
         })
         .then((res)=>{
@@ -34,16 +34,28 @@ const MakeDetailComponent = () => {
         axiosGet();
     },[]);
     
-    
+    // 년월로 묶는 기능
+    // const ym = () =>{
+    //     const test = new Date(field.ymlist.noticeRegDate);
+    //     const y = format(test, "MM");
+    //     return(
+    //         <>{y}</>
+    //     )
+    // }
 
     // 년월 리스트 출력
     const list = field.ymlist.map(list => {
 
+        const ym = format(new Date(list.noticeRegDate), "yyyy-MM");
+        console.log(ym);
+        const ymset = new Set(ym);
+        console.log(ymset);
+
         return(
-            <li key={list.themeNum}>
+            <li key={list.noticeNum}>
                 <div className="list">
                     <div className="list-text">
-                        <span className="ym"> {list.themeName} </span> <span className="page"> {list.themeNum}페이지 </span>
+                        <span className="ym"> {format(new Date(list.noticeRegDate), "yyyy년 MM월")} </span> <span className="page"> {list.noticeNum}페이지 </span>
                     </div>
                 </div>
             </li>
@@ -56,11 +68,11 @@ const MakeDetailComponent = () => {
         
         return(
             <div className="dayslist">
-                <li>
-                    <CaretLeftFill className="CaretLeftFill"/>
-                    <div className="days">23</div>
-                    <CaretRightFill className="CaretRightFill"/>
-                </li>
+                <CaretLeftFill className="CaretLeftFill"/>
+                    <li>
+                       <div className="days">23</div>
+                    </li>
+                <CaretRightFill className="CaretRightFill"/>
             </div>
         )
     }
