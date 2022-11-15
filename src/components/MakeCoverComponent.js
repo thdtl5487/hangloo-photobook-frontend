@@ -38,7 +38,7 @@ const MakeCoverComponent = () => {
                     {!fileImage && ( <div className="Camera" onClick={handleCameraClick}> <Camera/> </div>) }    
                     {fileImage && (<div><img alt="sample" src={fileImage}/><div className="x" onClick={deleteFileImage}><XLg className='XLg'/></div></div>) }
                 </div>
-                <input className="imgUpload" type="file" ref={fileInput} accept="image/*" onChange={saveFileImage}/>
+                <input className="imgUpload" name="cover_img" type="file" ref={fileInput} accept="image/*" onChange={saveFileImage}/>
             </div>
         )
         
@@ -46,6 +46,9 @@ const MakeCoverComponent = () => {
 
     //표지제목
     const [coverText, setCoverText] = useState("");
+
+    //포토북 고유번호
+    const [photobooknum, setPhotobookNum] = useState("");
 
     const changeText = (e) => {
         setCoverText(e.target.value);
@@ -55,8 +58,9 @@ const MakeCoverComponent = () => {
     const onSummit = async() => {
         const formData = new FormData();
 
-        formData.append("file", fileImage);
-        formData.append("text", coverText);
+        formData.append("",photobooknum);
+        formData.append("cover_img", fileImage);
+        formData.append("cover_title", coverText);
 
         console.log(coverText);
         console.log(fileImage);
@@ -93,7 +97,7 @@ const MakeCoverComponent = () => {
                             </div>
                             <div className="cover-title">
                                 <div className="title-text">
-                                    <input type="text" placeholder="표지 제목을 입력해주세요." value={coverText} onChange={changeText}>
+                                    <input type="text" placeholder="표지 제목을 입력해주세요." name="cover_title" value={coverText} onChange={changeText}>
 
                                     </input>
                                 </div>

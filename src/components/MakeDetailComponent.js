@@ -10,6 +10,14 @@ import { useEffect } from 'react';
 
 const MakeDetailComponent = () => {
 
+    //모달창 노출 여부
+    const [modalOpen, setModalOpen] = useState(false);
+
+    //모달창 노출
+    const showModal = () => {
+        setModalOpen(true);
+    };
+
     const [field, setField] = useState(
         {
             ymlist:[]
