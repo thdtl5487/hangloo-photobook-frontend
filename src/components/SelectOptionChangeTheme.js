@@ -307,7 +307,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                             <div className="option-content"></div>
                                         </li>
                                         <li className="next">
-                                            <Link to="/SelectOptionChangeTheme">편집하기</Link>
+                                            <Link to="/MakeCoverComponent">편집하기</Link>
                                         </li>
                                     </ul>
                                 </div>

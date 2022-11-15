@@ -17,6 +17,8 @@ import SelectDateNote from './SelectDateNote';
 import SelectOptionChangeTheme from './SelectOptionChangeTheme';
 import ModalComponent from './ModalComponent';
 
+import MakeCoverComponent from './MakeCoverComponent';
+
 import MakeDetailComponent from './MakeDetailComponent';
 import MakeDetailNote from './MakeDetailNote';
 import MakeDetailAlbum from './MakeDetailAlbum';
@@ -55,6 +57,8 @@ const WrapComponent = () => {
                 <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
                 <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn}/>} />
                 <Route path='/SelectOptionChangeTheme' element={<SelectOptionChangeTheme albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
+
+                <Route path='/MakeCoverComponent' element={<MakeCoverComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
 
                 <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
                 <Route path='/MakeDetailNote' element={<MakeDetailNote/>} />
