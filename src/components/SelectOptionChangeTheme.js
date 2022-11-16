@@ -2,8 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
-import image1 from '../images/hard (1).jpg';
-import image2 from '../images/hard (3).jpg';
+
 import 하드커버 from '../images/hard.jpeg';
 import 소프트커버 from '../images/soft.jpeg';
 import 레더커버 from '../images/leather.jpeg';
@@ -23,21 +22,22 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
             setSelectNumber(selectNumber-1);
         }
     }
+    useEffect(()=>{
+        setOptionList({...optionList, quantity:selectNumber});
+    },[selectNumber]);
 
     //선택목록 임시저장
     const [optionList, setOptionList] = useState({
         selectedTheme:'',
         size:'',
         cover:'',
-        coverCoating:'',
+        coverCoting:'',
         inside:'',
-        case:''
+        case:'',
+        quantity:'',
+        page:999
     })
 
-    //툴팁 스테이트
-    const [mouseOver, setMouseOver] = useState({
-        images:''
-    })
 
     //선택된 테마 데이터
     const [checkTheme, setCheckTheme] = useState({
@@ -52,7 +52,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
         setOptionList({...optionList, cover:e.target.value});
     }
     const onChangecoverCoating = (e) => {
-        setOptionList({...optionList, coverCoating:e.target.value});
+        setOptionList({...optionList, coverCoting:e.target.value});
     }
     const onChangeInside = (e) => {
         setOptionList({...optionList, inside:e.target.value});
@@ -93,10 +93,8 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
 
     useEffect(()=>{
         axiosGet();
+        setOptionList({...optionList, selectedTheme:localStorage.getItem("theme_num"),quantity:selectNumber});
     }, []);
-
-
-
 
 
     //슬라이드 테마 클릭 변경
@@ -204,7 +202,50 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
     const onClickMain = (e) => {
         setSub({...sub, isShowMain:true, isShowSub:false});
     }
+    
+    //전송
+    const onSubmit = (e) =>{
+        e.preventDefault();
+        // let imsi = {
+        //     theme_num:optionList.selectedTheme,
+        //     photobook_size:optionList.size,
+        //     photobook_cover:optionList.cover,
+        //     photobook_coting:optionList.coverCoting,
+        //     photobook_inside:optionList.inside,
+        //     photobook_case:optionList.case,
+        //     photobook_quantity:optionList.quantity,
+        //     photobook_page:optionList.page
+        // };
+        // localStorage.setItem(imsi.theme_num, JSON.stringify(imsi)); //로컬스토리지는 객체저장불가능, json.stringfy 사용 문자열변환
+        //const axiosFn=()=>{
+            const formData = new FormData();
+            formData.append('themeNum', optionList.selectedTheme);
+            formData.append('user_num', 1);
+            formData.append('photobook_size', optionList.size);
+            formData.append('photobook_cover', optionList.cover);
+            formData.append('photobook_coting', optionList.coverCoting);
+            formData.append('photobook_inside', optionList.inside);
+            formData.append('photobook_case', optionList.case);
+            formData.append('photobook_quantity', optionList.quantity);
+            formData.append('photobook_page', optionList.page);
 
+            //AXIOS 비동기 전송
+            axios({
+                url:'/photobookServer/SelectBookOption',
+                method:'POST',
+                data: formData
+            })
+            .then((response)=>{
+                console.log( `AXIOS 성공: ${response.data}` );
+                return;
+            })
+            .catch((error)=>{
+                console.log( `AXIOS 실패: ${error}` );
+                return;
+            });                            
+        //}
+        //axiosFn();
+    }
 
     return (
         <div id="changeTheme">
@@ -263,6 +304,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                                     <input onChange={onChangeSize} type="radio" id="가로A4" name="size" value="가로A4" />
                                                     <div className="info"><span>가로형A4</span></div>
                                                 </label>
+
                                                 <label htmlFor="가로B4">
                                                     <input onChange={onChangeSize} type="radio" id="가로B4" name="size" value="가로B4" />
                                                     <div className="info"><span>가로형B4</span></div>
@@ -371,7 +413,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                             <div className="option-content"></div>
                                         </li>
                                         <li className="next">
-                                            <Link to="/MakeCoverComponent">편집하기</Link>
+                                            <Link to="/MakeCoverComponent"><button onClick={onSubmit}>편집하기</button></Link>
                                         </li>
                                     </ul>
                                 </div>

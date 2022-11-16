@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import kids2 from '../images/kidsdummy2.jpeg';
 import kids3 from '../images/kidsdummy3.jpeg';
 
-const ModalComponent = ({modal, modalCloseFn}) => {
+const ModalComponent = ({modal, setModal, modalCloseFn}) => {
     // useEffect(() => {
     //     document.body.style.cssText = `
     //       position: fixed; 
@@ -15,10 +15,17 @@ const ModalComponent = ({modal, modalCloseFn}) => {
     //       window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
     //     };
     //   }, []);
-      
+
+    const outSection = useRef();
+    const outSection2 = useRef();
+    
     return (
         modal.isShow && (
-        <div id="modal">
+        <div id="modal" ref={outSection} onClick={(e)=>{
+            if(outSection.current === e.target) {
+                modalCloseFn();
+            }
+        }}>
             <div className="modal-gap">
                 <div className="modal-wrap">
                     <div className="month">

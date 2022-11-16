@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
-import { click } from '@testing-library/user-event/dist/click';
 
 const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
 
@@ -85,8 +84,8 @@ const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
             const imgEle = document.querySelectorAll("img");
-            for(var i = 0; i<imgEle.length; i++){
-                imgEle[i].classList.remove("on");
+            for(var j = 0; j<imgEle.length; j++){
+                imgEle[j].classList.remove("on");
             }
         }
     }

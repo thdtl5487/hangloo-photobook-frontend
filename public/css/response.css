@@ -1305,7 +1305,7 @@
     cursor: pointer;
   }
   #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .example .example-gap .example-wrap .left i {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600;
   }
   #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .example .example-gap .example-wrap .photo-example img {
@@ -1317,7 +1317,7 @@
     cursor: pointer;
   }
   #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .example .example-gap .example-wrap .right i {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600;
   }
   #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list {

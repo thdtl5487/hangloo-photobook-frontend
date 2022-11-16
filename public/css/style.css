@@ -98,16 +98,18 @@
   width: 250px;
   height: 120px;
   line-height: 114px;
-  background: #ec6757;
+  background: #ffd0d0;
   color: #fff;
   font-size: 25px;
   font-weight: 600;
   border-radius: 10px;
-  border: 3px solid #ec6757;
+  border: 3px solid #e3abab;
   transition: all 0.3s;
+  text-shadow: 0 0 5px #e3abab;
 }
 #wrap #main .wrap a:hover {
-  border: 3px solid #fff;
+  border: 3px solid #e3abab;
+  background: #e3abab;
 }
 #wrap #footer {
   width: 100vw;
@@ -201,21 +203,18 @@
   width: 100%;
   padding: 50px;
 }
-#wrap #selectTheme .wrap .theme .theme-gap .theme-wrap ul li .in-theme-gap .selectedTheme {
-  border: 4px solid #ef4c39 !important;
-}
 #wrap #selectTheme .wrap .theme .theme-gap .theme-wrap ul li .in-theme-gap .in-theme-wrap {
   width: 100%;
   padding: 30px;
-  border: 2px solid #ffd0d0;
+  border: 3px solid #ffd0d0;
   border-radius: 5px;
   cursor: pointer;
 }
 #wrap #selectTheme .wrap .theme .theme-gap .theme-wrap ul li .in-theme-gap .in-theme-wrap:hover {
-  border: 2px solid #ec6757;
+  border: 3px solid #e3abab;
 }
 #wrap #selectTheme .wrap .theme .theme-gap .theme-wrap ul li .in-theme-gap .in-theme-wrap.on {
-  border: 2px solid #ec6757;
+  border: 3px solid #e3abab;
 }
 #wrap #selectTheme .wrap .theme .theme-gap .theme-wrap ul li .in-theme-gap .in-theme-wrap .img-wrap {
   padding: 30px;
@@ -1160,12 +1159,12 @@
   z-index: 30;
 }
 #wrap #modal .modal-gap {
-  padding: 200px 100px;
   width: 70%;
   margin: 0 auto;
 }
 #wrap #modal .modal-gap .modal-wrap {
   width: 100%;
+  margin: 200px auto;
   height: 70%;
   background: rgb(245, 241, 241);
 }
@@ -1534,6 +1533,9 @@
   margin: 0;
 }
 #wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li.next a {
+  margin: 0 0 0 auto;
+}
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li.next a button {
   text-decoration: none;
   width: 100px;
   height: 50px;
@@ -1546,7 +1548,7 @@
   line-height: 44px;
   transition: all 0.3s;
 }
-#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li.next a:hover {
+#wrap #changeTheme .wrap .middle .middle-gap .middle-wrap .option-list .option-list-gap .option-list-wrap li.next a button:hover {
   border: 3px solid #e3abab;
   background: #ffd0d0;
 }
