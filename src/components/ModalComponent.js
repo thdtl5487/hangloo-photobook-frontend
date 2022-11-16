@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import kids2 from '../images/kidsdummy2.jpeg';
 import kids3 from '../images/kidsdummy3.jpeg';
 
-const ModalComponent = ({modal, modalCloseFn}) => {
+const ModalComponent = ({modal, modalCloseFn, monthData}) => {
     // useEffect(() => {
     //     document.body.style.cssText = `
     //       position: fixed; 
@@ -15,10 +15,15 @@ const ModalComponent = ({modal, modalCloseFn}) => {
     //       window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
     //     };
     //   }, []);
-      
+
+    const reciveDataTest= ()=>{
+        console.log(monthData)
+    }
+
     return (
         modal.isShow && (
         <div id="modal">
+            {reciveDataTest()}
             <div className="modal-gap">
                 <div className="modal-wrap">
                     <div className="month">
