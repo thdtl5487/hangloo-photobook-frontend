@@ -23,13 +23,22 @@ const WrapComponent = () => {
             isShow:false
         }
     );
+
+    const [selectDateNote_monthData, setSelectDateNote_monthData] = useState({
+        monthData: []
+    })
+
     const modalCloseFn=()=>{
         setModal({...modal, isShow:false});
         document.body.style.overflow = "unset";
     }
-    const modalOpenFn=()=>{
+    const modalOpenFn=(monthData)=>{
         setModal({...modal, isShow:true});
         document.body.style.overflow = "hidden";
+
+        setSelectDateNote_monthData({
+            monthData:monthData
+        })
     }
     const [albumnote, setAlbumnote] = useState({
         themeNum:'',
@@ -38,6 +47,8 @@ const WrapComponent = () => {
     const [themeList, setThemeList] = useState({
         allThemeList:[]
     });
+
+
     return (
         <div id="wrap">
             <HeaderComponent />
@@ -54,7 +65,7 @@ const WrapComponent = () => {
                 <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn}/>} />
                 <Route path='/SelectOptionChangeTheme' element={<SelectOptionChangeTheme albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
             </Routes>
-            <ModalComponent modal={modal} modalCloseFn={modalCloseFn}/>
+            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn}/>
             <FooterComponent />
         </div>
     );

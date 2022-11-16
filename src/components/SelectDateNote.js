@@ -227,6 +227,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
 
                 // saveMonthList가 월단위로 구분된 실제 알림장 데이터 리스트임
                 console.log(saveMonthList); 
+                
             }
             console.log("한 년도 끝남 -----------------------------------------------------")
         })
@@ -235,7 +236,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
 
 
         return(
-            <div>
+            <ul className="month-wrap">
                 {saveMonthList.map((notice, index)=>(
                     <li key={index}>
                         {console.log(notice)}
@@ -250,13 +251,14 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                                         <div className="middle-gap">
                                             <div className="middle-wrap">
                                                 <img src ={notice[0].photo.slice(notice[0].photo.indexOf("=\"")+2, notice[0].photo.indexOf("1\"")+1)} alt="thumbnail"></img>
-                                                {/* {notice[0].photo}  << 이거 주석 해제하면 이미지 출력됨*/} 
+                                                {/* ↓ 현재 img src에 들어가는 값 확인을 위한 텍스트 */}
+                                                {/* {notice[0].photo} */}
                                             </div>
                                         </div>
                                     </div>
                                     <div className="modal-open">
                                         <div className="modal-open-gap">
-                                            <div className="modal-open-wrap" onClick={modalOpenFn}>
+                                            <div className="modal-open-wrap" onClick={()=>modalOpenFn(notice)}>
                                                 상세편집
                                             </div>
                                         </div>
@@ -274,7 +276,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                         </div>
                     </li>
                 ))}
-            </div>
+            </ul>
         )
     }
 
@@ -321,10 +323,10 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                 </div>
                 <div className="month">
                     <div className="month-gap">
-                        <ul className="month-wrap">
+                        {/* <ul className="month-wrap"> */}
                             {/* month li 출력되는 영역 */}
                             {useMonthAlbum()}
-                        </ul>
+                        {/* </ul> */}
                     </div>
                 </div>
                 <div className="next-btn">
