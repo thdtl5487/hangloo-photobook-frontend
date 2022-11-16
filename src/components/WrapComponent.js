@@ -35,7 +35,7 @@ const WrapComponent = () => {
         setModal({...modal, isShow:false});
         document.body.style.overflow = "unset";
     }
-    const modalOpenFn=()=>{
+    const modalOpenFn=(monthData)=>{
         setModal({...modal, isShow:true});
         document.body.style.overflow = "hidden";
         setSelectDateNote_monthData({
