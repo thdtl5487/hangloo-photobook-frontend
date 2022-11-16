@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import kids2 from '../images/kidsdummy2.jpeg';
 import kids3 from '../images/kidsdummy3.jpeg';
 
-const ModalComponent = ({modal, modalCloseFn, monthData}) => {
+const ModalComponent = ({modal, setModal, modalCloseFn}) => {
     // useEffect(() => {
     //     document.body.style.cssText = `
     //       position: fixed; 
@@ -16,14 +16,16 @@ const ModalComponent = ({modal, modalCloseFn, monthData}) => {
     //     };
     //   }, []);
 
-    const reciveDataTest= ()=>{
-        console.log(monthData)
-    }
-
+    const outSection = useRef();
+    const outSection2 = useRef();
+    
     return (
         modal.isShow && (
-        <div id="modal">
-            {reciveDataTest()}
+        <div id="modal" ref={outSection} onClick={(e)=>{
+            if(outSection.current === e.target) {
+                modalCloseFn();
+            }
+        }}>
             <div className="modal-gap">
                 <div className="modal-wrap">
                     <div className="month">

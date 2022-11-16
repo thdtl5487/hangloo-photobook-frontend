@@ -106,15 +106,17 @@
                 width:250px;
                 height:120px;
                 line-height:114px;
-                background:#ec6757;
+                background:#ffd0d0;
                 color:#fff;
                 font-size:25px;
                 font-weight:600;
                 border-radius:10px;
-                border:3px solid #ec6757;
+                border:3px solid #e3abab;
                 transition:all .3s;
+                text-shadow: 0 0 5px #e3abab;
                 &:hover {
-                    border:3px solid #fff;
+                    border:3px solid #e3abab;
+                    background:#e3abab;
                 }
             }
 
@@ -144,7 +146,6 @@
 
         }
     }
-// start select Theme
     #selectTheme {
         background:#f9f4f4;
         width:100vw;
@@ -168,14 +169,20 @@
                                 button {
                                     width:150px;
                                     height:50px;
-                                    background:#ffd0d0;
+                                    background:#e3abab;
+                                    color:#fff;
+                                    border:3px solid #e3abab;
                                     border-radius:5px;
                                     font-size:17px;
                                     font-weight:600;
                                     transition:all .2s;
                                     &:hover {
-                                        background:#ec6757;
-                                        color:#fff;
+                                        border:3px solid #e3abab;
+                                        background: #ffd0d0;
+                                    }
+                                    &.on {
+                                        border:3px solid #e3abab;
+                                        background: #ffd0d0;
                                     }
                                 }
                             }
@@ -202,20 +209,17 @@
                                 .in-theme-gap {
                                     width:100%;
                                     padding:50px;
-                                    .selectedTheme{
-                                        border:4px solid #ef4c39 !important;
-                                    }
                                     .in-theme-wrap {
                                         width:100%;
                                         padding:30px;
-                                        border:2px solid #ffd0d0;
+                                        border:3px solid #ffd0d0;
                                         border-radius:5px;
                                         cursor:pointer;
                                         &:hover {
-                                            border:2px solid #ec6757;
+                                            border:3px solid #e3abab;
                                         }
                                         &.on {
-                                            border:2px solid #ec6757;
+                                            border:3px solid #e3abab;
                                         }
                                         .img-wrap {
                                             padding:30px;
@@ -280,7 +284,6 @@
             }    
         }
     }
-// end select Theme
     #selectkids {
         background:#f9f4f4;
         width:100vw;
@@ -1213,11 +1216,11 @@
         left:0;
         z-index:30;
         .modal-gap {
-            padding:200px 100px;
             width:70%;
             margin:0 auto;
             .modal-wrap {
                 width:100%;
+                margin:200px auto;
                 height:70%;
                 background:rgb(245, 241, 241);
                 .month {
@@ -1426,7 +1429,7 @@
                                     }
                                     .photo-example {
                                         img {
-                                        width:100%;
+                                        width:400px;
                                         }    
                                     }
                                     .right {
@@ -1453,6 +1456,12 @@
                                         width:100%;
                                         display:flex;
                                         flex-flow:wrap;
+                                        position:relative;
+                                        &:hover {
+                                            .imgover {
+                                                display:block;
+                                            }
+                                        }
                                         .name {
                                             width:20%;
                                             padding:10px;
@@ -1473,6 +1482,11 @@
                                             label {
                                                 margin:0 25px 0 0;
                                                 position:relative;
+                                                &:hover {
+                                                    .imgover{
+                                                        display:block;
+                                                    }
+                                                }
                                                 input[type='radio'] {
                                                     appearance:none;
                                                     background:#e3abab;
@@ -1533,6 +1547,20 @@
                                                     line-height:50px;
                                                     color:#fff;
                                                 }
+                                                .imgover {
+                                                    position:absolute;
+                                                    top:55px;
+                                                    right:0;
+                                                    width:100px;
+                                                    display:none;
+                                                    border:3px solid #6c757d;
+                                                    border-collapse: collapse;
+                                                    z-index:5;
+                                                    img {
+                                                        width:100%;
+                                                    }
+                                                }
+        
                                             }
                                             .number {
                                                 display:flex;
@@ -1558,32 +1586,41 @@
                                                 margin:0;
                                             }
                                         }
-                                        .tooltip {
-                                            width:100%;
-                                            .tooltip-gap {
-                                                width:100%;
-                                                .tooltip-wrap {
-                                                    width:100%;
-                                                }
-                                            }
-                                        }
                                         &.next {
                                             a {
-                                                text-decoration:none;
-                                                width:100px;
-                                                height:50px;
+                                                // text-decoration:none;
+                                                // width:100px;
+                                                // height:50px;
                                                 margin:0 0 0 auto;
-                                                background:#e3abab;
-                                                color:#fff;
-                                                border:3px solid #e3abab;
-                                                border-radius:5px;
-                                                text-align:center;
-                                                line-height:44px;
+                                                // background:#e3abab;
+                                                // color:#fff;
+                                                // border:3px solid #e3abab;
+                                                // border-radius:5px;
+                                                // text-align:center;
+                                                // line-height:44px;
 
-                                                transition:all .3s;
-                                                &:hover {
+                                                // transition:all .3s;
+                                                // &:hover {
+                                                //     border:3px solid #e3abab;
+                                                //     background: #ffd0d0;
+                                                // }
+                                                button {
+                                                    text-decoration:none;
+                                                    width:100px;
+                                                    height:50px;
+                                                    margin:0 0 0 auto;
+                                                    background:#e3abab;
+                                                    color:#fff;
                                                     border:3px solid #e3abab;
-                                                    background: #ffd0d0;
+                                                    border-radius:5px;
+                                                    text-align:center;
+                                                    line-height:44px;
+    
+                                                    transition:all .3s;
+                                                    &:hover {
+                                                        border:3px solid #e3abab;
+                                                        background: #ffd0d0;
+                                                    }
                                                 }
                                             }
                                         }

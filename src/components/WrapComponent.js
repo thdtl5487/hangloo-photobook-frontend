@@ -3,9 +3,7 @@ import FooterComponent from './FooterComponent';
 import HeaderComponent from './HeaderComponent';
 import MainComponent from './MainComponent';
 
-import { useMediaQuery } from 'react-responsive';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import SelectKidsComponent from './SelectKidsComponent';
@@ -29,10 +27,6 @@ const WrapComponent = () => {
             isShow:false
         }
     );
-    const [selectDateNote_monthData, setSelectDateNote_monthData] = useState({
-        monthData: []
-    })
-
     const modalCloseFn=()=>{
         setModal({...modal, isShow:false});
         document.body.style.overflow = "unset";
@@ -40,9 +34,6 @@ const WrapComponent = () => {
     const modalOpenFn=()=>{
         setModal({...modal, isShow:true});
         document.body.style.overflow = "hidden";
-        setSelectDateNote_monthData({
-            monthData:monthData
-        })
     }
     const [albumnote, setAlbumnote] = useState({
         themeNum:'',
@@ -72,7 +63,7 @@ const WrapComponent = () => {
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
-            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn}/>
+            <ModalComponent modal={modal} modalCloseFn={modalCloseFn} setModal={setModal}/>
             <FooterComponent />
         </div>
     );

@@ -2,9 +2,10 @@ import React, {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
-import image1 from '../images/hard (1).jpg';
-import image2 from '../images/hard (3).jpg';
-import hardcover from '../images/hard.jpeg';
+
+import 하드커버 from '../images/hard.jpeg';
+import 소프트커버 from '../images/soft.jpeg';
+import 레더커버 from '../images/leather.jpeg';
 
 
 const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
@@ -21,16 +22,22 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
             setSelectNumber(selectNumber-1);
         }
     }
+    useEffect(()=>{
+        setOptionList({...optionList, quantity:selectNumber});
+    },[selectNumber]);
 
     //선택목록 임시저장
     const [optionList, setOptionList] = useState({
         selectedTheme:'',
         size:'',
         cover:'',
-        coverCoating:'',
+        coverCoting:'',
         inside:'',
-        case:''
+        case:'',
+        quantity:'',
+        page:999
     })
+
 
     //선택된 테마 데이터
     const [checkTheme, setCheckTheme] = useState({
@@ -45,7 +52,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
         setOptionList({...optionList, cover:e.target.value});
     }
     const onChangecoverCoating = (e) => {
-        setOptionList({...optionList, coverCoating:e.target.value});
+        setOptionList({...optionList, coverCoting:e.target.value});
     }
     const onChangeInside = (e) => {
         setOptionList({...optionList, inside:e.target.value});
@@ -86,10 +93,8 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
 
     useEffect(()=>{
         axiosGet();
+        setOptionList({...optionList, selectedTheme:localStorage.getItem("theme_num"),quantity:selectNumber});
     }, []);
-
-
-
 
 
     //슬라이드 테마 클릭 변경
@@ -129,17 +134,51 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
     //슬라이드 오른쪽 왼쪽 이동
     let cnt = 0;
     const Slide = (e) => {
+        let winW = $(window).width();
         let slideW = $('#changeTheme .slide-view').width();
-        slideW = $('#changeTheme .slide-view').width();
-        $('#changeTheme .slide-wrap').stop().animate({left:-slideW/5*cnt},600);
+        if(winW>1180){
+            slideW = $('#changeTheme .slide-view').width();
+            $('#changeTheme .slide-wrap').stop().animate({left:-slideW/5*cnt},600);    
+        }
+        else if(820<winW && winW<=1180){
+            slideW = $('#changeTheme .slide-view').width();
+            $('#changeTheme .slide-wrap').stop().animate({left:-slideW/4*cnt},600);    
+        }
+        else if(winW<=820){
+            slideW = $('#changeTheme .slide-view').width();
+            $('#changeTheme .slide-wrap').stop().animate({left:-slideW/2*cnt},600);     
+        }
     }
     const nextCount = (e) => {
-        if(themeList.themeList.length-5>cnt){
-            cnt++;
-            Slide();    
+        let winW = $(window).width();
+        if(winW>1180){
+            if(themeList.themeList.length-5>cnt){
+                cnt++;
+                Slide();    
+            }
+            else {
+                return;
+            }
         }
-        else {
-            return;
+        else if(820<winW && winW<=1180){
+            console.log(winW);
+            if(themeList.themeList.length-4>cnt){
+                cnt++;
+                Slide();    
+            }
+            else {
+                return;
+            }
+        }
+        else if(winW<=820){
+            console.log(winW);
+            if(themeList.themeList.length-2>cnt){
+                cnt++;
+                Slide();    
+            }
+            else {
+                return;
+            }
         }
     }
     const prevCount = (e) => {
@@ -152,6 +191,61 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
         }
     }
 
+    //클릭시 서브이미지출력
+    const [sub, setSub] = useState({
+        isShowMain:true,
+        isShowSub:false
+    })
+    const onClickSub = (e) => {
+        setSub({...sub, isShowMain:false, isShowSub:true});
+    }
+    const onClickMain = (e) => {
+        setSub({...sub, isShowMain:true, isShowSub:false});
+    }
+    
+    //전송
+    const onSubmit = (e) =>{
+        e.preventDefault();
+        // let imsi = {
+        //     theme_num:optionList.selectedTheme,
+        //     photobook_size:optionList.size,
+        //     photobook_cover:optionList.cover,
+        //     photobook_coting:optionList.coverCoting,
+        //     photobook_inside:optionList.inside,
+        //     photobook_case:optionList.case,
+        //     photobook_quantity:optionList.quantity,
+        //     photobook_page:optionList.page
+        // };
+        // localStorage.setItem(imsi.theme_num, JSON.stringify(imsi)); //로컬스토리지는 객체저장불가능, json.stringfy 사용 문자열변환
+        //const axiosFn=()=>{
+            const formData = new FormData();
+            formData.append('themeNum', optionList.selectedTheme);
+            formData.append('user_num', 1);
+            formData.append('photobook_size', optionList.size);
+            formData.append('photobook_cover', optionList.cover);
+            formData.append('photobook_coting', optionList.coverCoting);
+            formData.append('photobook_inside', optionList.inside);
+            formData.append('photobook_case', optionList.case);
+            formData.append('photobook_quantity', optionList.quantity);
+            formData.append('photobook_page', optionList.page);
+
+            //AXIOS 비동기 전송
+            axios({
+                url:'/photobookServer/SelectBookOption',
+                method:'POST',
+                data: formData
+            })
+            .then((response)=>{
+                console.log( `AXIOS 성공: ${response.data}` );
+                return;
+            })
+            .catch((error)=>{
+                console.log( `AXIOS 실패: ${error}` );
+                return;
+            });                            
+        //}
+        //axiosFn();
+    }
 
     return (
         <div id="changeTheme">
@@ -169,14 +263,22 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                             <div className="example">
                                 <div className="example-gap">
                                     <div className="example-wrap">
-                                        <div className="left"><i className="material-icons">keyboard_arrow_left</i></div>
+                                        <div className="left" onClick={onClickMain}><i className="material-icons">keyboard_arrow_left</i></div>
                                         <div className="photo-example">
-                                        <img
-                                        src={"/photobookServer/getThemeImg/"+localStorage.getItem('theme_num')} 
-                                        alt={'Theme'+albumnote.themeNum}
-                                        />
+                                            {sub.isShowMain && (
+                                            <img
+                                            src={"/photobookServer/getThemeImg/"+localStorage.getItem('theme_num')} 
+                                            alt={'Theme'+albumnote.themeNum}
+                                            />
+                                            )}
+                                            {sub.isShowSub && (
+                                                <img
+                                                src={"/photobookServer/getThemeSubImg/"+localStorage.getItem('theme_num')} 
+                                                alt={'Theme'+albumnote.themeNum}
+                                                />         
+                                            )}                               
                                         </div>
-                                        <div className="right"><i className="material-icons">keyboard_arrow_right</i></div>
+                                        <div className="right" onClick={onClickSub}><i className="material-icons">keyboard_arrow_right</i></div>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +287,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                     <ul className="option-list-wrap">
                                         <li>
                                             <div className="name"><span>테마</span></div>
-                                            <div className="option-content"><p>{localStorage.getItem('theme_name')}</p></div>
+                                            <div className="option-content name-content"><p>{localStorage.getItem('theme_name')}</p></div>
                                         </li>
                                         <li>
                                             <div className="name"><span>사이즈</span></div>
@@ -202,6 +304,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                                     <input onChange={onChangeSize} type="radio" id="가로A4" name="size" value="가로A4" />
                                                     <div className="info"><span>가로형A4</span></div>
                                                 </label>
+
                                                 <label htmlFor="가로B4">
                                                     <input onChange={onChangeSize} type="radio" id="가로B4" name="size" value="가로B4" />
                                                     <div className="info"><span>가로형B4</span></div>
@@ -217,27 +320,30 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                                 </label>
                                             </div>
                                         </li>
-                                        <li>
+                                        <li className="cover">
                                             <div className="name"><span>커버</span></div>
                                             <div className="option-content">
                                                 <label htmlFor="하드커버">
                                                     <input onChange={onChangeCover} type="radio" id="하드커버" name="cover" value="하드커버" />
                                                     <span>하드커버</span>
+                                                    <div className="imgover">
+                                                        <img src={하드커버} alt=""/>
+                                                    </div>
                                                 </label>
                                                 <label htmlFor="소프트커버">
                                                     <input onChange={onChangeCover} type="radio" id="소프트커버" name="cover" value="소프트커버" />
                                                     <span>소프트커버</span>
+                                                    <div className="imgover">
+                                                        <img src={소프트커버} alt=""/>
+                                                    </div>
                                                 </label>
                                                 <label htmlFor="레더커버">
                                                     <input onChange={onChangeCover} type="radio" id="레더커버" name="cover" value="레더커버" />
                                                     <span>레더커버</span>
-                                                </label>
-                                            </div>
-                                            <div className="tooltip">
-                                                <div className="tooltip-gap">
-                                                    <div className="tooltip-wrap">
+                                                    <div className="imgover">
+                                                        <img src={레더커버} alt=""/>
                                                     </div>
-                                                </div>
+                                                </label>
                                             </div>
                                         </li>
                                         <li>
@@ -307,7 +413,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
                                             <div className="option-content"></div>
                                         </li>
                                         <li className="next">
-                                            <Link to="/MakeCoverComponent">편집하기</Link>
+                                            <Link to="/MakeCoverComponent"><button onClick={onSubmit}>편집하기</button></Link>
                                         </li>
                                     </ul>
                                 </div>

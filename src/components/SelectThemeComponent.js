@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { click } from '@testing-library/user-event/dist/click';
+import $ from 'jquery';
 
 const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
 
@@ -51,9 +51,15 @@ const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
         const priceText = document.getElementsByClassName('price-text');
         for(var i = 0; i<field.themeList.length; i++){
             priceText[i].innerText = makeComma(field.themeList[i].themePrice * num) + "원";
-            
         }
     }
+    //버튼 색깔 홀드
+    $('.page-btn').on({
+        click: function(){
+            $('.page-btn').removeClass('on');
+            $(this).addClass('on');
+        }
+    });
     
     // 원 단위의 숫자를 출력할 때, 3자릿수마다 쉼표를 찍어주는 기능
     const makeComma = (price) =>{
@@ -78,8 +84,8 @@ const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
             const imgEle = document.querySelectorAll("img");
-            for(var i = 0; i<imgEle.length; i++){
-                imgEle[i].classList.remove("on");
+            for(var j = 0; j<imgEle.length; j++){
+                imgEle[j].classList.remove("on");
             }
         }
     }
@@ -136,9 +142,9 @@ const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
                     <div className="price-btn-gap">
                         <div className="price-btn-wrap">
                             <ul>
-                                <li><button className='page-btn-1' onClick={()=>changePrice(1)}>200장</button></li>
-                                <li><button className='page-btn-2' onClick={()=>changePrice(2)}>500장</button></li>
-                                <li><button className='page-btn-3' onClick={()=>changePrice(3)}>800장</button></li>
+                                <li><button className='page-btn page-btn-1' onClick={()=>changePrice(1)}>200장</button></li>
+                                <li><button className='page-btn page-btn-2' onClick={()=>changePrice(2)}>500장</button></li>
+                                <li><button className='page-btn page-btn-3' onClick={()=>changePrice(3)}>800장</button></li>
                             </ul>
                         </div>
                     </div>
