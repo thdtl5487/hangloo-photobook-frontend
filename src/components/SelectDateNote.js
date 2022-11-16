@@ -6,7 +6,7 @@ import apiloader from '../apiutil/apiloader';
 import { set, setMonth } from 'date-fns';
 import { Children } from 'react';
 
-const SelectDateNote = ({album, months, modalOpenFn}) => {
+const SelectDateNote = ({album, months, modalOpenFn, monthDataList, setMonthDataList}) => {
 
     const [allNoticeInfo, setAllNoticeInfo] = useState(
         {
@@ -50,10 +50,10 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                 "Content-Type": 'application/json'
             },
         }).then((res)=>{
-            currentArray = res.data.data.list;
-            console.log(res)
-            console.log("currentArray : ");
-            console.log(currentArray);
+            //currentArray = res.data.data.list;
+            //console.log(res)
+            //console.log("currentArray : ");
+            //console.log(currentArray);
 
             var moreArray = [];
             if(res.data.data.list.length > 1){
@@ -85,6 +85,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             setAllNoticeInfo({
                 allNoticeInfo:currentArray
             })
+            console.log('전체데이터', res.data);
         })
     }
 
@@ -191,17 +192,17 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
         setNoteMonth({...noteMonth, months:[]});
     }
 
+    var saveMonthList = [];
     // 월별 알림장 리스트를 출력하기 위한 기능
     const useMonthAlbum = () =>{
         var _saveMonthList = [];
-        var saveMonthList = [];
         MonthInfo.monthNoticeList.map((yearList)=>{
-            console.log("지금몇년도? : " + showYear.currentYear);
+            //console.log("지금몇년도? : " + showYear.currentYear);
             
-            console.log("20"+yearList[0].dateWeek.slice(0,2)+"년도 리스트@@@@@@@@@@@@@@@@@@@@@@@");
+            //console.log("20"+yearList[0].dateWeek.slice(0,2)+"년도 리스트@@@@@@@@@@@@@@@@@@@@@@@");
             if(showYear.currentYear == "20"+yearList[0].dateWeek.slice(0,2)){
 
-                console.log(yearList) // << 년도별로 확인잘됨
+                //console.log(yearList) // << 년도별로 확인잘됨
                 
                     // 월 구분용 set 변수
                 var setMonthList = new Set; 
@@ -226,12 +227,12 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                 }
 
                 // saveMonthList가 월단위로 구분된 실제 알림장 데이터 리스트임
-                console.log(saveMonthList); 
+                //console.log('saveMonthList', saveMonthList);
             }
-            console.log("한 년도 끝남 -----------------------------------------------------")
+            //console.log("한 년도 끝남 -----------------------------------------------------")
         })
-        console.log("saveMonthList 보고가야지")
-        console.log(saveMonthList);
+        //console.log("saveMonthList 보고가야지")
+    console.log('saveMonthList', saveMonthList);
 
 
         return(
@@ -250,14 +251,14 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                                         <div className="middle-gap">
                                             <div className="middle-wrap">
                                                 <img src ={notice[0].photo.slice(notice[0].photo.indexOf("=\"")+2, notice[0].photo.indexOf("1\"")+1)} alt="thumbnail"></img>
+                                                {/* ↓ 현재 img src에 들어가는 값 확인을 위한 텍스트 */}
                                                 {/* {notice[0].photo} */}
-                                                {/* << 이거 주석 해제하면 이미지 출력됨  */}
                                             </div>
                                         </div>
                                     </div>
                                     <div className="modal-open">
                                         <div className="modal-open-gap">
-                                            <div className="modal-open-wrap" onClick={modalOpenFn}>
+                                            <div className="modal-open-wrap" onClick={()=>modalOpenFn(notice)}>
                                                 상세편집
                                             </div>
                                         </div>
@@ -278,6 +279,11 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             </ul>
         )
     }
+
+    //useEffect(()=>{
+    //    console.log('saveMonthList', saveMonthList);
+    //    setMonthDataList({...monthDataList, monthDataList:saveMonthList});
+    //},[]);
 
     return (
         <div id="date-note">

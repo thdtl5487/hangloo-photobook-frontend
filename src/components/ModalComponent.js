@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import kids2 from '../images/kidsdummy2.jpeg';
 import kids3 from '../images/kidsdummy3.jpeg';
 
-const ModalComponent = ({modal, setModal, modalCloseFn}) => {
+const ModalComponent = ({modal, setModal, modalCloseFn, monthData, monthDataList,}) => {
     // useEffect(() => {
     //     document.body.style.cssText = `
     //       position: fixed; 
@@ -16,23 +16,65 @@ const ModalComponent = ({modal, setModal, modalCloseFn}) => {
     //     };
     //   }, []);
 
+
     const outSection = useRef();
-    const outSection2 = useRef();
+
+    const reciveDataTest= ()=>{
+        console.log(monthData)
+    }
+  
+
+
+    const photoList = monthData.monthData.map(photoList=>{    
+        return (
+            <li className="photo-frame">
+            <div className="photo-frame-gap">
+                <div className="photo-frame-wrap">
+                    <label htmlFor="a">
+                        <input type="checkbox" id="a" name="a" value="a"/>
+                        {/* <img src={kids2} alt="" /> */}
+                        {photoList.photo}
+                    </label>
+                </div>
+            </div>
+        </li>
+
+        )
+    })    
+
     
+    const list = monthData.monthData.map(list=>{    
+        return (
+            <li className="photo-date">
+                <div className="date">
+                    <p>{list.dateWeek}</p>
+                </div>
+                <ul className="photo">
+                    {photoList}
+                </ul>
+            </li>
+        )
+    })  
+
+
     return (
         modal.isShow && (
-        <div id="modal" ref={outSection} onClick={(e)=>{
-            if(outSection.current === e.target) {
-                modalCloseFn();
-            }
-        }}>
+            <div id="modal" ref={outSection} onClick={(e)=>{
+                if(outSection.current === e.target) {
+                    modalCloseFn();
+                }
+            }}>
+            {reciveDataTest()}
             <div className="modal-gap">
                 <div className="modal-wrap">
                     <div className="month">
                         <div className="month-gap">
                             <div className="month-wrap">
                                 <div className="sub"><i className="material-icons">keyboard_arrow_left</i></div>
-                                <div className="month-box">10월</div>
+                                <div className="month-box">
+                                    {/* {notice[0].dateWeek.slice(3,5)}월 */}
+                                    10월
+                                </div>
                                 <div className="add"><i className="material-icons">keyboard_arrow_right</i></div>
                             </div>
                         </div>
@@ -62,310 +104,7 @@ const ModalComponent = ({modal, setModal, modalCloseFn}) => {
                     <div className="photo-list">
                         <div className="photo-list-gap">
                             <ul className="photo-list-wrap">
-                                <li className="photo-date">
-                                    <div className="date">
-                                        <p>10월 21일</p>
-                                    </div>
-                                    <ul className="photo">
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <label htmlFor="a">
-                                                        <input type="checkbox" id="a" name="a" value="a"/>
-                                                        <img src={kids2} alt="" />
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="photo-date">
-                                    <div className="date">
-                                        <p>10월 22일</p>
-                                    </div>
-                                    <ul className="photo">
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="photo-date">
-                                    <div className="date">
-                                        <p>10월 23일</p>
-                                    </div>
-                                    <ul className="photo">
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids2} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="photo-frame">
-                                            <div className="photo-frame-gap">
-                                                <div className="photo-frame-wrap">
-                                                    <img src={kids3} alt="" />
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                {list}
                             </ul>
                         </div>
                     </div>

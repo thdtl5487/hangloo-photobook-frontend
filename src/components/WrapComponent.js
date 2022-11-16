@@ -14,9 +14,7 @@ import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
 import SelectDateNote from './SelectDateNote';
 import SelectOptionChangeTheme from './SelectOptionChangeTheme';
 import ModalComponent from './ModalComponent';
-
 import MakeCoverComponent from './MakeCoverComponent';
-
 import MakeDetailComponent from './MakeDetailComponent';
 import MakeDetailNote from './MakeDetailNote';
 import MakeDetailAlbum from './MakeDetailAlbum';
@@ -27,13 +25,24 @@ const WrapComponent = () => {
             isShow:false
         }
     );
+    const [selectDateNote_monthData, setSelectDateNote_monthData] = useState({
+        monthData: []
+    })
+
+    const [monthDataList, setMonthDataList] = useState({
+        monthDataList:[]
+    });
+
     const modalCloseFn=()=>{
         setModal({...modal, isShow:false});
         document.body.style.overflow = "unset";
     }
-    const modalOpenFn=()=>{
+    const modalOpenFn=(monthData)=>{
         setModal({...modal, isShow:true});
         document.body.style.overflow = "hidden";
+        setSelectDateNote_monthData({
+            monthData:monthData
+        })
     }
     const [albumnote, setAlbumnote] = useState({
         themeNum:'',
@@ -53,17 +62,15 @@ const WrapComponent = () => {
                 <Route path='/SelectDetailOptionComponent' element={<SelectDetailOptionComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
-                <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn}/>} />
+                <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn} setMonthDataList={setMonthDataList} monthDataList={monthDataList}/>} />
                 <Route path='/SelectOptionChangeTheme' element={<SelectOptionChangeTheme albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
-
                 <Route path='/MakeCoverComponent' element={<MakeCoverComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
-
                 <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
                 <Route path='/MakeDetailNote' element={<MakeDetailNote/>} />
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
-            <ModalComponent modal={modal} modalCloseFn={modalCloseFn} setModal={setModal}/>
+            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn} setModal={setModal} setMonthDataList={setMonthDataList} monthDataList={monthDataList}/>
             <FooterComponent />
         </div>
     );
