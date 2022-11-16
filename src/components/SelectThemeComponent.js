@@ -98,7 +98,7 @@ const SelectThemeComponent = ({albumnote, setAlbumnote}) => {
             }
     }
 
-    const list = field.themeList.map(list=>{
+    const list = field.themeList.map(list=>{    
         return (
             <li key = {list.themeNum}>
                 <div className="in-theme-gap" onMouseOver={onMouseOver} onMouseOut={onMouseOut}>

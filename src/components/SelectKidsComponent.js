@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import dummy from '../dummydb/data.json';
 import kids1 from '../images/kidsdummy1.jpeg';
@@ -8,13 +9,16 @@ import kids3 from '../images/kidsdummy3.jpeg';
 const SelectKidsComponent = () => {
 
     const [selectedKids, setSelectedKids] = useState({
-        selectedKidsNum:''
+        selectedKidsNum:""
     });
     const clickKids = (e) => {
         if(e.target.id !== ""){ // 클릭 가능한 구역 제한
             selectedOff();
             e.target.classList.add("on"); // 클릭한 테마 표시를 위한 class 추가
-            setSelectedKids({selectKidsNum:e.target.id});
+            console.log(e);
+            setSelectedKids({selectedKidsNum:e.target.id});
+            localStorage.setItem("kids_num", e.target.id);
+            console.log(e.target.id);
         }
         if(e.target.alt !== null){ // 이미지인지 체크
             e.target.parentNode.parentNode.classList.add("on")
@@ -34,30 +38,63 @@ const SelectKidsComponent = () => {
                 removeClassEle[i].classList.remove("on");
             }
     }
-    const kidsList = dummy.kids.map(kidsList=>{
+
+    const [kids, setKids] = useState(
+        {
+            kidsList:[]
+        }
+    )
+
+    const axiosGet=()=>{
+        axios({
+            url: "/photobook/api/children.php",
+            method: "GET"
+        }).then((res)=>{
+            console.log("API의 아동 정보 불러오기 기능 실행");
+            console.log(res);
+            setKids({kidsList:res.data.list});
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    useEffect(()=>{
+        axiosGet();
+    }, []);
+
+    // 썸네일 유무를 확인하기 위한 기능
+    const checkThumbnail = (photo) =>{
+        if(photo){
+            return "https://s3.ap-northeast-2.amazonaws.com/test.hangloo.erp/" + photo
+        }else{
+            return "http://dev3.hangloo.co.kr/m/img/app-noimg2.png"
+        }
+    }
+
+    const printKidsList = kids.kidsList.map(kidsList=>{
         return (
-            <li key = {kidsList.id}>
+            <li key = {kidsList.child_uid}>
                 <div className="in-kids-gap">
-                    <div className="in-kids-wrap" id={kidsList.id} onClick={clickKids}>
-                        <div className="img-wrap" id={kidsList.id}>
+                    <div className="in-kids-wrap" id={kidsList.child_uid} onClick={clickKids}>
+                        <div className="img-wrap" id={kidsList.child_uid}>
                             <img
-                            src={kids1}
-                            alt={"kids"+kidsList.id}
-                            id={kidsList.id}
+                            src={checkThumbnail(kidsList.photo)}
+                            alt={"kids"+kidsList.child_uid}
+                            id={kidsList.child_uid}
                             />
                         </div>
-                        <div className="text-wrap" id={kidsList.id}>
-                        <p id={kidsList.id}>{kidsList.kidsName}</p>
-                        <p id={kidsList.id}>{kidsList.kidsBirth}</p>
+                        <div className="text-wrap" id={kidsList.child_uid}>
+                        <p id={kidsList.child_uid}>{kidsList.name}</p>
+                        <p id={kidsList.child_uid}>{kidsList.birthday}</p>
                         </div>
                     </div>
                 </div>
             </li>
         )
-    })    
-
+    })
+    
     const createNextBtn = (e) =>{
-        
+        console.log(e)
         if(selectedKids.selectedKidsNum !== ""){
             return(
                 <Link to="/SelectDetailOptionComponent">다음</Link>
@@ -84,7 +121,7 @@ const SelectKidsComponent = () => {
                     <div className="kids-gap">
                         <div className="kids-wrap">
                             <ul>
-                                {kidsList}
+                                {printKidsList}
                             </ul>
                         </div>
                     </div>

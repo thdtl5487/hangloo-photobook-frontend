@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-accordion/dist/index.css';
@@ -6,12 +6,15 @@ import Accordion from 'react-bootstrap/Accordion';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { DEFAULT_MIN_BREAKPOINT } from 'react-bootstrap/esm/ThemeProvider';
+import apiloader from '../apiutil/apiloader';
 
 const SelectDetailOption = ({albumnote, setAlbumnote}) => {
   
 	const onClickdisabled = (e) => {
 		alert('알림장과 노트를 선택해 주세요');
 	}
+
+	apiloader.childCheck();
 
 	const noteAlbumSelect = (e) =>{
         if(albumnote.albumnote.length<=0){
@@ -32,23 +35,24 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
         }
     }
 
-  const img = [
-    {id:1, image:'./img/sampleimg_1.PNG', title:'noPhotoNote'},
-    {id:2, image:'./img/sampleimg_2.PNG', title:'noTextAlbum'},
-    {id:3, image:'./img/sampleimg_3.PNG', title:'eeee'},
-    {id:4, image:'./img/sampleimg_4.PNG', title:'eee33e'},
-    {id:5, image:'./img/sampleimg_5.PNG', title:'eeee3333'},
+	const img = [
+		{id:1, image:'./img/sampleimg_1.PNG', title:'noPhotoNote'},
+		{id:2, image:'./img/sampleimg_2.PNG', title:'noTextAlbum'},
+		{id:3, image:'./img/sampleimg_3.PNG', title:'eeee'},
+		{id:4, image:'./img/sampleimg_4.PNG', title:'eee33e'},
+		{id:5, image:'./img/sampleimg_5.PNG', title:'eeee3333'},
+	]
 
-]
+
 
 
 
 //   const [note, setNote] = useState('note');
 //   const [album, setAlbum] = useState('album');
 
-  const [choice, setChoice] = useState({
-    choicelist:[]
-  });
+	const [choice, setChoice] = useState({
+		choicelist:[]
+	});
 
   const [checkNoteText, setCheckNoteText] = useState('선택');
   const [checkAlbumText, setCheckAlbumText] = useState('선택');
@@ -88,7 +92,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
   }
 
     const [noteCheckList, setNoteCheckList] = useState({
-      noteCheckElement:['check1', 'check2','check3']
+		noteCheckElement:['check1', 'check2','check3']
     });
 	
 
