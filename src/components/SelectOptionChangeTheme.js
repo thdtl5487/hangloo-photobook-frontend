@@ -204,8 +204,7 @@ const SelectOptionChangeTheme = ({albumnote, setAlbumnote}) => {
     }
     
     //전송
-    const onSubmit = (e) =>{
-        e.preventDefault();
+    const onSubmit = () =>{
         // let imsi = {
         //     theme_num:optionList.selectedTheme,
         //     photobook_size:optionList.size,
