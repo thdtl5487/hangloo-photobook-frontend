@@ -5,6 +5,7 @@ import thumbnail from '../images/hard.jpg';
 import apiloader from '../apiutil/apiloader';
 import { set, setMonth } from 'date-fns';
 import { Children } from 'react';
+import { Button } from 'react-bootstrap';
 
 const SelectDateNote = ({album, months, modalOpenFn}) => {
 
@@ -24,6 +25,12 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
     const [MonthInfo, setMonthInfo] = useState(
         {
             monthNoticeList: []
+        }
+    )
+
+    const [hasMonth, setHasMonth] = useState(
+        {
+            hasMonthList : []
         }
     )
 
@@ -55,9 +62,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             console.log("currentArray : ");
             console.log(currentArray);
 
-            var moreArray = [];
             if(res.data.data.list.length > 1){
-
                 for(var i = 1; i<res.data.data.totalPage-1; i++){
                     getNoticeInitMore(i+1, startDate, endDate, kidsNum, currentArray);
                 }
@@ -122,24 +127,37 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
 
     const divideMonthInfo = () => {
         var monthSet = new Array();
+        var monthOnly = new Array();
 
         for(var i = 0; i < currentYearNotices.yearNoticeList.length; i++){
             monthSet[i] = new Set();
+            monthOnly[i] = new Set();
+
             for(var j = 0; j<allNoticeInfo.allNoticeInfo.length; j++){
                 if(allNoticeInfo.allNoticeInfo[j].dateWeek.slice(0,2) == currentYearNotices.yearNoticeList[i]){
                     monthSet[i].add(allNoticeInfo.allNoticeInfo[j]);
+                    monthOnly[i].add(allNoticeInfo.allNoticeInfo[j].dateWeek.slice(3,5))
                 }
             }
             
             for(var j = 0; j<monthSet.length; j++){
                 var changeSetToArray = Array.from(new Set(monthSet[i]));
                 monthSet[i] = changeSetToArray;
+
+                changeSetToArray = Array.from(new Set(monthOnly[i]));
+                monthOnly[i] = changeSetToArray;
             }
         }
-        
+        console.log("먼쓰데이타", monthOnly);
         setMonthInfo({
             monthNoticeList: monthSet
         }, [])
+
+        setHasMonth({
+            hasMonthList: monthOnly
+        })
+
+        
     }
 
 
@@ -274,10 +292,24 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
                                 </div>
                             </div>
                         </div>
+                        <Button onClick={()=>sendNoticeTest(notice)}>알림장 보내기테스트</Button>
                     </li>
                 ))}
             </ul>
         )
+    }
+
+    const sendNoticeTest=(notice)=>{
+        axios({
+            url:"/photobookServer/sendPhotoNoticeInfo",
+            method: "POST",
+            data:{
+                notice
+            }
+        }).then((res)=>{
+            console.log(res);
+            console.log("전송완료했삼삼삼");
+        })
     }
 
     return (
