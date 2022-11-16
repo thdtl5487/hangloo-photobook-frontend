@@ -29,6 +29,10 @@ const WrapComponent = () => {
             isShow:false
         }
     );
+    const [selectDateNote_monthData, setSelectDateNote_monthData] = useState({
+        monthData: []
+    })
+
     const modalCloseFn=()=>{
         setModal({...modal, isShow:false});
         document.body.style.overflow = "unset";
@@ -36,6 +40,9 @@ const WrapComponent = () => {
     const modalOpenFn=()=>{
         setModal({...modal, isShow:true});
         document.body.style.overflow = "hidden";
+        setSelectDateNote_monthData({
+            monthData:monthData
+        })
     }
     const [albumnote, setAlbumnote] = useState({
         themeNum:'',
@@ -65,7 +72,7 @@ const WrapComponent = () => {
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
-            <ModalComponent modal={modal} modalCloseFn={modalCloseFn}/>
+            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn}/>
             <FooterComponent />
         </div>
     );
