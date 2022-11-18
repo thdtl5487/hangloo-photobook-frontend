@@ -1713,6 +1713,7 @@
 
     
     #makeDetail{
+        position:relative;
         background:#f9f4f4;
         width:100vw;
         .wrap{
@@ -1739,24 +1740,30 @@
                 width: 50%;
                 padding: 30px;
                 float: left;
-                .list{
-                    width: 100%;
-                    background: #ffd0d0;
-                    padding: 2%;
-                    border-radius:5px;
-                    margin-bottom: 20px;
-                    .list-text{
-                        margin: 0 auto;
-                        .ym{
-                            font-weight: bold;
-                            font-size: 23px;
+                li{
+                    .list{
+                        width: 100%;
+                        background: #ffd0d0;
+                        padding: 2%;
+                        border-radius:5px;
+                        margin-bottom: 20px;
+                        
+                        .list-text{
+                            margin: 0 auto;
+                            .ym{
+                                font-weight: bold;
+                                font-size: 23px;
+                            }
+                            .page{
+                                margin-top: 5px;
+                                float:right;
+                                font-size: 15px;
+                            }
                         }
-
-                        .page{
-                            margin-top: 5px;
-                            float:right;
-                            font-size: 15px;
-                        }
+                    }
+                    &:hover .list{
+                        background:#e58e84;
+                        color:#f9f4f4
                     }
                     
                 }
@@ -1783,16 +1790,24 @@
                             font-size: 25px;
                             margin-top: 19px;
                         }
-                        .days{
-                            border: 1px solid black;
-                            background: #6c757d;
-                            border-radius: 3px;
-                            float: left;
-                            padding: 10px 13px 10px 13px ;
-                            font-size: 25px;
-                            display: flex;
-                            justify-content:center;
+                        li{
+                            .days{
+                                background: #a8a8a8;
+                                border-radius: 3px;
+                                float: left;
+                                padding: 10px 13px 10px 13px ;
+                                font-size: 25px;
+                                display: flex;
+                                justify-content:center;
+                                margin : 0px 0.3% 0px 3%;
+                            }
+                            &:hover .days{
+                                background: #6c757d;
+                                color :rgb(245, 241, 241);
+                            }
+
                         }
+                        
                         .CaretRightFill{
                             float: right;
                             font-size: 25px;
@@ -1813,7 +1828,7 @@
                             appearance: none;
                             display: none;
                         }
-                        input[type=radio] + label{
+                        label{
                             margin : 0;
                             padding:5px;
                             box-sizing: border-box;
@@ -1878,14 +1893,14 @@
                             .col.col-end{
                                 margin-left: 20%;
                                 .CaretLeftFill{
-                                    // display: none;
+                                    display: none;
                                     color: #ec6757;
                                     &:hover{
                                         color: #e3abab;
                                     }
                                 }
                                 .CaretRightFill{
-                                    // display: none;
+                                    display: none;
                                     color: #ec6757;
                                     &:hover{
                                         color: #e3abab;
@@ -2822,9 +2837,7 @@
 
 
     }
-
-
-    
+  
     #makeDetailAlbum{
         background:#f9f4f4;
         width:100vw;
@@ -3537,6 +3550,107 @@
             }
         }
     }
+
+    #img-modal{
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0, .4);
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:30;
+        .modal-gap{
+            padding:200px 100px;
+            width:70%;
+            margin:0 auto;
+            .modal-wrap{
+                width:100%;
+                height:70%;
+                background:rgb(245, 241, 241);
+                .photo-list{
+                    width:100%;
+                    padding:10px 20px;
+                    .date-gap{
+                        padding: 20px 0px 0px 0px;
+                        .date-wrap{
+                            display:flex;
+                            justify-content:center;
+                            .date-box{
+                                width:100%;
+                                background:#ffd0d0;
+                                p{
+                                    font-size:20px;
+                                    margin:0;
+                                    padding:8px;
+                                }
+                            }
+                        }
+                    }
+                    .photo{
+                        width:100%;
+                        margin:0;
+                        display:flex;
+                        flex-flow:wrap;
+                        padding: 0px;
+                        .photo-frame {
+                            width:10%;
+                            .photo-frame-gap {
+                                padding:3px;
+                                .photo-frame-wrap {
+                                    width:100%;
+                                    border:2px solid #6c757d;
+                                    border-radius:10px;
+                                    position:relative;
+                                    input[type='checkbox'] {
+                                        appearance:none;
+                                        width:20px;
+                                        height:20px;
+                                        border:2px solid #ffd0d0;
+                                        border-radius:10px;
+                                        position:absolute;
+                                        top:10px;
+                                        right:10px;
+                                    }
+                                    input[type='checkbox']:checked {
+                                        border:7px solid #ef4c39;
+                                    }
+                                    img {
+                                        width:100%;
+                                        border-radius:10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .done {
+                    width:100%;
+                    .done-gap {
+                        padding:30px 10px;
+                        .done-wrap {
+                            width:100%;
+                            display:flex;
+                            button {
+                                margin: 0 20px 0 auto;
+                                background:#e3abab;
+                                width:120px;
+                                height:40px;
+                                border-radius:4px;
+                                border:2px solid #e3abab;
+                                transition: all .3s;
+                                &:hover {
+                                    border:2px solid #e3abab;
+                                    background:#ffd0d0;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
 
     #makeCover{
         background:#f9f4f4;
