@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React, {useEffect, useRef} from 'react';
 import kids2 from '../images/kidsdummy2.jpeg';
 import kids3 from '../images/kidsdummy3.jpeg';
 
-const ModalComponent = ({modal, setModal, modalCloseFn, monthData, monthDataList,}) => {
+const ModalComponent = ({modal, setModal, modalCloseFn, monthData}) => {
     // useEffect(() => {
     //     document.body.style.cssText = `
     //       position: fixed; 
@@ -23,34 +24,117 @@ const ModalComponent = ({modal, setModal, modalCloseFn, monthData, monthDataList
         console.log(monthData)
     }
   
+    
 
+    // const photoList = (e) =>  {
+    //     for(let i=0; i<monthData.monthData.length; i++){
+    //         return(
+    //         <li className="photo-frame">
+    //             <div className="photo-frame-gap">
+    //                 <div className="photo-frame-wrap">
+    //                     <label htmlFor="a">
+    //                         <input type="checkbox" id="a" name="a" value="a"/>
+    //                         {/* <img src={kids2} alt="" /> */}
+    //                             {i}
+    //                     </label>
+    //                 </div>
+    //             </div>
+    //         </li>
+    //         )
+    //     }    
+    // }
 
-    const photoList = monthData.monthData.map(photoList=>{    
-        return (
-            <li className="photo-frame">
-            <div className="photo-frame-gap">
-                <div className="photo-frame-wrap">
-                    <label htmlFor="a">
-                        <input type="checkbox" id="a" name="a" value="a"/>
-                        {/* <img src={kids2} alt="" /> */}
-                        {photoList.photo}
-                    </label>
-                </div>
-            </div>
-        </li>
-
+    const printNotePicture = (uid) =>{
+        var tempuid = uid.slice(1);
+        var result;
+        axios({
+            url: "/photobook/api/photos.php?comm_uid="+tempuid+"&type=note",
+            method: "GET",
+            headers: {
+                "Content-Type": 'application/json'
+            }        
+        }).then((res)=>{
+            // if(res.data.list.photo_list===undefined){
+            //     return;
+            // }
+            // else {
+                //let result = res.data.list.photo_list;
+                console.log(res.data.list.photo_list[0]);
+                //return (
+                //    result
+                //)
+                result   = res.data.list.photo_list[0];
+                console.log("result : ", result)
+                
+            }
+            
+        //}
         )
-    })    
+        console.log("result out axios : ",result);
+        return (
+            <img src={result} alt="zz" />
+        )
+        
+    }
+
+
+    // const photoList = monthData.monthData.map((photoList,index)=>{    
+    //     return (
+    //         <li className="photo-frame" key={index}>
+    //             <div className="photo-frame-gap">
+    //                 <div className="photo-frame-wrap">
+    //                     <label htmlFor={index}>
+    //                         <input type="checkbox" id={index} name={index} value="a"/>
+    //                         <img src={printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} alt="" />
+    //                         {/* {printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} */}
+    //                         {/* {printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} */}
+    //                     </label>
+    //                 </div>
+    //             </div>
+    //         </li>
+    //     )
+    // })
+    // const photoList = monthData.monthData.map((photoList,index)=>{    
+    //     return (
+    //         <li className="photo-frame" key={index}>
+    //             <div className="photo-frame-gap">
+    //                 <div className="photo-frame-wrap">
+    //                     <label htmlFor={index}>
+    //                         <input type="checkbox" id={index} name={index} value="a"/>
+    //                         <img src={printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} alt="" />
+    //                         {/* {printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} */}
+    //                         {/* {printNotePicture(photoList.linkUrl.split('?id=note&type=view&uid='))} */}
+    //                     </label>
+    //                 </div>
+    //             </div>
+    //         </li>
+    //     )
+    // })        
+
+    // const photoList = printNotePicture(monthData.monthData.linkUrl.split('?id=note&type=view&uid=')).map((photolist,index)=>{
+    //     console.log(index);
+    //     console.log(photolist);
+    // })
 
     
-    const list = monthData.monthData.map(list=>{    
+    const list = monthData.monthData.map((list,index)=>{    
         return (
-            <li className="photo-date">
+            <li className="photo-date" key={index}>
                 <div className="date">
                     <p>{list.dateWeek}</p>
                 </div>
                 <ul className="photo">
-                    {photoList}
+                    <li className="photo-frame">
+                        <div className="photo-frame-gap">
+                            <div className="photo-frame-wrap">
+                                <label htmlFor={index}>
+                                    <input type="checkbox" id={index} name={index} value="a"/>
+                                    {/* <img src={printNotePicture(list.linkUrl.split('?id=note&type=view&uid='))} alt="zz" /> */}
+                                    {printNotePicture(list.linkUrl.split('?id=note&type=view&uid='))}
+                                </label>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </li>
         )

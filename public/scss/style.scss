@@ -809,6 +809,7 @@
                                         height:80px;
                                         display:flex;
                                         font-size:20px;
+                                        cursor:pointer;
                                         p {
                                             padding:0;
                                             margin:0 auto;
@@ -1082,11 +1083,13 @@
                                     width:100px;
                                     height:40px;
                                     background:#e3abab;
+                                    border-radius:5px;
                                 }
                                 .text {
                                     position:absolute;
                                     p {
                                         margin:0;
+                                        font-size:17px;
                                     }
                                 }
                             }
@@ -1143,10 +1146,15 @@
                                         .modal-open {
                                             width:100%;
                                             .modal-open-gap {
-                                                padding:0 0 10px 0;
+                                                padding:10px 0;
                                                 .modal-open-wrap {
+                                                    font-size:19px;
                                                     text-align:center;
+                                                    transition:all .3s;
                                                     cursor:pointer;
+                                                    &:hover {
+                                                        color:#e35656;
+                                                    }
                                                 }
                                             }
                                         }
@@ -1158,11 +1166,11 @@
                                                     width:100%;
                                                     .check-note {
                                                         text-align:center;
-                                                        font-size:18px;
+                                                        font-size:17px;
                                                     }
                                                     .check-photo {
                                                         text-align:center;
-                                                        font-size:18px;
+                                                        font-size:17px;
                                                     }        
                                                 }
                                             }
@@ -1220,7 +1228,7 @@
             margin:0 auto;
             .modal-wrap {
                 width:100%;
-                margin:200px auto;
+                margin:180px auto;
                 height:70%;
                 background:rgb(245, 241, 241);
                 .month {
@@ -1282,11 +1290,13 @@
                                         width:100px;
                                         height:40px;
                                         background:#e3abab;
+                                        border-radius:5px;
                                     }
                                     .text {
                                         position:absolute;
                                         p {
                                             margin:0;
+                                            font-size:16px;
                                         }
                                     }
                                 }
@@ -1371,6 +1381,7 @@
                                 border-radius:4px;
                                 border:2px solid #e3abab;
                                 transition: all .3s;
+                                font-size:20px;
                                 &:hover {
                                     border:2px solid #e3abab;
                                     background:#ffd0d0;

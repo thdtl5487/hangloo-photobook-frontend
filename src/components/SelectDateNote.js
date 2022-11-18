@@ -6,7 +6,7 @@ import apiloader from '../apiutil/apiloader';
 import { set, setMonth } from 'date-fns';
 import { Children } from 'react';
 
-const SelectDateNote = ({album, months, modalOpenFn, monthDataList, setMonthDataList}) => {
+const SelectDateNote = ({album, months, modalOpenFn}) => {
 
     const [allNoticeInfo, setAllNoticeInfo] = useState(
         {
@@ -50,7 +50,7 @@ const SelectDateNote = ({album, months, modalOpenFn, monthDataList, setMonthData
                 "Content-Type": 'application/json'
             },
         }).then((res)=>{
-            //currentArray = res.data.data.list;
+            currentArray = res.data.data.list;
             //console.log(res)
             //console.log("currentArray : ");
             //console.log(currentArray);
@@ -259,7 +259,7 @@ const SelectDateNote = ({album, months, modalOpenFn, monthDataList, setMonthData
                                     <div className="modal-open">
                                         <div className="modal-open-gap">
                                             <div className="modal-open-wrap" onClick={()=>modalOpenFn(notice)}>
-                                                상세편집
+                                                [상세편집]
                                             </div>
                                         </div>
                                     </div>

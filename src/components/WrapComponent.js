@@ -3,7 +3,7 @@ import FooterComponent from './FooterComponent';
 import HeaderComponent from './HeaderComponent';
 import MainComponent from './MainComponent';
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import SelectKidsComponent from './SelectKidsComponent';
@@ -20,18 +20,34 @@ import MakeDetailNote from './MakeDetailNote';
 import MakeDetailAlbum from './MakeDetailAlbum';
 
 const WrapComponent = () => {
+
+    //새로고침 막기 기능
+    const preventClose = (e) => {
+        e.preventDefault();
+        e.returnValue = ""; //Chrome에서 동작하도록; deprecated
+    };
+       
+    useEffect(() => {
+        (() => {
+          window.addEventListener("beforeunload", preventClose);
+        })();
+       
+        return () => {
+          window.removeEventListener("beforeunload", preventClose);
+        };
+    }, []);
+
+    //모달 여닫
     const [modal, setModal] = useState(
         {
             isShow:false
         }
     );
+    
+    //모달 오픈 시 해당하는 월 알림장 데이터 저장
     const [selectDateNote_monthData, setSelectDateNote_monthData] = useState({
         monthData: []
     })
-
-    const [monthDataList, setMonthDataList] = useState({
-        monthDataList:[]
-    });
 
     const modalCloseFn=()=>{
         setModal({...modal, isShow:false});
@@ -44,9 +60,35 @@ const WrapComponent = () => {
             monthData:monthData
         })
     }
+    //앨범, 알림장 디테일 옵션 항목들
     const [albumnote, setAlbumnote] = useState({
         themeNum:'',
-        albumnote:[]
+        albumnote:[],
+
+        notenophoto:0,
+        notenocontent:0,
+        notefromhome:0,
+        albumnocontent:0,
+        albumnocomment:0
+    });
+
+    const [note, setNote] = useState({
+        notephotoqr:0,
+        notevideoqr:0,
+        notestatus:0,
+        notecontent:0,
+        notecomment:0
+    });
+
+    const [album, setAlbum] = useState({
+        albumphotoqr:0,
+        albumvideoqr:0,
+        albumcontent:0,
+        albumcomment:0
+    });
+
+    const [uid, setUid] = useState({
+        uid:''
     });
 
     return (
@@ -55,14 +97,14 @@ const WrapComponent = () => {
             <Routes>
                 <Route index element={<MainComponent/>} />
                 <Route path='/HeaderComponent' element={<HeaderComponent/>} />
-                <Route path='/MainComponent' element={<MainComponent/>} />
+                <Route path='/MainComponent' element={<MainComponent setUid={setUid} uid={uid}/>} />
                 <Route path='/FooterComponent' element={<FooterComponent/>} />
                 <Route path='/SelectThemeComponent' element={<SelectThemeComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>}  />
                 <Route path='/SelectKidsComponent' element={<SelectKidsComponent/>} />
                 <Route path='/SelectDetailOptionComponent' element={<SelectDetailOptionComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
-                <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
-                <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum/>} />
-                <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn} setMonthDataList={setMonthDataList} monthDataList={monthDataList}/>} />
+                <Route path='/SelectDetailOptionNote' element={<SelectDetailOptionNote albumnote={albumnote} setAlbumnote={setAlbumnote} note={note} setNote={setNote}/>} />
+                <Route path='/SelectDetailOptionAlbum' element={<SelectDetailOptionAlbum setAlbum={setAlbum} album={album}/>} />
+                <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn}/>} />
                 <Route path='/SelectOptionChangeTheme' element={<SelectOptionChangeTheme albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/MakeCoverComponent' element={<MakeCoverComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
@@ -70,7 +112,7 @@ const WrapComponent = () => {
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
-            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn} setModal={setModal} setMonthDataList={setMonthDataList} monthDataList={monthDataList}/>
+            <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn} setModal={setModal}/>
             <FooterComponent />
         </div>
     );

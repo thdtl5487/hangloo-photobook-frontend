@@ -8,7 +8,8 @@ import apiloader from '../apiutil/apiloader';
 
 
 
-const MainComponent = () => {
+const MainComponent = ({setUid, uid}) => {
+
 
     const [currentYearNotices, setCurrentYearNotices] = useState(
         {

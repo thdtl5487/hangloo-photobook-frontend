@@ -461,111 +461,112 @@
         #option-album {
             background:#f9f4f4;
             width:100vw;
-        .wrap {
-            width:80%;
-            margin:0 auto;
-            .step2 {
-                .step2-gap {
-                    padding:50px 0;
-                    .step2-wrap {
-                        p {
-                            margin:0;
-                            font-size:23px;
-                            font-weight:600;
+            .wrap {
+                width:80%;
+                margin:0 auto;
+                .step2 {
+                    .step2-gap {
+                        padding:50px 0;
+                        .step2-wrap {
+                            p {
+                                margin:0;
+                                font-size:23px;
+                                font-weight:600;
+                            }
                         }
                     }
                 }
-            }
-            .content {
-                width:100%;
-                .content-gap {
-                    padding:20px 0 60px 0;
-                    .content-wrap {
-                        width:100%;
-                        display:flex;
-                        .example {
-                            width:60%;
-                            // background:khaki;
-                            .example-gap {
-                                .example-wrap {
-                                    height:700px;
-                                    .top {
-                                        .top-gap {
-                                            .top-wrap {
-                                                .setdate {
-                                                    height:90px;
-                                                    p {
-                                                        &.month {
-                                                            font-size:25px;
-                                                            line-height:23px;
-                                                        }
-                                                        &.date {
-                                                            font-size:25px;
-                                                            line-height:23px;
-                                                        }
-                                                        &.day {
-                                                            font-size:13px;
-                                                            line-height:30px;
+                .content {
+                    width:100%;
+                    .content-gap {
+                        padding:20px 0 60px 0;
+                        .content-wrap {
+                            width:100%;
+                            display:flex;
+                            .example {
+                                width:60%;
+                                // background:khaki;
+                                .example-gap {
+                                    .example-wrap {
+                                        height:700px;
+                                        .top {
+                                            .top-gap {
+                                                .top-wrap {
+                                                    .setdate {
+                                                        height:90px;
+                                                        p {
+                                                            &.month {
+                                                                font-size:25px;
+                                                                line-height:23px;
+                                                            }
+                                                            &.date {
+                                                                font-size:25px;
+                                                                line-height:23px;
+                                                            }
+                                                            &.day {
+                                                                font-size:13px;
+                                                                line-height:30px;
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                .qrcode {
-                                                    margin:0 0 0 auto;
-                                                    display:flex;
-                                                    .photo-qr {
-                                                        width:90px;
-                                                        height:90px;
-                                                    }
-                                                    .video-qr {
-                                                        width:90px;
-                                                        height:90px;
+                                                    .qrcode {
+                                                        margin:0 0 0 auto;
+                                                        display:flex;
+                                                        .photo-qr {
+                                                            width:90px;
+                                                            height:90px;
+                                                        }
+                                                        .video-qr {
+                                                            width:90px;
+                                                            height:90px;
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
-                                    }
-                                    .middle {
-                                        width:100%;
-                                        height:45%;
-                                        .middle-gap {
-                                            padding:20px;
-                                            height:100%;
-                                            .middle-wrap {
-                                                width:100%;
-                                                height:100%;
-                                                .photo-section {
-                                                    border:2px solid #ef4c39;
-                                                    height:100%;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .bottom {
-                                        width:100%;
-                                        height:40%;
-                                        .bottom-gap {
+                                        .middle {
                                             width:100%;
-                                            height:100%;
-                                            padding:0 20px 20px 20px;
-                                            .bottom-wrap {
-                                                width:100%;
+                                            height:45%;
+                                            .middle-gap {
+                                                padding:20px;
                                                 height:100%;
-                                                padding:0;
-                                                margin:0;
-                                                li {
+                                                .middle-wrap {
                                                     width:100%;
                                                     height:100%;
-                                                    padding:2px 0;
-                                                    .li-wrap {
+                                                    .photo-section {
+                                                        border:2px solid #ef4c39;
+                                                        height:100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .bottom {
+                                            width:100%;
+                                            height:40%;
+                                            .bottom-gap {
+                                                width:100%;
+                                                height:100%;
+                                                padding:0 20px 20px 20px;
+                                                .bottom-wrap {
+                                                    width:100%;
+                                                    height:100%;
+                                                    padding:0;
+                                                    margin:0;
+                                                    li {
                                                         width:100%;
                                                         height:100%;
-                                                        border:2px dashed #e3abab;
-                                                    }
-                                                    &.notice {
-                                                        height:55%;
-                                                    }
-                                                    &.comment {
-                                                        height:45%;
+                                                        padding:2px 0;
+                                                        .li-wrap {
+                                                            width:100%;
+                                                            height:100%;
+                                                            border:2px dashed #e3abab;
+                                                        }
+                                                        &.notice {
+                                                            height:55%;
+                                                        }
+                                                        &.comment {
+                                                            height:45%;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -573,65 +574,64 @@
                                     }
                                 }
                             }
-                        }
-                        .option {
-                            width:360px;
-                            .option-gap {
-                                padding:30px 0 10px 0;
-                                .option-wrap {
-                                    li {
-                                        background:#e3abab;
-                                        border:2px solid #e3abab;
-                                        margin:0 0 30px 0;
-                                        &.on {
-                                            background:#ffd0d0;
+                            .option {
+                                width:360px;
+                                .option-gap {
+                                    padding:30px 0 10px 0;
+                                    .option-wrap {
+                                        li {
+                                            background:#e3abab;
                                             border:2px solid #e3abab;
-                                        }
-                                        input[type='checkbox'] {
-                                            border:0;
-                                            margin:0;
-                                            width:100%;
-
+                                            margin:0 0 30px 0;
+                                            &.on {
+                                                background:#ffd0d0;
+                                                border:2px solid #e3abab;
                                             }
-                                        input[type='checkbox']:checked {
-                                            border:0;
-                                            margin:0;
-                                            appearance:none;
-                                            width:100%;
-                                        }
-                                        .text {
-                                            width:100%;
-                                            font-size:17px;
+                                            input[type='checkbox'] {
+                                                border:0;
+                                                margin:0;
+                                                width:100%;
+
+                                                }
+                                            input[type='checkbox']:checked {
+                                                border:0;
+                                                margin:0;
+                                                appearance:none;
+                                                width:100%;
+                                            }
+                                            .text {
+                                                width:100%;
+                                                font-size:17px;
+                                            }
                                         }
                                     }
                                 }
-                            }
 
-                            // background:deepskyblue
-                        }
-                    }
-                }
-            }
-            .next-btn {
-                .next-btn-gap {
-                    padding:40px 0 90px 0;
-                    .next-btn-wrap {
-                        a {
-                            width:180px;
-                            height:60px;
-
-                            font-size:25px;
-                            font-weight:600;
-                            line-height:54px;
-                            &:hover {
-                                border:3px solid #e3abab;
-                                background: #ffd0d0;
+                                // background:deepskyblue
                             }
                         }
                     }
                 }
+                .next-btn {
+                    .next-btn-gap {
+                        padding:40px 0 90px 0;
+                        .next-btn-wrap {
+                            a {
+                                width:180px;
+                                height:60px;
+
+                                font-size:25px;
+                                font-weight:600;
+                                line-height:54px;
+                                &:hover {
+                                    border:3px solid #e3abab;
+                                    background: #ffd0d0;
+                                }
+                            }
+                        }
+                    }
+                }
             }
-        }
         }
         #changeTheme {
             .wrap {
@@ -832,21 +832,35 @@
                                             }
                                             &.next {
                                                 a {
-                                                    text-decoration:none;
-                                                    width:100px;
-                                                    height:50px;
+                                                    // text-decoration:none;
+                                                    // width:100px;
+                                                    // height:50px;
                                                     margin:0 0 0 auto;
-                                                    background:#e3abab;
-                                                    color:#fff;
-                                                    border:3px solid #e3abab;
-                                                    border-radius:5px;
-                                                    text-align:center;
-                                                    line-height:44px;
+                                                    // background:#e3abab;
+                                                    // color:#fff;
+                                                    // border:3px solid #e3abab;
+                                                    // border-radius:5px;
+                                                    // text-align:center;
+                                                    // line-height:44px;
     
                                                     transition:all .3s;
-                                                    &:hover {
+                                                    button {
+                                                        text-decoration:none;
+                                                        width:100px;
+                                                        height:50px;
+                                                        margin:0 0 0 auto;
+                                                        background:#e3abab;
+                                                        color:#fff;
                                                         border:3px solid #e3abab;
-                                                        background: #ffd0d0;
+                                                        border-radius:5px;
+                                                        text-align:center;
+                                                        line-height:44px;
+        
+                                                        transition:all .3s; 
+                                                        &:hover {
+                                                            border:3px solid #e3abab;
+                                                            background: #ffd0d0;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -917,6 +931,378 @@
                                                 text-align:center;
                                             }
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #date-note {
+            position:relative;
+            .wrap {
+                width:80%;
+                margin:0 auto;
+                position:relative;
+                z-index:1;
+                .step3 {
+                    .step3-gap {
+                        padding:50px 0;
+                        .step3-wrap {
+                            p {
+                                margin:0;
+                                font-size:23px;
+                                font-weight:600;
+                            }
+                        }
+                    }
+                }
+                .year {
+                    width:100%;
+                    .year-gap {
+                        width:100%;
+                        padding:10px 0 20px 0;
+                        .year-wrap {
+                            display:flex;
+                            justify-content:center;
+                            .year-box {
+                                padding:10px;
+                                background:#e3abab;
+                                border-radius:5px;
+                                font-size:28px;
+                            }
+                            .add {
+                                display:flex;
+                                align-items:center;
+                                i {
+                                    font-size:40px;
+                                    margin:0 20px;
+                                    cursor:pointer;
+                                }
+                            }
+                            .sub {
+                                display:flex;
+                                align-items:center;
+                                i {
+                                    font-size:40px;
+                                    margin:0 20px;
+                                    cursor:pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+                .select-or-not {
+                    width:100%;
+                    .select-or-not-gap {
+                        padding:10px 20px;
+                        .select-or-not-wrap {
+                            margin:0;
+                            padding:0;
+                            display:flex;
+                            justify-content:right;
+                            li {
+                                padding:0 8px;
+                                &.on {
+                                    background:#ffd0d0;
+                                    border:2px solid #e3abab;
+                                }
+                                label {
+                                    display:flex;
+                                    justify-content:center;
+                                    align-items:center;
+                                    position:relative;
+                                    input[type='checkbox']{
+                                        appearance:none;
+                                        width:90px;
+                                        height:36px;
+                                        background:#e3abab;
+                                        border-radius:5px;
+                                    }
+                                    .text {
+                                        position:absolute;
+                                        p {
+                                            margin:0;
+                                            font-size:14px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .month {
+                    width:100%;
+                    .month-gap {
+                        padding:30px 0 60px 0;
+                        .month-wrap {
+                            width:100%;
+                            display:flex;
+                            flex-flow:wrap;
+                            margin:0;
+                            padding:0;
+                            li {
+                                width:25%;
+                                padding:20px;
+                                .box {
+                                    background:#e3abab;
+                                    border-radius:10px;
+                                    .box-gap {
+                                        padding:10px;
+                                        .box-wrap {
+                                            width:100%;
+                                            .top {
+                                                display:flex;
+                                                align-items: center;
+                                                .check-month {
+                                                    font-size:24px;
+                                                    padding:5px 0 5px 10px;
+                                                }
+                                                input[type='checkbox'] {
+                                                    margin:0 10px 0 auto;
+                                                    width:20px;
+                                                    height:20px;
+                                                }
+                                            }
+                                            .middle {
+                                                width:100%;
+                                                .middle-gap {
+                                                    padding:10px 25px;
+                                                    .middle-wrap {
+                                                        width:100%;
+                                                        img {
+                                                            width:100%;
+                                                            border-radius:116px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .modal-open {
+                                                width:100%;
+                                                .modal-open-gap {
+                                                    padding:0;
+                                                    .modal-open-wrap {
+                                                        font-size:17px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                }
+                                            }
+                                            .bottom {
+                                                width:100%;
+                                                .bottom-gap {
+                                                    padding:10px;
+                                                    .bottom-wrap {
+                                                        width:100%;
+                                                        .check-note {
+                                                            text-align:center;
+                                                            font-size:15px;
+                                                        }
+                                                        .check-photo {
+                                                            text-align:center;
+                                                            font-size:15px;
+                                                        }        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .next-btn {
+                    .next-btn-gap {
+                        padding:40px 0 90px 0;
+                        .next-btn-wrap {
+                            a {
+                                width:180px;
+                                height:60px;
+                            
+                                font-size:25px;
+                                font-weight:600;
+                                line-height:54px;
+                                &:hover {
+                                    border:3px solid #e3abab;
+                                    background: #ffd0d0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #modal {
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0, .4);
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:30;
+            .modal-gap {
+                width:80%;
+                margin:0 auto;
+                .modal-wrap {
+                    width:100%;
+                    margin:50px auto;
+                    height:70%;
+                    background:rgb(245, 241, 241);
+                    .month {
+                        .month-gap {
+                            width:100%;
+                            padding:20px 0;
+                            .month-wrap {
+                                display:flex;
+                                justify-content:center;
+                                .month-box {
+                                    padding:10px;
+                                    background:#e3abab;
+                                    border-radius:5px;
+                                    font-size:25px;
+                                }
+                                .add {
+                                    display:flex;
+                                    align-items:center;
+                                    i {
+                                        font-size:38px;
+                                        margin:0 10px;
+                                        cursor:pointer;
+                                    }
+                                }
+                                .sub {
+                                    display:flex;
+                                    align-items:center;
+                                    i {
+                                        font-size:38px;
+                                        margin:0 10px;
+                                        cursor:pointer;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .select-or-not {
+                        width:100%;
+                        .select-or-not-gap {
+                            padding:5px 20px;
+                            .select-or-not-wrap {
+                                margin:0;
+                                padding:0;
+                                display:flex;
+                                justify-content:right;
+                                li {
+                                    padding:0 5px;
+                                    &.on {
+                                        background:#ffd0d0;
+                                        border:2px solid #e3abab;
+                                    }
+                                    label {
+                                        display:flex;
+                                        justify-content:center;
+                                        align-items:center;
+                                        position:relative;
+                                        input[type='checkbox']{
+                                            appearance:none;
+                                            width:90px;
+                                            height:36px;
+                                            background:#e3abab;
+                                        }
+                                        .text {
+                                            position:absolute;
+                                            p {
+                                                margin:0;
+                                                font-size:14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .photo-list {
+                        width:100%;
+                        height:500px;
+                        overflow-y:auto;
+                        .photo-list-gap {
+                            width:100%;
+                            padding:5px 20px;
+                            .photo-list-wrap {
+                                width:100%;
+                                margin:0;
+                                padding:0;
+                                .photo-date {
+                                    width:100%;
+                                    .date {
+                                        width:100%;
+                                        background:#ffd0d0;
+                                        p {
+                                            font-size:16px;
+                                            margin:0;
+                                            padding:5px;
+                                        }
+                                    }
+                                    .photo {
+                                        width:100%;
+                                        margin:0;
+                                        padding:0;
+                                        display:flex;
+                                        flex-flow:wrap;
+                                        .photo-frame {
+                                            width:12.5%;
+                                            .photo-frame-gap {
+                                                padding:3px;
+                                                .photo-frame-wrap {
+                                                    width:100%;
+                                                    border:2px solid #6c757d;
+                                                    border-radius:10px;
+                                                    position:relative;
+                                                    input[type='checkbox'] {
+                                                        appearance:none;
+                                                        width:20px;
+                                                        height:20px;
+                                                        border:2px solid #ffd0d0;
+                                                        border-radius:10px;
+                                                        position:absolute;
+                                                        top:10px;
+                                                        right:10px;
+                                                    }
+                                                    input[type='checkbox']:checked {
+                                                        border:7px solid #ef4c39;
+                                                    }
+                                                    img {
+                                                        width:100%;
+                                                        border-radius:10px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .done {
+                        width:100%;
+                        .done-gap {
+                            padding:15px 10px 20px 10px;
+                            .done-wrap {
+                                width:100%;
+                                display:flex;
+                                button {
+                                    margin: 0 20px 0 auto;
+                                    background:#e3abab;
+                                    width:105px;
+                                    height:35px;
+                                    border-radius:4px;
+                                    border:2px solid #e3abab;
+                                    transition: all .3s;
+                                    font-size:17px;
+                                    &:hover {
+                                        border:2px solid #e3abab;
+                                        background:#ffd0d0;
                                     }
                                 }
                             }
@@ -1716,21 +2102,39 @@
                                             }
                                             &.next {
                                                 a {
-                                                    text-decoration:none;
-                                                    width:100px;
-                                                    height:50px;
+                                                    // text-decoration:none;
+                                                    // width:100px;
+                                                    // height:50px;
                                                     margin:0 0 0 auto;
-                                                    background:#e3abab;
-                                                    color:#fff;
-                                                    border:3px solid #e3abab;
-                                                    border-radius:5px;
-                                                    text-align:center;
-                                                    line-height:44px;
+                                                    // background:#e3abab;
+                                                    // color:#fff;
+                                                    // border:3px solid #e3abab;
+                                                    // border-radius:5px;
+                                                    // text-align:center;
+                                                    // line-height:44px;
     
-                                                    transition:all .3s;
-                                                    &:hover {
+                                                    // transition:all .3s;
+                                                    // &:hover {
+                                                    //     border:3px solid #e3abab;
+                                                    //     background: #ffd0d0;
+                                                    // }
+                                                    button {
+                                                        text-decoration:none;
+                                                        width:100px;
+                                                        height:50px;
+                                                        margin:0 0 0 auto;
+                                                        background:#e3abab;
+                                                        color:#fff;
                                                         border:3px solid #e3abab;
-                                                        background: #ffd0d0;
+                                                        border-radius:5px;
+                                                        text-align:center;
+                                                        line-height:44px;
+        
+                                                        transition:all .3s;
+                                                        &:hover {
+                                                            border:3px solid #e3abab;
+                                                            background: #ffd0d0;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -1811,6 +2215,378 @@
                 }
             }
         }
+        #date-note {
+            position:relative;
+            .wrap {
+                width:90%;
+                margin:0 auto;
+                position:relative;
+                z-index:1;
+                .step3 {
+                    .step3-gap {
+                        padding:30px 0;
+                        .step3-wrap {
+                            p {
+                                margin:0;
+                                font-size:21px;
+                                font-weight:600;
+                            }
+                        }
+                    }
+                }
+                .year {
+                    width:100%;
+                    .year-gap {
+                        width:100%;
+                        padding:10px 0 20px 0;
+                        .year-wrap {
+                            display:flex;
+                            justify-content:center;
+                            .year-box {
+                                padding:10px;
+                                background:#e3abab;
+                                border-radius:5px;
+                                font-size:25px;
+                            }
+                            .add {
+                                display:flex;
+                                align-items:center;
+                                i {
+                                    font-size:35px;
+                                    margin:0 10px;
+                                    cursor:pointer;
+                                }
+                            }
+                            .sub {
+                                display:flex;
+                                align-items:center;
+                                i {
+                                    font-size:35px;
+                                    margin:0 10px;
+                                    cursor:pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+                .select-or-not {
+                    width:100%;
+                    .select-or-not-gap {
+                        padding:10px 0;
+                        .select-or-not-wrap {
+                            margin:0;
+                            padding:0;
+                            display:flex;
+                            justify-content:right;
+                            li {
+                                padding:0 5px;
+                                &.on {
+                                    background:#ffd0d0;
+                                    border:2px solid #e3abab;
+                                }
+                                label {
+                                    display:flex;
+                                    justify-content:center;
+                                    align-items:center;
+                                    position:relative;
+                                    input[type='checkbox']{
+                                        appearance:none;
+                                        width:90px;
+                                        height:36px;
+                                        background:#e3abab;
+                                        border-radius:5px;
+                                    }
+                                    .text {
+                                        position:absolute;
+                                        p {
+                                            margin:0;
+                                            font-size:13px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .month {
+                    width:100%;
+                    .month-gap {
+                        padding:20px 0 40px 0;
+                        .month-wrap {
+                            width:100%;
+                            display:flex;
+                            flex-flow:wrap;
+                            margin:0;
+                            padding:0;
+                            li {
+                                width:50%;
+                                padding:5px;
+                                .box {
+                                    background:#e3abab;
+                                    border-radius:10px;
+                                    .box-gap {
+                                        padding:10px;
+                                        .box-wrap {
+                                            width:100%;
+                                            // display:flex;
+                                            .top {
+                                                display:flex;
+                                                align-items: center;
+                                                .check-month {
+                                                    font-size:22px;
+                                                    padding:5px 0 5px 10px;
+                                                }
+                                                input[type='checkbox'] {
+                                                    margin:0 10px 0 auto;
+                                                    width:20px;
+                                                    height:20px;
+                                                }
+                                            }
+                                            .middle {
+                                                width:100%;
+                                                .middle-gap {
+                                                    padding:10px 20px;
+                                                    .middle-wrap {
+                                                        width:100%;
+                                                        img {
+                                                            width:100%;
+                                                            border-radius:170px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .modal-open {
+                                                width:100%;
+                                                .modal-open-gap {
+                                                    padding:0;
+                                                    .modal-open-wrap {
+                                                        font-size:16px;
+                                                        text-align:center;
+                                                        cursor:pointer;
+                                                    }
+                                                }
+                                            }
+                                            .bottom {
+                                                width:100%;
+                                                .bottom-gap {
+                                                    padding:10px;
+                                                    .bottom-wrap {
+                                                        width:100%;
+                                                        .check-note {
+                                                            text-align:center;
+                                                            font-size:14px;
+                                                        }
+                                                        .check-photo {
+                                                            text-align:center;
+                                                            font-size:14px;
+                                                        }        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .next-btn {
+                    .next-btn-gap {
+                        padding:40px 0 90px 0;
+                        .next-btn-wrap {
+                            a {
+                                width:180px;
+                                height:60px;
 
+                                font-size:25px;
+                                font-weight:600;
+                                line-height:54px;
+                                &:hover {
+                                    border:3px solid #e3abab;
+                                    background: #ffd0d0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #modal {
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0, .4);
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:30;
+            .modal-gap {
+                width:90%;
+                margin:0 auto;
+                .modal-wrap {
+                    width:100%;
+                    margin:50px auto;
+                    height:70%;
+                    background:rgb(245, 241, 241);
+                    .month {
+                        .month-gap {
+                            width:100%;
+                            padding:15px 0;
+                            .month-wrap {
+                                display:flex;
+                                justify-content:center;
+                                .month-box {
+                                    padding:8px 10px;
+                                    background:#e3abab;
+                                    border-radius:5px;
+                                    font-size:20px;
+                                }
+                                .add {
+                                    display:flex;
+                                    align-items:center;
+                                    i {
+                                        font-size:32px;
+                                        margin:0 10px;
+                                        cursor:pointer;
+                                    }
+                                }
+                                .sub {
+                                    display:flex;
+                                    align-items:center;
+                                    i {
+                                        font-size:32px;
+                                        margin:0 10px;
+                                        cursor:pointer;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .select-or-not {
+                        width:100%;
+                        .select-or-not-gap {
+                            padding:5px 10px;
+                            .select-or-not-wrap {
+                                margin:0;
+                                padding:0;
+                                display:flex;
+                                justify-content:right;
+                                li {
+                                    padding:0 5px;
+                                    &.on {
+                                        background:#ffd0d0;
+                                        border:2px solid #e3abab;
+                                    }
+                                    label {
+                                        display:flex;
+                                        justify-content:center;
+                                        align-items:center;
+                                        position:relative;
+                                        input[type='checkbox']{
+                                            appearance:none;
+                                            width:70px;
+                                            height:28px;
+                                            background:#e3abab;
+                                        }
+                                        .text {
+                                            position:absolute;
+                                            p {
+                                                margin:0;
+                                                font-size:13px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .photo-list {
+                        width:100%;
+                        height:500px;
+                        overflow-y:auto;
+                        .photo-list-gap {
+                            width:100%;
+                            padding:5px 15px;
+                            .photo-list-wrap {
+                                width:100%;
+                                margin:0;
+                                padding:0;
+                                .photo-date {
+                                    width:100%;
+                                    .date {
+                                        width:100%;
+                                        background:#ffd0d0;
+                                        p {
+                                            font-size:15px;
+                                            margin:0;
+                                            padding:5px;
+                                        }
+                                    }
+                                    .photo {
+                                        width:100%;
+                                        margin:0;
+                                        padding:0;
+                                        display:flex;
+                                        flex-flow:wrap;
+                                        .photo-frame {
+                                            width:25%;
+                                            .photo-frame-gap {
+                                                padding:3px;
+                                                .photo-frame-wrap {
+                                                    width:100%;
+                                                    border:2px solid #6c757d;
+                                                    border-radius:10px;
+                                                    position:relative;
+                                                    input[type='checkbox'] {
+                                                        appearance:none;
+                                                        width:15px;
+                                                        height:15px;
+                                                        border:2px solid #ffd0d0;
+                                                        border-radius:10px;
+                                                        position:absolute;
+                                                        top:5px;
+                                                        right:5px;
+                                                    }
+                                                    input[type='checkbox']:checked {
+                                                        border:5px solid #ef4c39;
+                                                    }
+                                                    img {
+                                                        width:100%;
+                                                        border-radius:10px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .done {
+                        width:100%;
+                        .done-gap {
+                            padding:15px 10px;
+                            .done-wrap {
+                                width:100%;
+                                display:flex;
+                                button {
+                                    margin: 0 5px 0 auto;
+                                    background:#e3abab;
+                                    width:90px;
+                                    height:30px;
+                                    border-radius:4px;
+                                    border:2px solid #e3abab;
+                                    transition: all .3s;
+                                    font-size:14px;
+                                    &:hover {
+                                        border:2px solid #e3abab;
+                                        background:#ffd0d0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
