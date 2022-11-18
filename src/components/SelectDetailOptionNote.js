@@ -1,34 +1,96 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const SelectDetailOptionNote = ({albumnote}) => {
+const SelectDetailOptionNote = ({albumnote, note, setNote}) => {
+
+    useEffect(()=>{
+		setNote({...note, notephotoqr:0, notevideoqr:0, notestatus:0, notecontent:0, notecomment:0})
+    },[]);
+
+    const [noteLayout, setNoteLayout] = useState ({
+        layout:[]
+     });
 
     const noteAlbumSelect = (e) =>{
-	    if(albumnote.albumnote.includes('album')===true){
-	    	return(
-	    		<Link to="/SelectDetailOptionAlbum">다음</Link>
-	    	)
-	    }
-	    else {
-	    	return(
-	    		<Link to="/SelectDateNote">다음</Link>
-	    	)
-	    }
+        if(albumnote.albumnote.includes('album')===true){
+            return(
+                <Link to="/SelectDetailOptionAlbum" onClick={nextOnClick}>다음</Link>
+            )
+        }
+        else {
+            return(
+                <Link to="/SelectDateNote" onClick={nextOnClick}>다음</Link>
+            )
+        }
+    }
+
+    const nextOnClick = (e) => {
+        if(noteLayout.layout.length<1){
+            alert('사진만 포함합니다');
+        }
     }
     
-    const [noteLayout, setNoteLayout] = useState ({
-       layout:[]
-    });
+
     
     const onChange = (e) => {
         let imsi=[];
         if(e.target.checked===true){
             setNoteLayout({...noteLayout, layout:[...noteLayout.layout, e.target.value]});
+            if(e.target.value==='photoqr'){
+				if(noteLayout.layout.includes('photoqr')===false){
+					setNote({...note, notephotoqr:1});
+				}
+			}
+            if(e.target.value==='videoqr'){
+				if(noteLayout.layout.includes('videoqr')===false){
+					setNote({...note, notevideoqr:1});
+				}
+			}
+            if(e.target.value==='status'){
+				if(noteLayout.layout.includes('status')===false){
+					setNote({...note, notestatus:1});
+				}
+			}
+            if(e.target.value==='notice'){
+				if(noteLayout.layout.includes('notice')===false){
+					setNote({...note, notecontent:1});
+				}
+			}
+            if(e.target.value==='comment'){
+				if(noteLayout.layout.includes('comment')===false){
+					setNote({...note, notecomment:1});
+				}
+			}
         }
         else {
             imsi = noteLayout.layout.filter((item)=>item !== e.target.value);
             setNoteLayout({...noteLayout, layout:imsi});
+            if(e.target.value==='photoqr'){
+				if(noteLayout.layout.includes('photoqr')===true){
+					setNote({...note, notephotoqr:0});
+				}
+			}
+            if(e.target.value==='videoqr'){
+				if(noteLayout.layout.includes('videoqr')===true){
+					setNote({...note, notevideoqr:0});
+				}
+			}
+            if(e.target.value==='status'){
+				if(noteLayout.layout.includes('status')===true){
+					setNote({...note, notestatus:0});
+				}
+			}
+            if(e.target.value==='notice'){
+				if(noteLayout.layout.includes('notice')===true){
+					setNote({...note, notecontent:0});
+				}
+			}
+            if(e.target.value==='comment'){
+				if(noteLayout.layout.includes('comment')===true){
+					setNote({...note, notecomment:0});
+				}
+			}
         }
     }
 
@@ -39,7 +101,7 @@ const SelectDetailOptionNote = ({albumnote}) => {
                 <div className="step2">
                     <div className="step2-gap">
                         <div className="step2-wrap">
-                            <p>Step2. 삽입할 항목을 선택해 주세요.</p>
+                            <p>Step2. 삽입할 항목을 선택해 주세요.(알림장)</p>
                         </div>
                     </div>
                 </div>

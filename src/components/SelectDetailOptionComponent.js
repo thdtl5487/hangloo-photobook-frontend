@@ -10,6 +10,9 @@ import apiloader from '../apiutil/apiloader';
 
 const SelectDetailOption = ({albumnote, setAlbumnote}) => {
   
+	useEffect(()=>{
+		setAlbumnote({...albumnote, albumnote:[], notenophoto:0, notenocontent:0, notefromhome:0, albumnocontent:0, albumnocomment:0})
+    },[]);
 	const onClickdisabled = (e) => {
 		alert('알림장과 노트를 선택해 주세요');
 	}
@@ -62,16 +65,16 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 	let imsi2=[];
     if(choice.choicelist.includes("note")===false){
       setChoice({...choice, choicelist:[...choice.choicelist, "note"]})
-	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "note"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "note"], notenophoto:1, notenocontent:1, notefromhome:1})
 	  setCheckNoteText(<>선택</>)
     }else{
      imsi = choice.choicelist.filter((item)=>item !== "note");
 	 imsi2 = albumnote.albumnote.filter((item)=>item !=="note")
      setChoice({...choice, choicelist:imsi})
-	 setAlbumnote({...albumnote, albumnote:imsi2})
+	 setAlbumnote({...albumnote, albumnote:imsi2, notenophoto:0, notenocontent:0, notefromhome:0})
 	 setCheckNoteText(<>해제</>)
     }
-    console.log(choice)
+    //console.log(choice)
   }
 
   const onAlbum = ()=>{
@@ -79,16 +82,16 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 	let imsi2=[];
     if(choice.choicelist.includes("album")===false){
       setChoice({...choice, choicelist:[...choice.choicelist, "album"]})
-	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "album"]})
+	  setAlbumnote({...albumnote, albumnote:[...albumnote.albumnote, "album"], albumnocontent:1, albumnocomment:1})
 	  setCheckAlbumText(<>선택</>)
     }else{
      imsi = choice.choicelist.filter((item)=>item !== "album");
 	 imsi2 = albumnote.albumnote.filter((item)=>item !=="album")
      setChoice({...choice, choicelist:imsi})
-	 setAlbumnote({...albumnote, albumnote:imsi2})
+	 setAlbumnote({...albumnote, albumnote:imsi2, albumnocontent:0, albumnocomment:0})
 	 setCheckAlbumText(<>해제</>)
     }
-    console.log(choice)
+    //console.log(choice)
   }
 
     const [noteCheckList, setNoteCheckList] = useState({
@@ -107,7 +110,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 
 	const textCheck1Change = (e) => {
 		if(e.target.checked===false){
-			console.log("text"+ e.target.checked)
+			//console.log("text"+ e.target.checked)
 			setCheck1Text(<>선택</>)
 		}else{
 			
@@ -118,7 +121,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 
 	const textCheck2Change = (e) => {
 		if(e.target.checked===false){
-			console.log("text"+ e.target.checked)
+			//console.log("text"+ e.target.checked)
 			setCheck2Text(<>선택</>)
 		}else{
 			
@@ -129,7 +132,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 
 	const textCheck3Change = (e) => {
 		if(e.target.checked===false){
-			console.log("text"+ e.target.checked)
+			//console.log("text"+ e.target.checked)
 			setCheck3Text(<>선택</>)
 		}else{
 			
@@ -140,7 +143,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 	
 	const textCheck4Change = (e) => {
 		if(e.target.checked===false){
-			console.log("text"+ e.target.checked)
+			//console.log("text"+ e.target.checked)
 			setCheck4Text(<>선택</>)
 		}else{
 			
@@ -151,7 +154,7 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 
 	const textCheck5Change = (e) => {
 		if(e.target.checked===false){
-			console.log("text"+ e.target.checked)
+			//console.log("text"+ e.target.checked)
 			setCheck5Text(<>선택</>)
 		}else{
 			
@@ -163,23 +166,53 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
 
     const onNoteChange = (e) => {
 		let imsi=[];
-		console.log("checked" + e.target)
-		console.log(e);
-		if(e.target.checked===true){
+		//console.log("checked" + e.target)
+		//console.log(e);
+		if(e.target.checked===true){ //등록하기 위해 누를 때
 			setNoteCheckList({...noteCheckList, noteCheckElement:[...noteCheckList.noteCheckElement, e.target.value]})
-		}else{
+			if(e.target.value==='check1'){
+				if(noteCheckList.noteCheckElement.includes('check1')===false){
+					setAlbumnote({...albumnote, notenophoto:1});
+				}
+			}
+			if(e.target.value==='check2'){
+				if(noteCheckList.noteCheckElement.includes('check2')===false){
+					setAlbumnote({...albumnote, notenocontent:1});
+				}
+			}
+			if(e.target.value==='check3'){
+				if(noteCheckList.noteCheckElement.includes('check3')===false){
+					setAlbumnote({...albumnote, notefromhome:1});
+				}
+			}
+		}else{ //해제하기 위해 누를 때
 			imsi = noteCheckList.noteCheckElement.filter((item)=>item !== e.target.value);
 			setNoteCheckList({...noteCheckList, noteCheckElement:imsi});
+			if(e.target.value==='check1'){
+				if(noteCheckList.noteCheckElement.includes('check1')===true){
+					setAlbumnote({...albumnote, notenophoto:0});
+				}
+			}
+			if(e.target.value==='check2'){
+				if(noteCheckList.noteCheckElement.includes('check2')===true){
+					setAlbumnote({...albumnote, notenocontent:0});
+				}
+			}
+			if(e.target.value==='check3'){
+				if(noteCheckList.noteCheckElement.includes('check3')===true){
+					setAlbumnote({...albumnote, notefromhome:0});
+				}
+			}
 		}
-		console.log(noteCheckList)
-		console.log(choice)
+		//console.log(noteCheckList)
+		//console.log(choice)
     }
 
 
     const [content, setContent] = useState();
     
     const onImgClick = (e) => {
-      	console.log(e)
+      	//console.log(e)
         // e.preventDefault();
       // console.log(e.target.value.substring(5))
       // console.log(img[e.target.value.substring(5)-1].id)
@@ -196,20 +229,32 @@ const SelectDetailOption = ({albumnote, setAlbumnote}) => {
       let imsi=[];
       if(e.target.checked===true){
         setAlbumCheckList({...albumCheckList, albumCheckElement:[...albumCheckList.albumCheckElement, e.target.value]})
+		if(e.target.value==='check4'){
+			if(albumCheckList.albumCheckElement.includes('check4')===false){
+				setAlbumnote({...albumnote, albumnocontent:1});
+			}
+		}
+		if(e.target.value==='check5'){
+			if(albumCheckList.albumCheckElement.includes('check5')===false){
+				setAlbumnote({...albumnote, albumnocomment:1});
+			}
+		}
       }else{
         imsi = albumCheckList.albumCheckElement.filter((item)=>item !== e.target.value);
         setAlbumCheckList({...albumCheckList, albumCheckElement:imsi});
+		if(e.target.value==='check4'){
+			if(albumCheckList.albumCheckElement.includes('check4')===true){
+				setAlbumnote({...albumnote, albumnocontent:0});
+			}
+		}
+		if(e.target.value==='check5'){
+			if(albumCheckList.albumCheckElement.includes('check5')===true){
+				setAlbumnote({...albumnote, albumnocomment:0});
+			}
+		}
       }
-      console.log(choice)
+      //console.log(choice)
     }
-    
-    const isMobile = useMediaQuery({
-        query: "(max-width:768px)"
-      });
-
-      const isPc = useMediaQuery({
-        query: "(min-width:769px)"
-      });
 
 
     return (

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { set } from 'date-fns';
 
 class apiloader{
 
@@ -18,7 +19,8 @@ class apiloader{
             }
         }).then((res) =>{
             console.log("API의 로그인 기능 실행");
-            console.log(res);
+            console.log(res.data.data.uid);
+            localStorage.setItem("uid", res.data.data.uid);
             return res;
         })
     }

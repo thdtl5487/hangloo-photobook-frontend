@@ -1,21 +1,77 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const SelectDetailOptionAlbum = () => {
+const SelectDetailOptionAlbum = ({album, setAlbum}) => {
+
+    useEffect(()=>{
+		setAlbum({...album,
+            albumphotoqr:0,
+            albumvideoqr:0,
+            albumcontent:0,
+            albumcomment:0})
+    },[]);
 
     const [albumLayout, setAlbumLayout] = useState ({
        layout:[]
     });
-    
+
+    const nextOnClick = (e) => {
+        if(albumLayout.layout.length<1){
+            alert('사진만 포함합니다');
+        }
+    }
+
     const onChange = (e) => {
         let imsi=[];
         if(e.target.checked===true){
             setAlbumLayout({...albumLayout, layout:[...albumLayout.layout, e.target.value]});
+            if(e.target.value==='photoqr'){
+				if(albumLayout.layout.includes('photoqr')===false){
+					setAlbum({...album, albumphotoqr:1});
+				}
+			}
+            if(e.target.value==='videoqr'){
+				if(albumLayout.layout.includes('videoqr')===false){
+					setAlbum({...album, albumvideoqr:1});
+				}
+			}
+            if(e.target.value==='notice'){
+				if(albumLayout.layout.includes('notice')===false){
+					setAlbum({...album, albumcontent:1});
+				}
+			}
+            if(e.target.value==='comment'){
+				if(albumLayout.layout.includes('comment')===false){
+					setAlbum({...album, albumcomment:1});
+				}
+			}
+
         }
         else {
             imsi = albumLayout.layout.filter((item)=>item !== e.target.value);
             setAlbumLayout({...albumLayout, layout:imsi});
+            if(e.target.value==='photoqr'){
+				if(albumLayout.layout.includes('photoqr')===true){
+					setAlbum({...album, albumphotoqr:0});
+				}
+			}
+            if(e.target.value==='videoqr'){
+				if(albumLayout.layout.includes('videoqr')===true){
+					setAlbum({...album, albumvideoqr:0});
+				}
+			}
+            if(e.target.value==='notice'){
+				if(albumLayout.layout.includes('notice')===true){
+					setAlbum({...album, albumcontent:0});
+				}
+			}
+            if(e.target.value==='comment'){
+				if(albumLayout.layout.includes('comment')===true){
+					setAlbum({...album, albumcomment:0});
+				}
+			}
         }
     }
 
@@ -26,7 +82,7 @@ const SelectDetailOptionAlbum = () => {
                 <div className="step2">
                     <div className="step2-gap">
                         <div className="step2-wrap">
-                            <p>Step2. 삽입할 항목을 선택해 주세요.</p>
+                            <p>Step2. 삽입할 항목을 선택해 주세요.(앨범)</p>
                         </div>
                     </div>
                 </div>
@@ -149,7 +205,7 @@ const SelectDetailOptionAlbum = () => {
                 <div className="next-btn">
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap">
-                            <Link to="/SelectDateNote">다음</Link>
+                            <Link to="/SelectDateNote" onClick={nextOnClick}>다음</Link>
                         </div>
                     </div>
                 </div>
