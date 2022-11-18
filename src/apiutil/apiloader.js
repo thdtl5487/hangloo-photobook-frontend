@@ -130,7 +130,7 @@ class apiloader{
     // 접속한 계정의 댓글 정보 불러오기
     getComment = (page, startDate, endDate, childNum) =>{
         axios({
-            url: "/photobook/api/comments.php?page="+page+"start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
+            url: "/photobook/api/comments.php?page="+page+"&start_date="+startDate+"&end_date="+endDate+"&s_child="+childNum,
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
@@ -144,10 +144,7 @@ class apiloader{
     getPhoto = (comm_uid, type) =>{
         axios({
             url: "/photobook/api/photos.php?comm_uid="+comm_uid+"&type="+type,
-            method: "GET",
-            headers: {
-                "Content-Type": 'application/json'
-            }        
+            method: "GET",       
         }).then((res)=>{
             console.log(res);
         })
