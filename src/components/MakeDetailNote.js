@@ -285,19 +285,19 @@ const MakeDetailNote = () => {
                     </div>
                 </div>
 
-                <div className="list-wrap">
+                {/* <div className="list-wrap">
                     <li>
                         <List/>
                     </li>
-                </div>
+                </div> */}
 
                 <div className="detail-wrap">
-                    <div className="opt-days">
+                    {/* <div className="opt-days">
                         <DaysList/>
                     </div>
                     <div className="option">
                         <Option/>
-                    </div>
+                    </div> */}
                     
                     <div className="detail-note">
                         <div className="pagecheck" onClick={isPageCheck}>
@@ -316,7 +316,7 @@ const MakeDetailNote = () => {
 
 
 
-                <div className="whole-edit-wrap">
+                {/* <div className="whole-edit-wrap">
                     <ul>
 
                     <div className="whole-edit">
@@ -329,7 +329,7 @@ const MakeDetailNote = () => {
                         사진 아래로 이동
                     </div>
                     </ul>
-                </div>
+                </div> */}
 
                 
                 

@@ -15,6 +15,9 @@ const MakeCoverComponent = () => {
     
     //이미지 첨부파일
     const [fileImage, setFileImage] = useState("");
+
+    //이미지 미리보기
+    const [previewImage, setPriviewImage] = useState("");
     
     //커버사진 첨부하는 기능
     const SettingCover = () =>{
@@ -22,13 +25,14 @@ const MakeCoverComponent = () => {
         //미리보기
         const saveFileImage = (e) =>{
             console.log(e.target);
-            setFileImage(URL.createObjectURL(e.target.files[0]));
-            console.log(fileImage);
+            setFileImage(e.target.files[0]);
+            setPriviewImage(URL.createObjectURL(e.target.files[0]));
+            console.log("fileImage"+ fileImage);
         };
 
         //미리보기 삭제
         const deleteFileImage = () => {
-            URL.revokeObjectURL(fileImage);
+            URL.revokeObjectURL(previewImage);
             setFileImage("");
         };
 
@@ -36,7 +40,7 @@ const MakeCoverComponent = () => {
             <div className="cover-img-box">
                 <div className="img-box">
                     {!fileImage && ( <div className="Camera" onClick={handleCameraClick}> <Camera/> </div>) }    
-                    {fileImage && (<div><img alt="sample" src={fileImage}/><div className="x" onClick={deleteFileImage}><XLg className='XLg'/></div></div>) }
+                    {fileImage && (<div><img alt="sample" src={previewImage}/><div className="x" onClick={deleteFileImage}><XLg className='XLg'/></div></div>) }
                 </div>
                 <input className="imgUpload" name="cover_img" type="file" ref={fileInput} accept="image/*" onChange={saveFileImage}/>
             </div>
@@ -58,21 +62,26 @@ const MakeCoverComponent = () => {
     const onSummit = async() => {
         const formData = new FormData();
 
-        formData.append("",photobooknum);
-        formData.append("cover_img", fileImage);
+        formData.append("photobook_num", 8);
+        formData.append("file", fileImage);
         formData.append("cover_title", coverText);
 
-        console.log(coverText);
-        console.log(fileImage);
+        console.log("coverTest"+coverText);
+        console.log("file"+fileImage);
 
         await axios({
             method:"POST",
-            url:"http:////",
+            url:"/photobookServer/MakeCover",
             mode:"cors",
             headers: {
                 "Content-Type": "multipart/form-data",
-              },
-              data: formData,
+            },
+            data: formData
+        }).then((res)=>{
+            alert("전송 성공")
+            
+        }).catch((err)=>{
+            console.log(err)
         })
 
     }
@@ -111,6 +120,7 @@ const MakeCoverComponent = () => {
                     <div className="next-btn-gap">
                         <div className="next-btn-wrap" >
                             <Link to="/MakeDetailComponent" onClick={onSummit}>다음</Link>
+                            {/* <button onClick={onSummit}>다음</button> */}
                         </div>
                     </div>
                 </div>

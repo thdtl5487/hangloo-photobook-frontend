@@ -1598,6 +1598,7 @@
   text-align: center;
 }
 #wrap #makeDetail {
+  position: relative;
   background: #f9f4f4;
   width: 100vw;
 }
@@ -1640,24 +1641,28 @@
   padding: 30px;
   float: left;
 }
-#wrap #makeDetail .wrap .list-wrap .list {
+#wrap #makeDetail .wrap .list-wrap li .list {
   width: 100%;
   background: #ffd0d0;
   padding: 2%;
   border-radius: 5px;
   margin-bottom: 20px;
 }
-#wrap #makeDetail .wrap .list-wrap .list .list-text {
+#wrap #makeDetail .wrap .list-wrap li .list .list-text {
   margin: 0 auto;
 }
-#wrap #makeDetail .wrap .list-wrap .list .list-text .ym {
+#wrap #makeDetail .wrap .list-wrap li .list .list-text .ym {
   font-weight: bold;
   font-size: 23px;
 }
-#wrap #makeDetail .wrap .list-wrap .list .list-text .page {
+#wrap #makeDetail .wrap .list-wrap li .list .list-text .page {
   margin-top: 5px;
   float: right;
   font-size: 15px;
+}
+#wrap #makeDetail .wrap .list-wrap li:hover .list {
+  background: #e58e84;
+  color: #f9f4f4;
 }
 #wrap #makeDetail .wrap .wall-wrap {
   width: 50%;
@@ -1679,15 +1684,19 @@
   font-size: 25px;
   margin-top: 19px;
 }
-#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist .days {
-  border: 1px solid black;
-  background: #6c757d;
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist li .days {
+  background: #a8a8a8;
   border-radius: 3px;
   float: left;
   padding: 10px 13px 10px 13px;
   font-size: 25px;
   display: flex;
   justify-content: center;
+  margin: 0px 0.3% 0px 3%;
+}
+#wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist li:hover .days {
+  background: #6c757d;
+  color: rgb(245, 241, 241);
 }
 #wrap #makeDetail .wrap .wall-wrap .opt-days .dayslist .CaretRightFill {
   float: right;
@@ -1708,7 +1717,7 @@
           appearance: none;
   display: none;
 }
-#wrap #makeDetail .wrap .wall-wrap .option .option-wrap input[type=radio] + label {
+#wrap #makeDetail .wrap .wall-wrap .option .option-wrap label {
   margin: 0;
   padding: 5px;
   box-sizing: border-box;
@@ -1770,12 +1779,14 @@
   margin-left: 20%;
 }
 #wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretLeftFill {
+  display: none;
   color: #ec6757;
 }
 #wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretLeftFill:hover {
   color: #e3abab;
 }
 #wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretRightFill {
+  display: none;
   color: #ec6757;
 }
 #wrap #makeDetail .wrap .wall-wrap .wall .calendar .header .col.col-end .CaretRightFill:hover {
@@ -3269,6 +3280,106 @@
 }
 #wrap #makeDetailAlbum .wrap .btn .btn-gap .next-btn-wrap a:hover {
   border: 3px solid #e3abab;
+  background: #ffd0d0;
+}
+#wrap #img-modal {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+#wrap #img-modal .modal-gap {
+  padding: 200px 100px;
+  width: 70%;
+  margin: 0 auto;
+}
+#wrap #img-modal .modal-gap .modal-wrap {
+  width: 100%;
+  height: 70%;
+  background: rgb(245, 241, 241);
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list {
+  width: 100%;
+  padding: 10px 20px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .date-gap {
+  padding: 20px 0px 0px 0px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .date-gap .date-wrap {
+  display: flex;
+  justify-content: center;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .date-gap .date-wrap .date-box {
+  width: 100%;
+  background: #ffd0d0;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .date-gap .date-wrap .date-box p {
+  font-size: 20px;
+  margin: 0;
+  padding: 8px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: wrap;
+  padding: 0px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame {
+  width: 10%;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame .photo-frame-gap {
+  padding: 3px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame .photo-frame-gap .photo-frame-wrap {
+  width: 100%;
+  border: 2px solid #6c757d;
+  border-radius: 10px;
+  position: relative;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame .photo-frame-gap .photo-frame-wrap input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffd0d0;
+  border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame .photo-frame-gap .photo-frame-wrap input[type=checkbox]:checked {
+  border: 7px solid #ef4c39;
+}
+#wrap #img-modal .modal-gap .modal-wrap .photo-list .photo .photo-frame .photo-frame-gap .photo-frame-wrap img {
+  width: 100%;
+  border-radius: 10px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .done {
+  width: 100%;
+}
+#wrap #img-modal .modal-gap .modal-wrap .done .done-gap {
+  padding: 30px 10px;
+}
+#wrap #img-modal .modal-gap .modal-wrap .done .done-gap .done-wrap {
+  width: 100%;
+  display: flex;
+}
+#wrap #img-modal .modal-gap .modal-wrap .done .done-gap .done-wrap button {
+  margin: 0 20px 0 auto;
+  background: #e3abab;
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid #e3abab;
+  transition: all 0.3s;
+}
+#wrap #img-modal .modal-gap .modal-wrap .done .done-gap .done-wrap button:hover {
+  border: 2px solid #e3abab;
   background: #ffd0d0;
 }
 #wrap #makeCover {

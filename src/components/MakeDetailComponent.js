@@ -1,23 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, isSameMonth, isSameDay, parse } from 'date-fns';
+import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, isSameMonth, isSameDay, parse, parseISO, getDate } from 'date-fns';
 import { CaretRightFill, CaretLeftFill } from 'react-bootstrap-icons';
 import { ArrowRepeat } from 'react-bootstrap-icons';
 import { useState } from 'react';
-import { addDays, endOfWeek } from 'date-fns/esm';
+import { addDays, endOfWeek, isEqual, setDay } from 'date-fns/esm';
 import axios from 'axios';
 import { useEffect } from 'react';
+import ImgModalComponent from './ImgModalComponent';
 
-const MakeDetailComponent = () => {
+const MakeDetailComponent = ({imgModalOpen, selectedDate, setSelectedDate}) => {
 
-    //모달창 노출 여부
-    const [modalOpen, setModalOpen] = useState(false);
-
-    //모달창 노출
-    const showModal = () => {
-        setModalOpen(true);
-    };
-
+    
     const [field, setField] = useState(
         {
             ymlist:[]
@@ -42,48 +36,141 @@ const MakeDetailComponent = () => {
         axiosGet();
     },[]);
     
-    // 년월로 묶는 기능
-    // const ym = () =>{
-    //     const test = new Date(field.ymlist.noticeRegDate);
-    //     const y = format(test, "MM");
-    //     return(
-    //         <>{y}</>
-    //     )
-    // }
 
-    // 년월 리스트 출력
-    const list = field.ymlist.map(list => {
+    const daysarr = field.ymlist.sort(function(a, b)  {
+        return new Date(a.noticeRegDate) - new Date(b.noticeRegDate);
+    });
 
-        const ym = format(new Date(list.noticeRegDate), "yyyy-MM");
-        console.log(ym);
-        const ymset = new Set(ym);
-        console.log(ymset);
 
+    //년월로 묶는 기능
+    const ymset = new Set();
+    const listchange = daysarr.map((changelist, changeindex) => {
+        ymset.add(format(new Date(changelist.noticeRegDate),"yyyy-MM"));
+    })
+
+    const arr = Array.from(ymset);
+
+    //년월 리스트 출력
+    const list = arr.map((list, index) => {
+
+        const changeCalendar = (e) => {
+            // console.log("온클릭")
+            // console.log(e.target.value)  undefined 떠서 아래로 대체
+            // console.log(e.currentTarget.getAttribute('value'));
+            setCurrentMonth(new Date(e.currentTarget.getAttribute('value')))
+            setDayListMonth(new Date(e.currentTarget.getAttribute('value')))
+            setStartIndex(0)
+            setEndIndex(6)
+        }
+
+        //페이지 수 출력
+        let cnt = 0;
+        const count = field.ymlist.map((countlist,countindex) => {
+            if(countlist.noticeRegDate.substring(0,7)===list){
+                cnt++;
+            }          
+        })
+        
         return(
-            <li key={list.noticeNum}>
-                <div className="list">
-                    <div className="list-text">
-                        <span className="ym"> {format(new Date(list.noticeRegDate), "yyyy년 MM월")} </span> <span className="page"> {list.noticeNum}페이지 </span>
-                    </div>
+            <li key={index}>
+                <div className="list"  onClick={changeCalendar} value={list}>
+                        <div className="list-text">
+                            <span className="ym">
+                                {format(new Date(list), "yyyy년 MM월")}
+                                {/* {format(new Date(list.noticeRegDate), "yyyy년 MM월")}  */}
+                            </span>
+                            <span className="page"> {cnt}페이지 
+                            </span>
+                        </div>
                 </div>
             </li>
         )
 
     })
 
-    // 일자별 리스트 출력
-    const DaysList = () => {
-        
+
+    
+    
+    const [dayListMonth, setDayListMonth] = useState(new Date("2021-10-08"));
+    
+    const daylists = [];
+    
+    // 일자 출력 기능
+    const daylist = daysarr.map((daylist, dayindex) => {
+        // console.log(daylist.noticeRegDate)
+        if(daylist.noticeRegDate.substring(0,7) === format(new Date(dayListMonth), "yyyy-MM")){
+            const days = daylist.noticeRegDate.substring(0,10);
+            daylists.push(days);
+        }   
+    })
+    
+    const testlists = [{
+        day:"",
+        num:""
+    }]; 
+    
+    const test = daysarr.map((daylist, dayindex) => {
+        // console.log(daylist.noticeRegDate)
+        if(daylist.noticeRegDate.substring(0,7) === format(new Date(dayListMonth), "yyyy-MM")){
+            const days = daylist.noticeRegDate.substring(0,10);
+            const nums = daylist.noticeNum;
+            testlists.push({day:days, num:nums});
+        }   
+    })
+
+    console.log("testlists"+testlists.day)
+    const testing = testlists.map((testlists, indexx) => {
+        console.log(testlists.day)
+        console.log(testlists.num)
+    })
+
+
+    // const [currentPageArray, setCurrentPageArray] = useState([]);
+    
+    // const [totalPageArray, setTotalPageArray] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
+    const [endIndex, setEndIndex] = useState(6);
+    
+    //일자 페이징 처리
+    const Daypagination = ({ totalPage, start, end }) => {
+        console.log(totalPage)
+        let currentPageArray = [];
+        // console.log(daylists)
+        currentPageArray = daylists.slice(start, end);
+
         return(
-            <div className="dayslist">
-                <CaretLeftFill className="CaretLeftFill"/>
-                    <li>
-                       <div className="days">23</div>
+            <div className="days-box">
+                {currentPageArray.map((daypagelist, daypageindex) => (
+                    <li key={daypageindex}> 
+                        <div className="days" >
+                            {format(new Date(daypagelist),'dd')}
+                        </div>
                     </li>
-                <CaretRightFill className="CaretRightFill"/>
+                ))}
             </div>
         )
+               
     }
+
+    //일자 다음 페이지
+    const nextDays = ()=> {
+        if(endIndex<daylists.length){
+            setStartIndex(startIndex+7);
+            setEndIndex(endIndex+7)
+        }
+    }
+
+    //일자 이전 페이지
+    const prevDays = () => {
+        if(startIndex>0){
+            setStartIndex(startIndex-7);
+            setEndIndex(endIndex-7)
+        }
+    }
+    
+    const[currentMonth, setCurrentMonth] = useState(new Date("2021-10-08"));
+    // const[selectedDate, setSelectedDate] = useState(new Date());  //WrapComponent로 뺌
+
 
     const [opt, setOpt] = useState('');
 
@@ -97,12 +184,12 @@ const MakeDetailComponent = () => {
 
         return(
             <div className="option-wrap">
-                <input type="radio" id="opt-note" name="opt" value="note" onChange={optChange} checked={opt.includes('note')}>
-                </input>
+                {/* <input type="radio" id="opt-note" name="opt" value="note"  checked={opt.includes('note')}>
+                </input> */}
                 <label className="opt-note-btn" htmlFor="opt-note">알림장</label>
-
-                <input type="radio" id="opt-album" name="opt" value="album" onChange={optChange} checked={opt.includes('album')}>
-                </input>
+{/* 
+                <input type="radio" id="opt-album" name="opt" value="album"  checked={opt.includes('album')}>
+                </input> */}
                 <label className="opt-album-btn" htmlFor="opt-album">사진앨범</label>
             </div>
         )
@@ -149,7 +236,6 @@ const MakeDetailComponent = () => {
             <div className="days rows">{days}</div>
         )
 
-
     }
 
 
@@ -159,6 +245,18 @@ const MakeDetailComponent = () => {
         const monthEnd = endOfMonth(monthStart);
         const startDate = startOfWeek(monthStart);
         const endDate = endOfWeek(monthEnd);
+        
+
+        // 데이터가 있는 일자만 사진이 출력되게 하는 기능
+        const dayimglist = (e) =>{
+            for(let i=0;i<daylists.length;i++){
+                // console.log(daylists[i])
+                if(format(new Date(daylists[i]),'d')===format(e,'d')){
+                    return format(new Date(daylists[i]),'d');
+                }
+            }
+            
+        }
 
         const rows = [];
         let days = [];
@@ -169,20 +267,23 @@ const MakeDetailComponent = () => {
             for(let i=0;i<7;i++){
                 formattedDate = format(day, 'd');
                 const cloneDay = day;
+                // console.log("day"+day)
                 days.push(
                     <div
                         className={`col cell ${
                                 !isSameMonth(day, monthStart)
                                 ? 'disabled'
-                                : isSameDay(day, selectedDate)
-                                ? 'selected'
+                                : isSameDay(day, selectedDate) 
+                                ? 'selected' 
                                 : format(currentMonth, 'M') !== format(day, 'M')
                                 ? 'not-valid'
                                 : 'valid'
                         }`}
                         key={day}
-                        onClick={() => onDateClick(parse(cloneDay))}
-                    >   <div className="day-wrap">
+                        onClick={() => {onDateClick(cloneDay);
+                                        imgModalOpen();}}
+                        // onClick={imgModalOpen}
+                    >   <div className="day-wrap" >
 
                             <div className="spantext">
                                 <span
@@ -195,11 +296,12 @@ const MakeDetailComponent = () => {
                                     {formattedDate}
                                 </span>
                             </div>
-                            <div className="imgbox">
+                            <div className="imgbox" >
                                 {/* <img className="calimg" src="./img/sampleimgcalendar.jpg" alt="sampleimg"/> */}
-                                {format(currentMonth, 'M') !== format(day, 'M')
+                                
+                                {((format(currentMonth, 'M') !== format(day, 'M') )  || (dayimglist(day))!==format(day,'d'))
                                         ? ''
-                                        : <img className="calimg" src="./img/sampleimgcalendar.jpg" alt="sampleimg"/>}
+                                        : <img className="calimg" src="./img/sampleimgcalendar.jpg" alt="sampleimg"  />}
                             </div>
                         </div>
                     </div>,
@@ -217,8 +319,6 @@ const MakeDetailComponent = () => {
 
     }
 
-    const[currentMonth, setCurrentMonth] = useState(new Date("2021-10-08"));
-    const[selectedDate, setSelectedDate] = useState(new Date());
 
     const preMonth = () => {
         setCurrentMonth(subMonths(currentMonth, 1));
@@ -230,6 +330,7 @@ const MakeDetailComponent = () => {
 
     const onDateClick = (day) =>{
         setSelectedDate(day);
+        console.log("선택된날"+ selectedDate);
     }
     
     // 달력창 출력
@@ -252,9 +353,19 @@ const MakeDetailComponent = () => {
         )
     }
 
-    
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+        setModalOpen(true);
+    }
+    const closeModal = () =>{
+        setModalOpen(false);
+    }
 
-
+    const [imgModal, setImgModal] = useState(
+        {
+            isShow:false
+        }
+    );
 
 
 
@@ -273,7 +384,16 @@ const MakeDetailComponent = () => {
 
                 <div className="wall-wrap">
                     <div className="opt-days">
-                        <DaysList/>
+                        <div className="dayslist">
+                            <CaretLeftFill className="CaretLeftFill" onClick={prevDays}/>
+                                 {/* {daylist} */}
+                                <Daypagination
+                                    totalPage={daylists.length}
+                                    start={startIndex}
+                                    end={endIndex}
+                                />
+                            <CaretRightFill className="CaretRightFill" onClick={nextDays}/>
+                        </div>
                     </div>
                     <div className="option">
                         <Option/>
@@ -285,27 +405,22 @@ const MakeDetailComponent = () => {
 
                 </div>
 
+                {/* <ImgModalComponent imgModal={imgModal} selectedDate={selectedDate}/> */}
 
 
                 <div className="whole-edit-wrap">
                     <ul>
-
-                    <div className="whole-edit">
-                        <p>일괄 편집</p>
-                    </div>
-                    <div className="whole-edit-button">
-                        사진 위로 이동
-                    </div>
-                    <div className="whole-edit-button">
-                        사진 아래로 이동
-                    </div>
+                        <div className="whole-edit">
+                            <p>일괄 편집</p>
+                        </div>
+                        <div className="whole-edit-button">
+                            사진 위로 이동
+                        </div>
+                        <div className="whole-edit-button">
+                            사진 아래로 이동
+                        </div>
                     </ul>
                 </div>
-
-                
-                
-
-
 
 
             

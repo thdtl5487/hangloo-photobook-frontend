@@ -16,6 +16,7 @@ import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
 import SelectDateNote from './SelectDateNote';
 import SelectOptionChangeTheme from './SelectOptionChangeTheme';
 import ModalComponent from './ModalComponent';
+import ImgModalComponent from './ImgModalComponent'
 
 import MakeCoverComponent from './MakeCoverComponent';
 
@@ -24,6 +25,8 @@ import MakeDetailNote from './MakeDetailNote';
 import MakeDetailAlbum from './MakeDetailAlbum';
 
 const WrapComponent = () => {
+
+    //selectDateNote 내 모달
     const [modal, setModal] = useState(
         {
             isShow:false
@@ -41,6 +44,24 @@ const WrapComponent = () => {
         themeNum:'',
         albumnote:[]
     });
+
+    //MakeDetailNote 내 모달
+    const [imgModal, setImgModal] = useState(
+        {
+            isShow:false
+        }
+    );
+    const imgModalClose=()=>{
+        setImgModal({...imgModal, isShow:false});
+        document.body.style.overflow = "unset";
+        
+    }
+    const imgModalOpen=()=>{
+        setImgModal({...imgModal, isShow:true});
+        document.body.style.overflow="hidden";
+    }
+
+    const[selectedDate, setSelectedDate] = useState(new Date());
 
     return (
         <div id="wrap">
@@ -60,12 +81,13 @@ const WrapComponent = () => {
 
                 <Route path='/MakeCoverComponent' element={<MakeCoverComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
 
-                <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
+                <Route path='/MakeDetailComponent' element={<MakeDetailComponent imgModalOpen={imgModalOpen} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>} />
                 <Route path='/MakeDetailNote' element={<MakeDetailNote/>} />
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
             <ModalComponent modal={modal} modalCloseFn={modalCloseFn}/>
+            <ImgModalComponent imgModal={imgModal} imgModalClose={imgModalClose} selectedDate={selectedDate}  />
             <FooterComponent />
         </div>
     );
