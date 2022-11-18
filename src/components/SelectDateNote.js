@@ -299,7 +299,6 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
         )
     }
 
-<<<<<<< HEAD
     const sendNoticeTest=(notice)=>{
         axios({
             url:"/photobookServer/sendPhotoNoticeInfo",
@@ -312,12 +311,7 @@ const SelectDateNote = ({album, months, modalOpenFn}) => {
             console.log("전송완료했삼삼삼");
         })
     }
-=======
-    //useEffect(()=>{
-    //    console.log('saveMonthList', saveMonthList);
-    //    setMonthDataList({...monthDataList, monthDataList:saveMonthList});
-    //},[]);
->>>>>>> sara
+
 
     return (
         <div id="date-note">

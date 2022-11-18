@@ -62,7 +62,7 @@ const MakeCoverComponent = () => {
     const onSummit = async() => {
         const formData = new FormData();
 
-        formData.append("photobook_num", 8);
+        formData.append("photobook_num", 3);
         formData.append("file", fileImage);
         formData.append("cover_title", coverText);
 

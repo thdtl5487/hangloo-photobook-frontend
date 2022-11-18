@@ -14,11 +14,9 @@ import SelectDetailOptionAlbum from './SelectDetailOptionAlbum';
 import SelectDateNote from './SelectDateNote';
 import SelectOptionChangeTheme from './SelectOptionChangeTheme';
 import ModalComponent from './ModalComponent';
-<<<<<<< HEAD
-=======
+
 import ImgModalComponent from './ImgModalComponent'
 
->>>>>>> merry
 import MakeCoverComponent from './MakeCoverComponent';
 import MakeDetailComponent from './MakeDetailComponent';
 import MakeDetailNote from './MakeDetailNote';
@@ -26,27 +24,25 @@ import MakeDetailAlbum from './MakeDetailAlbum';
 
 const WrapComponent = () => {
 
-<<<<<<< HEAD
+
     //새로고침 막기 기능
     const preventClose = (e) => {
         e.preventDefault();
         e.returnValue = ""; //Chrome에서 동작하도록; deprecated
     };
-       
     useEffect(() => {
         (() => {
-          window.addEventListener("beforeunload", preventClose);
+            window.addEventListener("beforeunload", preventClose);
         })();
-       
         return () => {
-          window.removeEventListener("beforeunload", preventClose);
+            window.removeEventListener("beforeunload", preventClose);
         };
     }, []);
 
     //모달 여닫
-=======
+
     //selectDateNote 내 모달
->>>>>>> merry
+
     const [modal, setModal] = useState(
         {
             isShow:false
@@ -134,22 +130,18 @@ const WrapComponent = () => {
                 <Route path='/SelectDateNote' element={<SelectDateNote modalOpenFn={modalOpenFn}/>} />
                 <Route path='/SelectOptionChangeTheme' element={<SelectOptionChangeTheme albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
                 <Route path='/MakeCoverComponent' element={<MakeCoverComponent albumnote={albumnote} setAlbumnote={setAlbumnote}/>} />
-<<<<<<< HEAD
-                <Route path='/MakeDetailComponent' element={<MakeDetailComponent/>} />
-=======
 
                 <Route path='/MakeDetailComponent' element={<MakeDetailComponent imgModalOpen={imgModalOpen} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>} />
->>>>>>> merry
+
                 <Route path='/MakeDetailNote' element={<MakeDetailNote/>} />
                 <Route path='/MakeDetailAlbum' element={<MakeDetailAlbum/>} />
 
             </Routes>
-<<<<<<< HEAD
+
             <ModalComponent modal={modal} monthData={selectDateNote_monthData} modalCloseFn={modalCloseFn} setModal={setModal}/>
-=======
-            <ModalComponent modal={modal} modalCloseFn={modalCloseFn}/>
+
             <ImgModalComponent imgModal={imgModal} imgModalClose={imgModalClose} selectedDate={selectedDate}  />
->>>>>>> merry
+
             <FooterComponent />
         </div>
     );
